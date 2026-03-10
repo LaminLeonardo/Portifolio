@@ -1,10 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Leonardo Lamin | Portfólio</title>
-  </head>
-  <body>
-    <h1>Em construção 🚧</h1>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardo Lamin | Dev</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Efeitos de fundo -->
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+
+  <!-- ── NAVEGAÇÃO ── -->
+  <nav>
+    <div class="nav-logo"><span>//</span> ll.dev</div>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-grid">
+
+      <!-- Conteúdo principal -->
+      <div class="hero-content">
+        <div class="hero-tag fade-up">Auxiliar de desenvolvimento</div>
+
+        <h1 class="fade-up">
+          Olá, sou<br />
+          <span class="name-highlight">Leonardo Lamin</span>
+        </h1>
+
+        <p class="hero-role fade-up">
+          <span id="typed-text"></span>
+          <span class="cursor" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero-desc fade-up">
+          Futuro Engenheiro de Software apaixonado por criar experiências digitais.
+          Construindo meu caminho como programador, um projeto de cada vez.
+        </p>
+
+        <div class="hero-cta fade-up">
+          <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+          <a href="#contato" class="btn btn-ghost">Entrar em Contato</a>
+        </div>
+      </div>
+
+      <!-- Card decorativo (visível apenas em desktop) -->
+      <div class="hero-visual" aria-hidden="true">
+        <div class="code-card fade-up">
+          <div class="code-dots">
+            <span class="dot-r"></span>
+            <span class="dot-y"></span>
+            <span class="dot-g"></span>
+          </div>
+          <div>
+            <span class="c-purple">const</span>
+            <span class="c-cyan"> developer</span>
+            <span class="c-white"> = {</span>
+          </div>
+          <div>&nbsp;&nbsp;<span class="c-green">nome</span><span class="c-white">: </span><span class="c-cyan">'Leonardo Lamin'</span><span class="c-white">,</span></div>
+          <div>&nbsp;&nbsp;<span class="c-green">foco</span><span class="c-white">: </span><span class="c-cyan">'Fullstack'</span><span class="c-white">,</span></div>
+          <div>&nbsp;&nbsp;<span class="c-green">status</span><span class="c-white">: </span><span class="c-cyan">'Em evolução'</span><span class="c-white">,</span></div>
+          <div>&nbsp;&nbsp;<span class="c-green">café</span><span class="c-white">: </span><span class="c-purple">true</span></div>
+          <div><span class="c-white">}</span></div>
+          <br />
+          <div><span class="c-muted">// sempre aprendendo </span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SOBRE ── -->
+  <section id="sobre">
+    <div class="section-inner">
+      <div class="sobre-grid">
+
+        <!-- Avatar -->
+        <div class="sobre-avatar-wrap reveal">
+          <div class="sobre-avatar">👨‍💻</div>
+          <div class="sobre-avatar-deco" aria-hidden="true"></div>
+          <div class="sobre-avatar-tag">// Leonardo Lamin</div>
+        </div>
+
+        <!-- Texto -->
+        <div class="sobre-text reveal">
+          <div class="section-label">Sobre mim</div>
+          <h2 class="section-title">Quem sou eu</h2>
+
+          <p>
+            Sou <strong>Leonardo Lamin</strong>, auxiliar de desenvolvimento apaixonado por
+            tecnologia e pela arte de construir soluções digitais. Estou em constante evolução,
+            transformando curiosidade em código.
+          </p>
+          <p>
+            Atualmente trilhando meu caminho rumo a me tornar um <strong>desenvolvedor fullstack</strong>,
+            acredito que cada projeto é uma oportunidade de aprender algo novo e entregar algo melhor do que antes.
+          </p>
+          <p>
+            Quando não estou codando, estou estudando novas tecnologias, explorando projetos open source
+            ou planejando o próximo desafio. <strong>Sempre em movimento, sempre aprendendo.</strong>
+          </p>
+
+          <div class="sobre-stats">
+            <div class="stat-item">
+              <span class="stat-number">+1</span>
+              <span class="stat-label">Ano dev</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Vontade</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">☕</span>
+              <span class="stat-label">Café/dia</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+
+</body>
 </html>
