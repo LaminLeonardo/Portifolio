@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<!--
+  Se você chegou até aqui inspecionando o código, também gosta de entender
+  como as coisas funcionam por dentro. Isso já diz bastante sobre o tipo
+  de profissional que eu procuro ser. — Leonardo
+
+  dica: pressione "L" em qualquer lugar da página.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonardo Lamin — Desenvolvedor Backend .NET</title>
+<meta name="description" content="Portfólio de Leonardo Lamin, desenvolvedor Backend .NET com experiência em produção — provisionamento SaaS, APIs REST, automação de processos e integração de sistemas.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Leonardo Lamin — Desenvolvedor Backend .NET">
+<meta property="og:description" content="Provisionamento SaaS, APIs REST e automação de processos com impacto mensurável. Veja o acervo completo.">
+<meta property="og:image" content="https://placehold.co/1200x630/05070A/00E5D8?text=Leonardo+Lamin+%E2%80%94+Backend+.NET">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leonardo Lamin — Desenvolvedor Backend .NET">
+<meta name="twitter:description" content="Provisionamento SaaS, APIs REST e automação de processos com impacto mensurável.">
+<meta name="twitter:image" content="https://placehold.co/1200x630/05070A/00E5D8?text=Leonardo+Lamin+%E2%80%94+Backend+.NET">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%2300E5D8' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  section{scroll-margin-top:78px;}
+  body{font-family:'Inter',sans-serif;background:#05070A;}
+
+  /* ===== TELA 1 — HERO (profissional) ===== */
+  .s1{
+    --wall:#0B0F14; --spot:#E8B14D; --steel:#4C7A93;
+    --ink:#EDEFF2; --ink-muted:#8A93A3;
+    position:relative; width:100%; height:100vh; perspective:900px; overflow:hidden;
+    background:radial-gradient(ellipse at 50% 38%, rgba(232,177,77,0.10) 0%, rgba(11,15,20,0) 55%), var(--wall);
+    color:var(--ink);
+  }
+  .s1-corridor{position:absolute; inset:0; transform-style:preserve-3d; transition:transform 0.15s ease-out;}
+  .s1-rail{position:absolute; top:50%; left:50%; width:2400px; height:2px;
+    background:linear-gradient(90deg, transparent, rgba(140,150,165,0.16) 30%, rgba(140,150,165,0.05) 100%); transform-origin:left center;}
+  .s1-rail.r1{transform:translate(-2px,-1px) rotate(9deg);}
+  .s1-rail.r2{transform:translate(-2px,-1px) rotate(-9deg);}
+  .s1-rail.r3{transform:translate(-2px,-1px) rotate(20deg);}
+  .s1-rail.r4{transform:translate(-2px,-1px) rotate(-20deg);}
+  .s1-rail.r5{transform:translate(-2px,-1px) rotate(32deg);}
+  .s1-rail.r6{transform:translate(-2px,-1px) rotate(-32deg);}
+  .s1-floorline{position:absolute; bottom:0; left:50%; width:1px; height:55%;
+    background:linear-gradient(to top, rgba(140,150,165,0.14), transparent);}
+  .s1-ghost{position:absolute; width:170px; height:230px; border:1px solid rgba(140,150,165,0.18);
+    background:rgba(22,27,34,0.4); transform-style:preserve-3d; display:none;}
+  .s1-ghost.left{top:38%; left:6%; transform:rotateY(28deg) translateZ(-180px);}
+  .s1-ghost.right{top:38%; right:6%; transform:rotateY(-28deg) translateZ(-180px);}
+  @media (min-width:1150px){
+    .s1-ghost.right{display:block;}
+    .s1-ghost.left{display:flex;}
+  }
+  .s1-photo{overflow:hidden; display:flex; flex-direction:column; padding:6px;}
+  .s1-photo img{width:100%; height:196px; object-fit:cover; filter:grayscale(0.35) sepia(0.12) contrast(1.05);}
+  .s1-photo-tag{margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:8px; color:var(--ink-muted); text-align:center; letter-spacing:0.04em; padding:0 4px;}
+  .s1-content{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; z-index:5; padding:0 24px;}
+  @media (min-width:1150px){ .s1-content{padding:0 260px;} }
+  .s1-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--spot); margin-bottom:22px; opacity:0.85;}
+  .s1-name{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(48px,7vw,88px); line-height:1; letter-spacing:-0.01em;}
+  .s1-role{margin-top:18px; font-size:16px; color:var(--ink-muted); font-weight:300; min-height:24px;}
+  .s1-role span{color:var(--steel);}
+  .s1-cursor{color:var(--spot); animation:blink 0.9s step-end infinite; margin-left:1px;}
+  @keyframes blink{50%{opacity:0;}}
+  .s1-plate{margin-top:46px; padding:10px 22px; border:1px solid rgba(232,177,77,0.35); font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:0.12em; color:var(--ink-muted); text-transform:uppercase; display:flex; align-items:center; gap:10px;}
+  .s1-plate .dot{width:6px;height:6px;border-radius:50%; background:var(--spot); box-shadow:0 0 8px var(--spot); animation:pulse 2s ease-in-out infinite;}
+  .s1-available{
+    margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink-muted);
+    display:flex; align-items:center; gap:8px; letter-spacing:0.04em;
+  }
+  .s1-available .dot2{width:6px;height:6px;border-radius:50%; background:#4ADE80; box-shadow:0 0 8px rgba(74,222,128,0.6);}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.35;}}
+  .s1-scrollcue{position:absolute; bottom:34px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:10px; color:var(--ink-muted); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; z-index:5;}
+  .s1-mouse{width:22px;height:34px; border:1px solid rgba(140,150,165,0.5); border-radius:12px; position:relative;}
+  .s1-mouse::before{content:''; position:absolute; top:6px;left:50%; width:2px;height:6px; background:var(--spot); transform:translateX(-50%); border-radius:2px; animation:scrolldown 1.6s ease-in-out infinite;}
+  @keyframes scrolldown{0%{opacity:1;top:6px;}70%{opacity:0;top:16px;}100%{opacity:0;top:6px;}}
+  .s1-cta{margin-top:26px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--wall); background:var(--spot); text-decoration:none; padding:11px 22px; transition:opacity 0.2s;}
+  .s1-cta:hover{opacity:0.85;}
+  .s1-horizon{position:absolute; bottom:0;left:0;right:0; height:3px;
+    background:linear-gradient(90deg, transparent, var(--spot) 20%, #6FE3D6 55%, #C24CF2 80%, transparent); opacity:0.55;}
+
+  /* ===== TELA 2 — SOBRE (resfriando) ===== */
+  .s2{
+    --wall:#0A1016; --spot:#E8B14D; --steel:#4C7A93; --steel-glow:#6FE3D6;
+    --ink:#EDEFF2; --ink-muted:#8A93A3;
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:80px 24px;
+    background:radial-gradient(ellipse at 50% 20%, rgba(76,122,147,0.08) 0%, rgba(10,16,22,0) 60%), var(--wall);
+    color:var(--ink);
+  }
+  .s2-card{width:100%; max-width:920px; border:1px solid rgba(140,150,165,0.16);
+    background:linear-gradient(180deg, rgba(21,28,36,0.6), rgba(21,28,36,0.3)); padding:56px; position:relative;}
+  .s2-card::before{content:''; position:absolute; top:-1px;left:-1px;right:-1px; height:2px;
+    background:linear-gradient(90deg, var(--spot), var(--steel-glow) 70%); opacity:0.7;}
+  .s2-tagrow{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:34px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-muted);}
+  .s2-tagrow .peca{color:var(--spot);}
+  .s2-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  @media (max-width:720px){.s2-grid{grid-template-columns:1fr;}}
+  .s2 h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(28px,4vw,38px); line-height:1.15; margin-bottom:22px;}
+  .s2 h2 span{color:var(--steel-glow);}
+  .s2-bio p{font-size:15px; line-height:1.75; color:var(--ink-muted); font-weight:300; margin-bottom:14px;}
+  .s2-bio strong{color:var(--ink); font-weight:500;}
+  .s2-datasheet{border-left:1px solid rgba(140,150,165,0.18); padding-left:32px;}
+  .s2-field{margin-bottom:22px;}
+  .s2-field label{display:block; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--steel); margin-bottom:6px;}
+  .s2-field .val{font-size:14px; color:var(--ink); font-weight:400;}
+  .s2-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .s2-tags span{font-family:'JetBrains Mono',monospace; font-size:11px; padding:5px 10px; border:1px solid rgba(76,122,147,0.4); color:var(--steel-glow); background:rgba(76,122,147,0.08);}
+  .s2-tags-group{margin-bottom:12px;}
+  .s2-tags-group .grp-label{display:block; font-family:'JetBrains Mono',monospace; font-size:9px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:6px;}
+
+  /* ===== TELA 3 — GALERIA (cyberpunk) ===== */
+  .s3{
+    --wall:#05070A; --cyan:#00E5D8; --magenta:#E8449A; --ink:#E9F6F5; --ink-muted:#7C8B8F;
+    min-height:100vh; padding:90px 24px 60px; position:relative; overflow:hidden;
+    background:radial-gradient(ellipse at 50% 0%, rgba(0,229,216,0.07) 0%, rgba(5,7,10,0) 55%), var(--wall);
+    color:var(--ink);
+  }
+  .s3-floor{position:absolute; bottom:0;left:0;right:0; height:280px;
+    background-image:linear-gradient(rgba(0,229,216,0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,216,0.14) 1px, transparent 1px);
+    background-size:44px 44px; transform:perspective(500px) rotateX(72deg); transform-origin:bottom;
+    mask-image:linear-gradient(to top, black, transparent); -webkit-mask-image:linear-gradient(to top, black, transparent); opacity:0.5; pointer-events:none;}
+  .s3-scanlines{position:absolute; inset:0; background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px); pointer-events:none;}
+  .s3-header{max-width:1040px; margin:0 auto 56px; position:relative; z-index:2;}
+  .s3-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--magenta); margin-bottom:14px;}
+  .s3 h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(30px,4.5vw,44px);}
+  .s3 h2 span{color:var(--cyan);}
+  .s3-gallery{max-width:1100px; margin:0 auto; position:relative; z-index:2;}
+  .s3-track{
+    display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding:4px 4px 22px; scroll-padding:0 24px;
+  }
+  .s3-track::-webkit-scrollbar{height:4px;}
+  .s3-track::-webkit-scrollbar-track{background:rgba(255,255,255,0.06);}
+  .s3-track::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--cyan),var(--magenta));}
+  .s3-track{scrollbar-color:var(--cyan) rgba(255,255,255,0.06); scrollbar-width:thin;}
+  .vitrine{background:linear-gradient(180deg, rgba(12,17,22,0.9), rgba(12,17,22,0.7)); border:1px solid rgba(0,229,216,0.22);
+    padding:26px 24px; transform-style:preserve-3d; transition:transform 0.12s ease-out, border-color 0.2s; position:relative;
+    flex:0 0 320px; scroll-snap-align:start;}
+  .vitrine:hover{border-color:rgba(232,68,154,0.5);}
+  .s3-navhint{
+    display:flex; align-items:center; justify-content:center; gap:10px; margin-top:6px;
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-muted);
+  }
+  .s3-navhint .arr{color:var(--cyan); animation:sideways 1.8s ease-in-out infinite;}
+  @keyframes sideways{0%,100%{transform:translateX(0);}50%{transform:translateX(5px);}}
+  .vitrine::after{content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg, var(--cyan), var(--magenta)); opacity:0.6;}
+  .s3-num{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--ink-muted); letter-spacing:0.1em; margin-bottom:16px; display:block;}
+  .s3-num b{color:var(--cyan);}
+  .vitrine h3{font-family:'Fraunces',serif; font-weight:500; font-size:19px; margin-bottom:10px; line-height:1.3;}
+  .vitrine p{font-size:13.5px; line-height:1.65; color:var(--ink-muted); font-weight:300; margin-bottom:16px;}
+  .s3-metrics{display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap;}
+  .s3-metric{font-family:'JetBrains Mono',monospace;}
+  .s3-metric .n{font-size:16px; color:var(--cyan); display:block;}
+  .s3-metric .l{font-size:9px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.08em;}
+  .s3-tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .s3-tags span{font-family:'JetBrains Mono',monospace; font-size:10px; padding:4px 8px; border:1px solid rgba(232,68,154,0.35); color:var(--magenta); background:rgba(232,68,154,0.06);}
+  .vitrine{cursor:pointer;}
+  ::view-transition-group(projmorph){animation-duration:0.5s; animation-timing-function:cubic-bezier(.4,0,.2,1);}
+
+  /* ===== CASO EXPANDIDO — tela cheia, layout diferente do card ===== */
+  .case-detail{
+    position:fixed; inset:0; z-index:50;
+    background:linear-gradient(180deg,#05070A,#0A0D12);
+    opacity:0; pointer-events:none; transform:scale(0.97);
+    transition:opacity 0.35s ease, transform 0.35s ease;
+    overflow-y:auto; padding:70px 24px 60px;
+    font-family:'Inter',sans-serif; color:#E9F6F5;
+  }
+  .case-detail.active{opacity:1; pointer-events:auto; transform:scale(1);}
+  .case-inner{max-width:920px; margin:0 auto;}
+  .case-back{
+    display:inline-flex; align-items:center; gap:8px; background:none; border:1px solid rgba(0,229,216,0.3);
+    color:#00E5D8; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:9px 16px; cursor:pointer; margin-bottom:40px;
+  }
+  .case-back:hover{border-color:#E8449A; color:#E8449A;}
+  .case-copy{
+    display:inline-flex; align-items:center; gap:6px; background:none; border:1px solid rgba(255,255,255,0.12);
+    color:#7C8B8F; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em;
+    padding:9px 14px; cursor:pointer; margin-bottom:40px; margin-left:10px;
+  }
+  .case-copy:hover{border-color:#00E5D8; color:#00E5D8;}
+  .case-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#E8449A; margin-bottom:14px;}
+  .case-inner h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(28px,4.5vw,42px); line-height:1.15; margin-bottom:30px;}
+  .case-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:48px;}
+  @media (max-width:760px){.case-grid{grid-template-columns:1fr;}}
+  .case-body p{font-size:15px; line-height:1.8; color:#9AAAAE; font-weight:300; margin-bottom:16px;}
+  .case-body strong{color:#E9F6F5; font-weight:500;}
+  .case-arch{list-style:none; margin-top:8px;}
+  .case-arch li{font-size:14px; color:#9AAAAE; padding:10px 0 10px 20px; border-left:1px solid rgba(0,229,216,0.3); margin-bottom:6px; position:relative;}
+  .case-arch li::before{content:'▸'; position:absolute; left:-8px; color:#00E5D8;}
+  .case-side{border-left:1px solid rgba(255,255,255,0.08); padding-left:32px;}
+  .case-metrics{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:28px;}
+  .case-metrics .m .n{font-family:'JetBrains Mono',monospace; font-size:22px; color:#00E5D8; display:block;}
+  .case-metrics .m .l{font-family:'JetBrains Mono',monospace; font-size:10px; color:#7C8B8F; text-transform:uppercase; letter-spacing:0.06em;}
+  .case-side h4{font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#7C8B8F; margin-bottom:10px;}
+
+  /* ===== TRECHO DE CÓDIGO — prova técnica ===== */
+  .case-code-toggle{
+    margin-top:26px; background:none; border:1px solid rgba(0,229,216,0.3); color:#00E5D8;
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em;
+    padding:9px 16px; cursor:pointer; transition:all 0.2s;
+  }
+  .case-code-toggle:hover{border-color:#E8449A; color:#E8449A;}
+  .case-code{
+    max-height:0; overflow:hidden; opacity:0; transition:max-height 0.4s ease, opacity 0.3s ease; margin-top:0;
+  }
+  .case-code.open{max-height:600px; opacity:1; margin-top:16px;}
+  .case-code .code-note{font-family:'JetBrains Mono',monospace; font-size:10px; color:#5A646B; margin-bottom:10px; font-style:italic;}
+  .case-code pre{
+    background:#05070A; border:1px solid rgba(255,255,255,0.08); padding:18px;
+    overflow-x:auto; font-family:'JetBrains Mono',monospace; font-size:12px; line-height:1.7; color:#B8C0C4;
+  }
+  .case-code .k{color:#E8449A;} .case-code .s{color:#4ADE80;} .case-code .f{color:#00E5D8;}
+
+  /* ===== TELA 4 — CONTATO (cyberpunk, fechamento) ===== */
+  .s4{
+    --wall:#040507; --cyan:#00E5D8; --magenta:#E8449A; --ink:#E9F6F5; --ink-muted:#7C8B8F;
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:60px 24px; text-align:center;
+    background:radial-gradient(ellipse at 50% 60%, rgba(232,68,154,0.08) 0%, rgba(4,5,7,0) 60%), var(--wall);
+    color:var(--ink);
+  }
+  .s4-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); margin-bottom:18px;}
+  .s4 h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(30px,5vw,46px); margin-bottom:16px;}
+  .s4 h2 span{color:var(--magenta);}
+  .s4-lead{max-width:460px; color:var(--ink-muted); font-weight:300; font-size:15px; line-height:1.7; margin-bottom:44px;}
+  .s4-links{display:flex; flex-direction:column; gap:14px; width:100%; max-width:420px;}
+  .s4-links a{display:flex; align-items:center; justify-content:space-between; padding:16px 20px;
+    border:1px solid rgba(0,229,216,0.25); text-decoration:none; color:var(--ink); font-family:'JetBrains Mono',monospace;
+    font-size:13px; transition:border-color 0.2s, transform 0.15s;}
+  .s4-links a:hover{border-color:var(--magenta); transform:translateX(4px);}
+  .s4-links a .label{color:var(--ink-muted); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:4px;}
+  .s4-links a .arrow{color:var(--cyan); font-size:16px;}
+  .s4-exit{margin-top:56px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:0.14em; text-transform:uppercase;}
+  .s4-exit b{color:var(--magenta);}
+  .s4-cv{border-color:rgba(232,68,154,0.35) !important;}
+  .s4-cv .arrow{color:var(--magenta) !important;}
+  .s4-qr{margin-top:40px; display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .s4-qr #qrcode{padding:10px; background:#fff; line-height:0;}
+  .s4-qr-label{font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.1em;}
+
+  @media (prefers-reduced-motion: reduce){
+    .s1-corridor{transition:none;} .s1-plate .dot,.s1-mouse::before{animation:none;} .vitrine{transition:none;}
+  }
+
+  /* ===== LUZ AMBIENTE — transição contínua de cor ao rolar ===== */
+  .ambient{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    mix-blend-mode:screen;
+    background:radial-gradient(ellipse 70% 55% at 50% 45%, hsla(var(--accent-h,40),85%,62%,0.16) 0%, transparent 65%);
+  }
+  section{position:relative; z-index:2;}
+
+  /* ===== NAVEGAÇÃO FIXA ===== */
+  .nav-progress{position:fixed; top:0; left:0; height:2px; z-index:101; width:0%;
+    background:linear-gradient(90deg,#E8B14D,#00E5D8,#E8449A);}
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; row-gap:8px;
+    padding:18px 32px; backdrop-filter:blur(10px);
+    background:rgba(5,7,10,0.4); border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .nav-mark{font-family:'Fraunces',serif; font-weight:500; font-size:16px; color:#EDEFF2; text-decoration:none;}
+  .nav-links{display:flex; gap:30px;}
+  .nav-links a{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#8A93A3; text-decoration:none; transition:color 0.2s;}
+  .nav-links a:hover{color:#00E5D8;}
+  @media (max-width:640px){ .nav-links{gap:18px;} .nav-links span{display:none;} }
+  @media (max-width:480px){ .nav{padding:12px 16px;} .nav-links{display:none;} .nav-mark{font-size:14px;} }
+  .nav-recruiter{
+    background:none; border:1px solid rgba(0,229,216,0.35); color:#00E5D8;
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+    padding:7px 12px; cursor:pointer; transition:all 0.2s;
+  }
+  .nav-recruiter:hover{border-color:#E8449A; color:#E8449A;}
+  @media (max-width:640px){ .nav-recruiter{font-size:9px; padding:6px 9px;} }
+
+  /* ===== MODO RECRUTADOR — visão condensada em tela única ===== */
+  body.recruiter-mode .immersive,
+  body.recruiter-mode .ambient,
+  body.recruiter-mode .hud,
+  body.recruiter-mode .nav-progress{display:none !important;}
+  .recruiter-view{display:none;}
+  body.recruiter-mode .recruiter-view{
+    display:block; min-height:100vh; padding:110px 24px 60px;
+    background:#0A0D12; color:#EDEFF2; font-family:'Inter',sans-serif;
+  }
+  .rv-inner{max-width:720px; margin:0 auto;}
+  .rv-inner h1{font-family:'Fraunces',serif; font-weight:500; font-size:34px; margin-bottom:6px;}
+  .rv-role{color:#8A93A3; font-size:14px; margin-bottom:32px;}
+  .rv-inner h2{font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:#4C7A93; margin:32px 0 12px;}
+  .rv-inner p{font-size:14.5px; line-height:1.75; color:#B8C0C4; font-weight:300;}
+  .rv-proj{border-left:2px solid rgba(76,122,147,0.4); padding-left:16px; margin-bottom:18px;}
+  .rv-proj b{display:block; font-size:14.5px; margin-bottom:4px;}
+  .rv-proj span{font-size:13px; color:#8A93A3;}
+  .rv-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
+  .rv-links a{font-family:'JetBrains Mono',monospace; font-size:11px; color:#0A0D12; background:#E8B14D; padding:9px 16px; text-decoration:none;}
+
+  /* ===== ACESSIBILIDADE — foco visível ===== */
+  a:focus-visible, button:focus-visible, .vitrine:focus-visible{
+    outline:2px solid #00E5D8; outline-offset:3px;
+  }
+
+  /* correção: caixas de métrica do caso expandido sem moldura */
+  .case-metrics .m{
+    border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02);
+    padding:14px 16px;
+  }
+
+  /* ===== HUD DE STATUS — reflete o domínio real de trabalho (monitoramento/provisionamento) ===== */
+  .hud{
+    position:fixed; bottom:20px; left:20px; z-index:90;
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#8A93A3;
+    background:rgba(5,7,10,0.55); backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.08); padding:10px 14px;
+    display:flex; flex-direction:column; gap:5px; letter-spacing:0.02em;
+  }
+  .hud .row{display:flex; align-items:center; gap:8px;}
+  .hud .led{width:6px; height:6px; border-radius:50%; background:#4ADE80; box-shadow:0 0 6px #4ADE80; flex-shrink:0;}
+  .hud .lbl{color:#5A646B; text-transform:uppercase; letter-spacing:0.08em; font-size:9px;}
+  @media (max-width:600px){ .hud{display:none;} }
+
+  /* ===== TERMINAL DE LOGS — easter egg (tecla L) ===== */
+  .term-overlay{
+    position:fixed; inset:0; z-index:200; background:rgba(2,3,4,0.85);
+    display:flex; align-items:center; justify-content:center; padding:24px;
+    opacity:0; pointer-events:none; transition:opacity 0.2s;
+  }
+  .term-overlay.active{opacity:1; pointer-events:auto;}
+  .terminal{
+    width:100%; max-width:640px; max-height:70vh; overflow-y:auto;
+    background:#05070A; border:1px solid rgba(0,229,216,0.3);
+    font-family:'JetBrains Mono',monospace; font-size:12.5px; line-height:1.9; color:#9AAAAE;
+    padding:0;
+  }
+  .terminal-bar{display:flex; align-items:center; gap:6px; padding:10px 14px; border-bottom:1px solid rgba(255,255,255,0.08);}
+  .terminal-bar span{width:9px; height:9px; border-radius:50%; background:#4A5157;}
+  .terminal-bar .label{margin-left:10px; font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:#5A646B;}
+  .terminal-body{padding:16px 18px;}
+  .terminal-body .ok{color:#4ADE80;}
+  .terminal-body .info{color:#00E5D8;}
+  .terminal-body .ready{color:#E8449A;}
+
+  /* ===== TELA DE CARREGAMENTO ===== */
+  .loader{
+    position:fixed; inset:0; z-index:300; background:#05070A;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+    transition:opacity 0.5s ease, visibility 0.5s;
+  }
+  .loader.hidden{opacity:0; visibility:hidden; pointer-events:none;}
+  .loader-mark{font-family:'Fraunces',serif; font-size:22px; color:#EDEFF2; letter-spacing:0.02em;}
+  .loader-bar{width:160px; height:1px; background:rgba(255,255,255,0.12); position:relative; overflow:hidden;}
+  .loader-bar::after{
+    content:''; position:absolute; top:0; left:-40%; width:40%; height:100%;
+    background:linear-gradient(90deg, transparent, #E8B14D, #00E5D8, transparent);
+    animation:loaderSweep 1.1s ease-in-out infinite;
+  }
+  @keyframes loaderSweep{0%{left:-40%;}100%{left:100%;}}
+  .loader-label{font-family:'JetBrains Mono',monospace; font-size:9px; color:#5A646B; text-transform:uppercase; letter-spacing:0.16em;}  /* ===== TIMELINE — trajetória (ponte entre Sobre e Projetos) ===== */
+  .tl{
+    --wall:#071219; --dot:#5FC9D8;
+    min-height:70vh; padding:70px 24px; position:relative;
+    background:radial-gradient(ellipse at 50% 30%, rgba(95,201,216,0.06) 0%, rgba(7,18,25,0) 60%), var(--wall);
+    color:#EDEFF2;
+  }
+  .tl-inner{max-width:1100px; margin:0 auto;}
+  .tl-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#5FC9D8; margin-bottom:14px; text-align:center;}
+  .tl h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(26px,4vw,36px); text-align:center; margin-bottom:20px;}
+  .tl-track{
+    position:relative; display:flex; gap:56px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding:56px 8vw 26px;
+  }
+  .tl-track::-webkit-scrollbar{height:4px;}
+  .tl-track::-webkit-scrollbar-track{background:rgba(255,255,255,0.06);}
+  .tl-track::-webkit-scrollbar-thumb{background:#5FC9D8;}
+  .tl-track{scrollbar-color:#5FC9D8 rgba(255,255,255,0.06); scrollbar-width:thin;}
+  .tl-rail{position:absolute; top:32px; left:0; right:0; height:1px; background:rgba(95,201,216,0.22); pointer-events:none;}
+  .tl-item{
+    position:relative; flex:0 0 250px; scroll-snap-align:center; padding-top:26px;
+    opacity:0; transform:translateY(18px); transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .tl-item.revealed{opacity:1; transform:translateY(0);}
+  .tl-item::before{
+    content:''; position:absolute; top:-2px; left:0; width:9px; height:9px; border-radius:50%;
+    background:#5FC9D8; box-shadow:0 0 8px rgba(95,201,216,0.6);
+  }
+  .tl-item .tl-tag{font-family:'JetBrains Mono',monospace; font-size:10px; color:#5FC9D8; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px; display:block;}
+  .tl-item h3{font-family:'Fraunces',serif; font-weight:500; font-size:17px; margin-bottom:6px;}
+  .tl-item p{font-size:13.5px; color:#8A99A0; font-weight:300; line-height:1.65;}
+  .tl-navhint{
+    display:flex; align-items:center; justify-content:center; gap:10px; margin-top:4px;
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#5A6B70;
+  }
+  .tl-navhint .arr{color:#5FC9D8; animation:sideways 1.8s ease-in-out infinite;}
+
+  /* ===== DIAGNÓSTICO DE SISTEMA — proficiência técnica ===== */
+  .diag{margin-top:8px;}
+  .diag-row{margin-bottom:14px;}
+  .diag-row .top{display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--ink); margin-bottom:5px;}
+  .diag-row .top .lvl{color:var(--steel-glow);}
+  .diag-bar{height:4px; background:rgba(255,255,255,0.08); position:relative; overflow:hidden;}
+  .diag-bar span{position:absolute; inset:0 auto 0 0; background:linear-gradient(90deg,var(--steel),var(--steel-glow)); width:0%;}
+
+  /* ===== RECOMENDAÇÕES ===== */
+  .rec{
+    --wall:#0A0D12; min-height:50vh; padding:70px 24px; position:relative;
+    background:radial-gradient(ellipse at 50% 20%, rgba(232,68,154,0.05) 0%, rgba(10,13,18,0) 60%), var(--wall);
+    color:#EDEFF2;
+  }
+  .rec-inner{max-width:800px; margin:0 auto;}
+  .rec-eyebrow{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#E8449A; margin-bottom:14px; text-align:center;}
+  .rec h2{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(26px,4vw,36px); text-align:center; margin-bottom:48px;}
+  .rec-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:700px){.rec-grid{grid-template-columns:1fr;}}
+  .rec-card{border:1px dashed rgba(255,255,255,0.15); padding:26px; background:rgba(255,255,255,0.02);}
+  .rec-card p{font-size:14px; color:#8A99A0; font-weight:300; line-height:1.7; font-style:italic; margin-bottom:16px;}
+  .rec-card .who{font-family:'JetBrains Mono',monospace; font-size:11px; color:#00E5D8;}
+  .rec-card .placeholder-note{font-family:'JetBrains Mono',monospace; font-size:9px; color:#5A646B; text-transform:uppercase; letter-spacing:0.06em; margin-top:10px; display:block;}
+</style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-mark">Leonardo</div>
+    <div class="loader-bar"></div>
+    <div class="loader-label">abrindo a galeria</div>
+  </div>
+  <div class="term-overlay" id="termOverlay" role="dialog" aria-label="Terminal de logs" onclick="if(event.target===this) closeTerm();">
+    <div class="terminal">
+      <div class="terminal-bar"><span></span><span></span><span></span><span class="label">leo@portfolio ~ logs</span></div>
+      <div class="terminal-body" id="termBody"></div>
+    </div>
+  </div>
+  <div class="hud" aria-hidden="true">
+    <div class="row"><span class="led"></span> <span data-i18n="hudOnline">sistema online</span></div>
+    <div class="row"><span class="lbl" data-i18n="hudUptimeLbl">uptime</span> 99.98%</div>
+    <div class="row"><span class="lbl" data-i18n="hudLocalLbl">local</span> <span id="hudclock">--:--:--</span></div>
+    <div class="row" style="opacity:0.6;"><span class="lbl">tecla</span> L = logs</div>
+  </div>
+  <div class="nav-progress" id="navprogress"></div>
+  <nav class="nav">
+    <a href="#stage1" class="nav-mark">Leonardo</a>
+    <div class="nav-links">
+      <a href="#sobre" data-i18n="navSobre">Sobre</a>
+      <a href="#projetos" data-i18n="navProjetos">Projetos</a>
+      <a href="#contato" data-i18n="navContato">Contato</a>
+      <button id="recruiterToggle" class="nav-recruiter" onclick="toggleRecruiter()" data-i18n="navRecruiterOn">Modo recrutador</button>
+      <button id="langToggle" class="nav-recruiter" onclick="toggleLang()">EN</button>
+    </div>
+  </nav>
+  <div class="ambient" id="ambient"></div>
+
+  <!-- TELA 1 -->
+  <section class="s1 immersive" id="stage1">
+    <div class="s1-corridor" id="corridor1">
+      <div class="s1-rail r1"></div><div class="s1-rail r2"></div><div class="s1-rail r3"></div>
+      <div class="s1-rail r4"></div><div class="s1-rail r5"></div><div class="s1-rail r6"></div>
+      <div class="s1-floorline"></div>
+      <div class="s1-ghost left s1-photo">
+        <img src="foto-leonardo.jpg" alt="Foto de Leonardo Lamin" />
+        <span class="s1-photo-tag" data-i18n="heroPhotoTag">Leonardo Lamin</span>
+      </div>
+      <div class="s1-ghost right"></div>
+    </div>
+    <div class="s1-content">
+      <div class="s1-eyebrow" data-i18n="heroEyebrow">Acervo pessoal — Peça N°00</div>
+      <h1 class="s1-name">Leonardo Lamin</h1>
+      <p class="s1-role"><span id="typedRole"></span><span class="s1-cursor">|</span></p>
+      <div class="s1-plate"><span class="dot"></span> <span data-i18n="heroPlate">Entrada da galeria</span></div>
+      <div class="s1-available"><span class="dot2"></span> <span data-i18n="heroAvailable">Aberto a oportunidades — .NET Júnior</span></div>
+      <a href="#projetos" class="s1-cta" data-i18n="heroCta">Ver projetos ↓</a>
+    </div>
+    <div class="s1-scrollcue"><div class="s1-mouse"></div><span data-i18n="heroScroll">Role para entrar</span></div>
+    <div class="s1-horizon"></div>
+  </section>
+
+  <!-- TELA 2 -->
+  <section class="s2 immersive" id="sobre">
+    <div class="s2-card">
+      <div class="s2-tagrow"><span><span class="peca" data-i18n="soPeca">Peça N°01</span> <span data-i18n="soFicha">— Ficha do acervo</span></span><span>BMA Sistemas · UNISC</span></div>
+      <div class="s2-grid">
+        <div class="s2-bio">
+          <h2 data-i18n="soHeading">Sobre o <span>curador</span></h2>
+          <p data-i18n="soP1">Desenvolvedor .NET, atualmente construindo e mantendo sistemas de <strong>provisionamento automatizado</strong> — orquestração entre serviços, integração com Active Directory e bancos de dados relacionais.</p>
+          <p data-i18n="soP2">Estudante de <strong>Engenharia de Software</strong> na Universidade Católica de Santa Catarina, conciliando teoria acadêmica com problemas reais de produção: encoding, concorrência, logs, deploy.</p>
+          <p data-i18n="soP3">Prefere depurar com base em evidência — <strong>log antes de suposição</strong> — e entregar em ciclos curtos e incrementais.</p>
+        </div>
+        <div class="s2-datasheet">
+          <div class="s2-field"><label data-i18n="soL1">Atuação</label><div class="val" data-i18n="soV1">Sistemas de provisionamento · .NET · Windows Services</div></div>
+          <div class="s2-field"><label data-i18n="soLExpFe">Experiência · Front-end</label><div class="val" id="expCounterFe">calculando…</div></div>
+          <div class="s2-field"><label data-i18n="soLExpBe">Experiência · .NET</label><div class="val" id="expCounterBe">calculando…</div></div>
+          <div class="s2-field"><label data-i18n="soL2">Formação</label><div class="val" data-i18n="soV2">Eng. de Software — Universidade Católica de SC</div></div>
+          <div class="s2-field"><label data-i18n="soL3">Metodologia</label><div class="val" data-i18n="soV3">Debug orientado a log · entrega incremental</div></div>
+          <div class="s2-field"><label data-i18n="soLIdi">Idiomas</label><div class="val" data-i18n="soVIdi">Português (nativo) · Inglês (intermediário — leitura técnica e conversação)</div></div>
+          <div class="s2-field"><label data-i18n="soL4">Stack</label>
+            <div class="s2-tags-group">
+              <span class="grp-label">Backend</span>
+              <div class="s2-tags"><span>C#</span><span>.NET / .NET Core</span><span>ASP.NET MVC</span><span>WinForms</span><span>APIs REST</span><span>Node.js</span></div>
+            </div>
+            <div class="s2-tags-group">
+              <span class="grp-label">Front-end</span>
+              <div class="s2-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span></div>
+            </div>
+            <div class="s2-tags-group">
+              <span class="grp-label">Dados & Infra</span>
+              <div class="s2-tags"><span>SQL Server</span><span>PostgreSQL</span><span>MySQL</span><span>Active Directory</span><span>Power BI</span></div>
+            </div>
+          </div>
+          <div class="s2-field">
+            <label>Diagnóstico</label>
+            <div class="diag" id="diagPanel">
+              <div class="diag-row"><div class="top"><span>Front-end (HTML/CSS/JS/React)</span><span class="lvl">avançado</span></div><div class="diag-bar"><span data-w="85"></span></div></div>
+              <div class="diag-row"><div class="top"><span>C# / .NET</span><span class="lvl">intermediário</span></div><div class="diag-bar"><span data-w="70"></span></div></div>
+              <div class="diag-row"><div class="top"><span>Bancos de dados (SQL Server/PostgreSQL/MySQL)</span><span class="lvl">avançado</span></div><div class="diag-bar"><span data-w="82"></span></div></div>
+              <div class="diag-row"><div class="top"><span>APIs REST & Integração de sistemas</span><span class="lvl">intermediário</span></div><div class="diag-bar"><span data-w="75"></span></div></div>
+              <div class="diag-row"><div class="top"><span>Inglês técnico</span><span class="lvl">intermediário</span></div><div class="diag-bar"><span data-w="60"></span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE — TRAJETÓRIA -->
+  <section class="tl immersive">
+    <div class="tl-inner">
+      <div class="tl-eyebrow">Linha do tempo</div>
+      <h2>Trajetória</h2>
+      <div class="tl-track" id="tltrack">
+        <div class="tl-rail"></div>
+        <div class="tl-item">
+          <span class="tl-tag">2022 · SENAI</span>
+          <h3>Técnico em Desenvolvimento de Software</h3>
+          <p>Início formal na programação — fundamentos de front-end (HTML/CSS/JS) e um sistema completo de gestão comercial em Java como projeto de curso.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-tag">2023 · SZ Soluções</span>
+          <h3>Analista de Suporte Júnior</h3>
+          <p>Automatizei pipeline de KPIs em C#, eliminando 100% da entrada manual de dados. Entrega mensal de dashboards em Power BI e Looker Studio para diretoria.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-tag">2025 · UNISC</span>
+          <h3>Início em Engenharia de Software</h3>
+          <p>Ingresso na Universidade Católica de Santa Catarina, conciliando graduação com atuação profissional em produção.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-tag">2025 · BMA Sistemas</span>
+          <h3>Auxiliar de Desenvolvimento — Backend .NET</h3>
+          <p>Reduzi em ~84% o tempo de provisionamento de usuários SaaS (45→7 min) e expandi acesso a dados de clientes em +400% com nova aplicação web e API REST.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-tag">Hoje</span>
+          <h3>Em desenvolvimento contínuo</h3>
+          <p>Conciliando graduação e atuação profissional, buscando posição .NET Júnior com foco em boas práticas e escalabilidade.</p>
+        </div>
+      </div>
+      <div class="tl-navhint"><span class="arr">←</span> arraste ou role para o lado <span class="arr">→</span></div>
+    </div>
+  </section>
+
+  <!-- TELA 3 -->
+  <section class="s3 immersive" id="projetos">
+    <div class="s3-floor"></div>
+    <div class="s3-scanlines"></div>
+    <div class="s3-header">
+      <div class="s3-eyebrow" data-i18n="s3Eyebrow">Você entrou no sistema</div>
+      <h2 data-i18n="s3Heading">Galeria de <span>projetos</span></h2>
+    </div>
+    <div class="s3-gallery">
+      <div class="s3-track" id="s3track">
+      <div class="vitrine" data-tilt onclick="openCase('case1', this)">
+        <span class="s3-num"><b>Peça N°02</b> · <span data-i18n="c1Cat">Sistemas corporativos</span></span>
+        <h3 data-i18n="c1Title">Provisionamento automatizado de usuários SaaS</h3>
+        <p data-i18n="c1Desc">Plataforma .NET com orquestrador e serviço distribuído para automatizar a criação de usuários e integração com Active Directory, substituindo um processo manual sujeito a erro humano.</p>
+        <div class="s3-metrics">
+          <div class="s3-metric"><span class="n">~84%</span><span class="l" data-i18n="c1M1">redução no tempo</span></div>
+          <div class="s3-metric"><span class="n">25-30</span><span class="l" data-i18n="c1M2">usuários/mês beneficiados</span></div>
+        </div>
+        <div class="s3-tags"><span>C# / .NET</span><span>ASP.NET MVC</span><span>WinForms</span><span>Active Directory</span></div>
+      </div>
+      <div class="vitrine" data-tilt onclick="openCase('case2', this)">
+        <span class="s3-num"><b>Peça N°03</b> · <span data-i18n="c2Cat">Automação & BI</span></span>
+        <h3 data-i18n="c2Title">Automação de pipeline de KPIs</h3>
+        <p data-i18n="c2Desc">Automatizei em C# o envio de dados para KPIs de atendimento, eliminando 100% da entrada manual e entregando dashboards mensais em Power BI para a diretoria.</p>
+        <div class="s3-metrics">
+          <div class="s3-metric"><span class="n">100%</span><span class="l" data-i18n="c2M1">manual eliminado</span></div>
+          <div class="s3-metric"><span class="n">100%</span><span class="l" data-i18n="c2M2">consistência</span></div>
+        </div>
+        <div class="s3-tags"><span>C#</span><span>SQL</span><span data-i18n="tagPowerBI">Power BI</span></div>
+      </div>
+      <div class="vitrine" data-tilt onclick="openCase('case3', this)">
+        <span class="s3-num"><b>Peça N°04</b> · <span data-i18n="c3Cat">Projeto pessoal</span></span>
+        <h3 data-i18n="c3Title">Rede Social — Comunidade Web</h3>
+        <p data-i18n="c3Desc">Plataforma de rede social construída do zero: autenticação, feed de publicações e interações, com arquitetura MVC em Node.js e EJS.</p>
+        <div class="s3-metrics">
+          <div class="s3-metric"><span class="n">100%</span><span class="l" data-i18n="c3M1">desenvolvido do zero</span></div>
+          <div class="s3-metric"><span class="n">MVC</span><span class="l" data-i18n="c3M2">arquitetura</span></div>
+        </div>
+        <div class="s3-tags"><span>Node.js</span><span>EJS</span><span data-i18n="tagSequelize">Sequelize ORM</span></div>
+      </div>
+      <div class="vitrine" data-tilt onclick="openCase('case5', this)">
+        <span class="s3-num"><b>Peça N°05</b> · <span data-i18n="c5Cat">Sistemas de gestão</span></span>
+        <h3 data-i18n="c5Title">Sistema de Gestão Comercial</h3>
+        <p data-i18n="c5Desc">Sistema completo para comércio: comandas e pedidos, controle de estoque, fluxo de caixa, leitura de código de barras e relatórios gerenciais, integrado a um banco MySQL centralizado.</p>
+        <div class="s3-metrics">
+          <div class="s3-metric"><span class="n">4</span><span class="l" data-i18n="c5M1">módulos integrados</span></div>
+          <div class="s3-metric"><span class="n">100%</span><span class="l" data-i18n="c5M2">dados centralizados</span></div>
+        </div>
+        <div class="s3-tags"><span>JavaScript</span><span>PHP</span><span>MySQL</span></div>
+      </div>
+      <div class="vitrine" data-tilt onclick="openCase('case4', this)">
+        <span class="s3-num"><b>Peça N°06</b> · <span data-i18n="c4Cat">Front-end</span></span>
+        <h3 data-i18n="c4Title">Este site</h3>
+        <p data-i18n="c4Desc">O próprio portfólio: uma peça viva de front-end, construída do zero em HTML, CSS e JavaScript puro — sem frameworks.</p>
+        <div class="s3-metrics">
+          <div class="s3-metric"><span class="n">0</span><span class="l" data-i18n="c4M1">frameworks</span></div>
+          <div class="s3-metric"><span class="n">2</span><span class="l" data-i18n="c4M2">idiomas (PT/EN)</span></div>
+        </div>
+        <div class="s3-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      </div>
+      </div>
+      <div class="s3-navhint"><span class="arr">←</span> <span data-i18n="s3Navhint">arraste ou role para o lado</span> <span class="arr">→</span></div>
+    </div>
+  </section>
+
+  <!-- CASO 1 -->
+  <div class="case-detail" id="case1">
+    <div class="case-inner">
+      <button class="case-back" onclick="closeCase('case1', event)">← Voltar à galeria</button>
+      <button class="case-copy" onclick="copyCaseLink('case1', this)">🔗 Copiar link</button>
+      <div class="case-eyebrow">Peça N°02 · Sistemas corporativos</div>
+      <h2>Provisionamento automatizado de usuários SaaS</h2>
+      <div class="case-grid">
+        <div class="case-body">
+          <p>Desenvolvi um software MVC com microsserviços, integração nativa ao Active Directory e Windows Forms (.NET), reduzindo o tempo de provisionamento de usuários de <strong>30–45 minutos para 7 minutos</strong> — um ganho de aproximadamente <strong>84%</strong>, beneficiando 25 a 30 usuários por mês.</p>
+          <p>Entre os desafios técnicos resolvidos: inconsistência de <strong>codificação de caracteres</strong> entre o arquivo de configuração e o restante do pipeline, uma lógica de backup que não detectava registros duplicados corretamente, e um ponto de sobrescrita de dados posicionado no lugar errado no serviço. Também mapeei que um erro de identidade não mapeada era uma questão operacional — o usuário de rede precisa existir previamente — não um defeito de código.</p>
+          <p>No mesmo ambiente, desenvolvi do zero uma aplicação web com API REST que <strong>expandiu o acesso a dados de clientes de 4 para 20 usuários (+400%)</strong>, centralizando informações antes restritas ao servidor, e um dashboard em tempo real (Supabase/PostgreSQL) que reduziu consultas de apuração de ponto de 7–15 minutos para acesso instantâneo, atendendo mais de 1.000 clientes.</p>
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#7C8B8F;margin:28px 0 10px;">Arquitetura</h4>
+          <ul class="case-arch">
+            <li>Software MVC com microsserviços e integração nativa ao Active Directory</li>
+            <li>Interface desktop em Windows Forms (.NET) para orquestração do provisionamento</li>
+            <li>Aplicação web com API REST centralizando dados antes restritos ao servidor</li>
+            <li>Dashboard em tempo real sobre Supabase/PostgreSQL para consulta instantânea</li>
+          </ul>
+
+          <button class="case-code-toggle" onclick="toggleCode('code1', this)">&lt;/&gt; Ver trecho de código</button>
+          <div class="case-code" id="code1">
+            <div class="code-note">Trecho ilustrativo do meu estilo de código — não é código de produção real da empresa.</div>
+            <pre><code><span class="k">public async</span> Task&lt;ProvisioningResult&gt; <span class="f">CreateUserAsync</span>(ProvisioningRequest request)
+{
+    <span class="k">if</span> (string.IsNullOrWhiteSpace(request.NetworkId))
+        <span class="k">throw new</span> ArgumentException(<span class="s">"Network ID é obrigatório."</span>, nameof(request));
+
+    _logger.LogInformation(<span class="s">"Iniciando provisionamento para {NetworkId}"</span>, request.NetworkId);
+
+    <span class="k">if</span> (<span class="k">await</span> _directory.UserExistsAsync(request.NetworkId))
+    {
+        _logger.LogWarning(<span class="s">"Usuário {NetworkId} já existe — abortando."</span>, request.NetworkId);
+        <span class="k">return</span> ProvisioningResult.Skipped(request.NetworkId);
+    }
+
+    <span class="k">try</span>
+    {
+        <span class="k">await</span> _directory.CreateUserAsync(request);
+        _logger.LogInformation(<span class="s">"Usuário {NetworkId} provisionado com sucesso."</span>, request.NetworkId);
+        <span class="k">return</span> ProvisioningResult.Success(request.NetworkId);
+    }
+    <span class="k">catch</span> (DirectoryOperationException ex)
+    {
+        _logger.LogError(ex, <span class="s">"Falha ao provisionar {NetworkId}"</span>, request.NetworkId);
+        <span class="k">throw</span>;
+    }
+}</code></pre>
+          </div>
+        </div>
+        <div class="case-side">
+          <div class="case-metrics">
+            <div class="m"><span class="n">~84%</span><span class="l">redução no tempo</span></div>
+            <div class="m"><span class="n">7 min</span><span class="l">tempo final (de 30-45min)</span></div>
+            <div class="m"><span class="n">+400%</span><span class="l">expansão de acesso a dados</span></div>
+            <div class="m"><span class="n">1000+</span><span class="l">clientes atendidos</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="s3-tags"><span>C# / .NET</span><span>ASP.NET MVC</span><span>WinForms</span><span>Active Directory</span><span>APIs REST</span><span>Supabase/PostgreSQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASO 2 -->
+  <div class="case-detail" id="case2">
+    <div class="case-inner">
+      <button class="case-back" onclick="closeCase('case2', event)">← Voltar à galeria</button>
+      <button class="case-copy" onclick="copyCaseLink('case2', this)">🔗 Copiar link</button>
+      <div class="case-eyebrow">Peça N°03 · Automação & BI</div>
+      <h2>Automação de pipeline de KPIs</h2>
+      <div class="case-grid">
+        <div class="case-body">
+          <p>Na SZ Soluções, o envio de dados para os indicadores de atendimento era feito manualmente — processo lento e sujeito a falhas humanas. Automatizei todo o pipeline em <strong>C#</strong>, eliminando <strong>100% da entrada manual de dados</strong> e garantindo atualização contínua dos indicadores sem intervenção humana.</p>
+          <p>Com os dados já consolidados automaticamente, passei a entregar mensalmente <strong>dashboards em Power BI e Looker Studio</strong> — médias, volumes e SLAs — diretamente para a gestão e diretoria da empresa contratante.</p>
+          <p>Também executei queries SQL/MySQL para extração e validação de dados em investigações técnicas, auditorias de SLA e suporte especializado no ERP TOTVS Datasul.</p>
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#7C8B8F;margin:28px 0 10px;">Entregas</h4>
+          <ul class="case-arch">
+            <li>Pipeline de automação de KPIs em C#, sem intervenção manual</li>
+            <li>Dashboards mensais em Power BI e Looker Studio para diretoria</li>
+            <li>Queries SQL/MySQL para auditorias de SLA e investigações técnicas</li>
+            <li>Suporte especializado no ERP TOTVS Datasul</li>
+          </ul>
+        </div>
+        <div class="case-side">
+          <div class="case-metrics">
+            <div class="m"><span class="n">100%</span><span class="l">entrada manual eliminada</span></div>
+            <div class="m"><span class="n">100%</span><span class="l">consistência da informação</span></div>
+            <div class="m"><span class="n">2</span><span class="l">anos na função</span></div>
+            <div class="m"><span class="n">mensal</span><span class="l">entrega de dashboards</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="s3-tags"><span>C#</span><span>SQL / MySQL</span><span>Power BI</span><span>Looker Studio</span><span>TOTVS Datasul</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASO 3 -->
+  <div class="case-detail" id="case3">
+    <div class="case-inner">
+      <button class="case-back" onclick="closeCase('case3', event)">← Voltar à galeria</button>
+      <button class="case-copy" onclick="copyCaseLink('case3', this)">🔗 Copiar link</button>
+      <div class="case-eyebrow">Peça N°04 · Projeto pessoal</div>
+      <h2>Rede Social — Comunidade Web</h2>
+      <div class="case-grid">
+        <div class="case-body">
+          <p>Plataforma de rede social construída do zero, com <strong>autenticação de usuários</strong>, feed de publicações e interações entre usuários — arquitetura <strong>MVC</strong> com Node.js e templates EJS.</p>
+          <p>Modelei os relacionamentos entre usuários, posts e conexões usando <strong>Sequelize ORM</strong> sobre banco MySQL, separando claramente a camada de acesso a dados da lógica de negócio — mesma disciplina de arquitetura que aplico em produção com .NET.</p>
+          <p>Projeto pessoal desenvolvido de ponta a ponta: modelagem de dados, autenticação, rotas, views e persistência — sem starter kits ou boilerplates prontos.</p>
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#7C8B8F;margin:28px 0 10px;">Arquitetura</h4>
+          <ul class="case-arch">
+            <li>Arquitetura MVC com Node.js e templates EJS</li>
+            <li>Autenticação de usuários e gerenciamento de sessão</li>
+            <li>Modelagem de relacionamentos (usuários, posts, conexões) via Sequelize ORM</li>
+            <li>Camada de dados separada da lógica de negócio sobre MySQL</li>
+          </ul>
+          <a href="https://github.com/LaminLeonardo" target="_blank" rel="noopener" class="case-code-toggle" style="display:inline-flex; text-decoration:none; margin-top:10px;">&lt;/&gt; Ver código-fonte no GitHub</a>
+        </div>
+        <div class="case-side">
+          <div class="case-metrics">
+            <div class="m"><span class="n">100%</span><span class="l">desenvolvido do zero</span></div>
+            <div class="m"><span class="n">MVC</span><span class="l">arquitetura aplicada</span></div>
+            <div class="m"><span class="n">2025</span><span class="l">ano do projeto</span></div>
+            <div class="m"><span class="n">ORM</span><span class="l">modelagem de dados</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="s3-tags"><span>Node.js</span><span>Express</span><span>EJS</span><span>Sequelize ORM</span><span>MySQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASO 5 — SISTEMA DE GESTÃO COMERCIAL -->
+  <div class="case-detail" id="case5">
+    <div class="case-inner">
+      <button class="case-back" onclick="closeCase('case5', event)">← Voltar à galeria</button>
+      <button class="case-copy" onclick="copyCaseLink('case5', this)">🔗 Copiar link</button>
+      <div class="case-eyebrow">Peça N°05 · Sistemas de gestão</div>
+      <h2>Sistema de Gestão Comercial</h2>
+      <div class="case-grid">
+        <div class="case-body">
+          <p>Desenvolvido durante o curso técnico no <strong>SENAI</strong> (2022–2024), este sistema cobre o fluxo operacional completo de um pequeno comércio: abertura e fechamento de <strong>comandas/pedidos</strong>, controle de estoque, fluxo de caixa e emissão de relatórios gerenciais para apoiar decisões do dia a dia.</p>
+          <p>Um dos pontos técnicos mais interessantes foi a integração de <strong>leitura de código de barras</strong> ao fluxo de vendas, permitindo lançamento rápido de itens e baixa automática no estoque — tudo persistido em um banco <strong>MySQL centralizado</strong>, garantindo que comandas, estoque e caixa nunca ficassem dessincronizados.</p>
+          <p>O projeto foi construído com <strong>JavaScript e PHP</strong> no back-end, refletindo minha entrada no desenvolvimento antes de migrar o foco principal para .NET — uma base que ajuda a entender diferentes ecossistemas de servidor.</p>
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#7C8B8F;margin:28px 0 10px;">Módulos</h4>
+          <ul class="case-arch">
+            <li>Comandas e pedidos com lançamento de itens</li>
+            <li>Controle de estoque com baixa automática via código de barras</li>
+            <li>Fluxo de caixa (abertura, movimentações, fechamento)</li>
+            <li>Relatórios gerenciais sobre banco MySQL centralizado</li>
+          </ul>
+        </div>
+        <div class="case-side">
+          <div class="case-metrics">
+            <div class="m"><span class="n">4</span><span class="l">módulos principais</span></div>
+            <div class="m"><span class="n">100%</span><span class="l">dados centralizados</span></div>
+            <div class="m"><span class="n">2022–24</span><span class="l">período (SENAI)</span></div>
+            <div class="m"><span class="n">1</span><span class="l">banco de dados único</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="s3-tags"><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>Código de barras</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASO 4 — ESTE SITE -->
+  <div class="case-detail" id="case4">
+    <div class="case-inner">
+      <button class="case-back" onclick="closeCase('case4', event)">← Voltar à galeria</button>
+      <button class="case-copy" onclick="copyCaseLink('case4', this)">🔗 Copiar link</button>
+      <div class="case-eyebrow">Peça N°06 · Front-end</div>
+      <h2>Este site</h2>
+      <div class="case-grid">
+        <div class="case-body">
+          <p>O portfólio que você está usando agora <strong>é</strong> a prova de front-end — não uma descrição dela. Construído do zero, sem frameworks: HTML, CSS e JavaScript puro, com foco em performance e em técnicas modernas de plataforma web.</p>
+          <p>O conceito de "galeria" guiou cada decisão: entrada em perspectiva 3D, transição de cor ligada ao scroll, casos de projeto que abrem em tela cheia com <strong>morph nativo via View Transitions API</strong>, e uma trilha horizontal de projetos com revelação progressiva via <strong>Intersection Observer</strong>.</p>
+          <p>Inclui sistema de tradução PT/EN próprio, modo condensado para recrutadores, suporte a <code>prefers-reduced-motion</code> e estados de foco visíveis — acessibilidade não foi tratada como opcional.</p>
+          <h4 style="font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:#7C8B8F;margin:28px 0 10px;">Técnicas usadas</h4>
+          <ul class="case-arch">
+            <li>View Transitions API para o zoom nativo entre card e caso expandido</li>
+            <li>Intersection Observer para revelar conteúdo conforme rola</li>
+            <li>CSS scroll-snap para as trilhas horizontais (projetos e timeline)</li>
+            <li>Sistema de i18n (PT/EN) escrito do zero, sem biblioteca</li>
+          </ul>
+          <a href="https://github.com/LaminLeonardo/portfolio" target="_blank" rel="noopener" class="case-code-toggle" style="display:inline-flex; text-decoration:none; margin-top:10px;">&lt;/&gt; Ver código-fonte completo no GitHub</a>
+        </div>
+        <div class="case-side">
+          <div class="case-metrics">
+            <div class="m"><span class="n">0</span><span class="l">frameworks</span></div>
+            <div class="m"><span class="n">100%</span><span class="l">estático</span></div>
+            <div class="m"><span class="n">2</span><span class="l">idiomas (PT/EN)</span></div>
+            <div class="m"><span class="n">6</span><span class="l">seções</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="s3-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>View Transitions API</span><span>Intersection Observer</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA 4 -->
+  <!-- RECOMENDAÇÕES -->
+  <section class="rec immersive">
+    <div class="rec-inner">
+      <div class="rec-eyebrow">Vozes do acervo</div>
+      <h2>Recomendações</h2>
+      <div class="rec-grid">
+        <div class="rec-card">
+          <p>"Escreva aqui uma recomendação real de um professor, colega ou gestor."</p>
+          <span class="who">Nome — Cargo/Relação</span>
+          <span class="placeholder-note">placeholder — substitua por um depoimento real</span>
+        </div>
+        <div class="rec-card">
+          <p>"Uma segunda recomendação, se tiver disponível, reforça a credibilidade."</p>
+          <span class="who">Nome — Cargo/Relação</span>
+          <span class="placeholder-note">placeholder — substitua por um depoimento real</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s4 immersive" id="contato">
+    <div class="s4-eyebrow" data-i18n="s4Eyebrow">Peça N°07 — Saída da galeria</div>
+    <h2 data-i18n="s4Heading">Vamos <span>conversar</span></h2>
+    <p class="s4-lead" data-i18n="s4Lead">Sem formulário, sem fricção. Escolha o canal e fale direto comigo.</p>
+    <div class="s4-links">
+      <a href="mailto:LeonardoLamin.Tech@gmail.com"><span><span class="label" data-i18n="lblEmail">E-mail</span>LeonardoLamin.Tech@gmail.com</span><span class="arrow">↗</span></a>
+      <a href="https://wa.me/5547999304752" target="_blank" rel="noopener"><span><span class="label" data-i18n="lblWpp">WhatsApp</span>(47) 99930-4752</span><span class="arrow">↗</span></a>
+      <a href="https://github.com/LaminLeonardo" target="_blank" rel="noopener"><span><span class="label">GitHub</span>github.com/LaminLeonardo</span><span class="arrow">↗</span></a>
+      <a href="https://linkedin.com/in/leonardolamin" target="_blank" rel="noopener"><span><span class="label">LinkedIn</span>linkedin.com/in/leonardolamin</span><span class="arrow">↗</span></a>
+      <a href="curriculo-leonardo.pdf" download class="s4-cv"><span><span class="label" data-i18n="lblDoc">Documento</span><span data-i18n="lblCv">Baixar currículo (PDF)</span></span><span class="arrow">↓</span></a>
+      <a href="https://github.com/LaminLeonardo/portfolio" target="_blank" rel="noopener"><span><span class="label" data-i18n="lblCode">Código-fonte</span>github.com/LaminLeonardo/portfolio</span><span class="arrow">↗</span></a>
+    </div>
+
+    <div class="s4-qr">
+      <div id="qrcode"></div>
+      <span class="s4-qr-label" data-i18n="qrLabel">escaneie para o LinkedIn</span>
+    </div>
+
+    <div class="s4-exit" data-i18n="s4Exit">Fim do acervo · <b>obrigado pela visita</b></div>
+  </section>
+
+  <!-- MODO RECRUTADOR — versão condensada, uma tela só -->
+  <div class="recruiter-view">
+    <div class="rv-inner">
+      <h1>Leonardo</h1>
+      <p class="rv-role" data-i18n="rvRole">Desenvolvedor .NET · Estudante de Engenharia de Software — UNISC</p>
+
+      <h2 data-i18n="rvAboutH">Sobre</h2>
+      <p data-i18n="rvAboutP">Desenvolvedor .NET focado em sistemas de provisionamento automatizado — orquestração de serviços, integração com Active Directory e bancos relacionais. Debug orientado a evidência (log antes de suposição), entrega em ciclos curtos.</p>
+
+      <h2 data-i18n="rvProjH">Projetos</h2>
+      <div class="rv-proj"><b data-i18n="c1Title">Provisionamento automatizado de usuários SaaS</b><span data-i18n="rvP1">C# / .NET · ASP.NET MVC · WinForms · Active Directory — redução de ~84% no tempo de provisionamento (30-45min → 7min), +400% de expansão no acesso a dados.</span></div>
+      <div class="rv-proj"><b data-i18n="c2Title">Automação de pipeline de KPIs</b><span data-i18n="rvP2">C# · SQL · Power BI — eliminei 100% da entrada manual de dados, dashboards mensais para diretoria.</span></div>
+      <div class="rv-proj"><b data-i18n="c3Title">Rede Social — Comunidade Web</b><span data-i18n="rvP3">Node.js · EJS · Sequelize ORM · MySQL — plataforma completa construída do zero, arquitetura MVC.</span></div>
+
+      <h2 data-i18n="navContato">Contato</h2>
+      <div class="rv-links">
+        <a href="mailto:LeonardoLamin.Tech@gmail.com" data-i18n="lblEmail">E-mail</a>
+        <a href="https://wa.me/5547999304752" target="_blank" rel="noopener" data-i18n="lblWpp">WhatsApp</a>
+        <a href="https://github.com/LaminLeonardo" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/leonardolamin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="curriculo-leonardo.pdf" download data-i18n="rvCv">Currículo (PDF)</a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== i18n — PT/EN ===== */
+  const TRANSLATIONS = {
+    navSobre:{pt:'Sobre',en:'About'}, navProjetos:{pt:'Projetos',en:'Projects'}, navContato:{pt:'Contato',en:'Contact'},
+    navRecruiterOn:{pt:'Modo recrutador',en:'Recruiter mode'}, navRecruiterOff:{pt:'Modo galeria',en:'Gallery mode'},
+    heroEyebrow:{pt:'Acervo pessoal — Peça N°00',en:'Personal collection — Piece N°00'},
+    heroRole:{pt:'Desenvolvedor Backend .NET · Integração de Sistemas · Automação',en:'Backend .NET Developer · Systems Integration · Automation'},
+    heroPlate:{pt:'Entrada da galeria',en:'Gallery entrance'},
+    heroAvailable:{pt:'Aberto a oportunidades — .NET Júnior',en:'Open to opportunities — Junior .NET'},
+    heroCta:{pt:'Ver projetos ↓',en:'View projects ↓'},
+    heroScroll:{pt:'Role para entrar',en:'Scroll to enter'},
+    heroPhotoTag:{pt:'Leonardo Lamin',en:'Leonardo Lamin'},
+    soPeca:{pt:'Peça N°01',en:'Piece N°01'}, soFicha:{pt:'— Ficha do acervo',en:'— Collection record'},
+    soHeading:{pt:'Sobre o <span>curador</span>',en:'About the <span>curator</span>'},
+    soP1:{pt:'Desenvolvedor backend com experiência em produção em <strong>C# (.NET)</strong>, atuando no desenvolvimento de softwares, APIs REST e automações com <strong>impacto mensurável</strong>: reduziu em ~84% o tempo de provisionamento de usuários SaaS, expandiu acesso a dados de 4 para 20 usuários e eliminou gargalos manuais em ambiente com mais de 1.000 clientes.',en:'Backend developer with production experience in <strong>C# (.NET)</strong>, working on software, REST APIs and automation with <strong>measurable impact</strong>: reduced SaaS user provisioning time by ~84%, expanded data access from 4 to 20 users, and eliminated manual bottlenecks in an environment with 1,000+ clients.'},
+    soP2:{pt:'Estudante de <strong>Engenharia de Software</strong> na Universidade Católica de Santa Catarina, conciliando teoria acadêmica com problemas reais de produção: encoding, concorrência, logs, deploy.',en:'<strong>Software Engineering</strong> student at Universidade Católica de Santa Catarina, balancing academic theory with real production problems: encoding, concurrency, logs, deployment.'},
+    soP3:{pt:'Prefere depurar com base em evidência — <strong>log antes de suposição</strong> — e entregar em ciclos curtos e incrementais.',en:'Prefers evidence-based debugging — <strong>logs before assumptions</strong> — and delivering in short, incremental cycles.'},
+    soL1:{pt:'Atuação',en:'Role'}, soV1:{pt:'Backend C# (.NET) · APIs REST · Integração de sistemas',en:'Backend C# (.NET) · REST APIs · Systems integration'},
+    soLExpFe:{pt:'Experiência · Front-end',en:'Experience · Front-end'},
+    soLExpBe:{pt:'Experiência · .NET',en:'Experience · .NET'},
+    soL2:{pt:'Formação',en:'Education'}, soV2:{pt:'Eng. de Software — UNISC (em curso) · Téc. em Dev. de Software — SENAI',en:'Software Eng. — UNISC (in progress) · Software Dev. Technician — SENAI'},
+    soL3:{pt:'Metodologia',en:'Approach'}, soV3:{pt:'Debug orientado a log · entrega incremental',en:'Log-driven debugging · incremental delivery'},
+    soLIdi:{pt:'Idiomas',en:'Languages'}, soVIdi:{pt:'Português (nativo) · Inglês (intermediário — leitura técnica e conversação)',en:'Portuguese (native) · English (intermediate — technical reading and conversation)'},
+    soL4:{pt:'Stack',en:'Stack'},
+    s3Eyebrow:{pt:'Você entrou no sistema',en:'You entered the system'}, s3Heading:{pt:'Galeria de <span>projetos</span>',en:'Project <span>gallery</span>'},
+    s3Navhint:{pt:'arraste ou role para o lado',en:'drag or scroll sideways'},
+    c1Cat:{pt:'Sistemas corporativos',en:'Enterprise systems'}, c1Title:{pt:'Provisionamento automatizado de usuários SaaS',en:'Automated SaaS user provisioning'},
+    c1Desc:{pt:'Software MVC com microsserviços, integração nativa ao Active Directory e Windows Forms (.NET), reduzindo o tempo de provisionamento de 30–45 min para 7 min — beneficiando 25–30 usuários por mês.',en:'MVC software with microservices, native Active Directory integration and Windows Forms (.NET), cutting provisioning time from 30–45 min to 7 min — benefiting 25–30 users per month.'},
+    c1M1:{pt:'redução no tempo',en:'time reduction'}, c1M2:{pt:'usuários/mês beneficiados',en:'users/month benefited'},
+    c2Cat:{pt:'Automação & BI',en:'Automation & BI'}, c2Title:{pt:'Automação de pipeline de KPIs',en:'KPI pipeline automation'},
+    c2Desc:{pt:'Automatizei em C# o envio de dados para KPIs de atendimento, eliminando 100% da entrada manual e entregando dashboards mensais em Power BI para a diretoria.',en:'Automated KPI data pipeline in C#, eliminating 100% of manual data entry and delivering monthly Power BI dashboards to leadership.'},
+    c2M1:{pt:'manual eliminado',en:'manual entry eliminated'}, c2M2:{pt:'consistência',en:'consistency'},
+    tagPowerBI:{pt:'Power BI',en:'Power BI'},
+    c3Cat:{pt:'Projeto pessoal',en:'Personal project'}, c3Title:{pt:'Rede Social — Comunidade Web',en:'Social Network — Web Community'},
+    c3Desc:{pt:'Plataforma de rede social construída do zero: autenticação, feed de publicações e interações, com arquitetura MVC em Node.js e EJS.',en:'Social network platform built from scratch: authentication, post feed and user interactions, with MVC architecture in Node.js and EJS.'},
+    c3M1:{pt:'desenvolvido do zero',en:'built from scratch'}, c3M2:{pt:'arquitetura',en:'architecture'},
+    tagSequelize:{pt:'Sequelize ORM',en:'Sequelize ORM'},
+    c5Cat:{pt:'Sistemas de gestão',en:'Management systems'}, c5Title:{pt:'Sistema de Gestão Comercial',en:'Commercial Management System'},
+    c5Desc:{pt:'Sistema completo para comércio: comandas e pedidos, controle de estoque, fluxo de caixa, leitura de código de barras e relatórios gerenciais, integrado a um banco MySQL centralizado.',en:'Complete system for retail: orders/tabs, stock control, cash flow, barcode scanning and management reports, integrated with a centralized MySQL database.'},
+    c5M1:{pt:'módulos integrados',en:'integrated modules'}, c5M2:{pt:'dados centralizados',en:'centralized data'},
+    c4Cat:{pt:'Front-end',en:'Front-end'}, c4Title:{pt:'Este site',en:'This website'},
+    c4Desc:{pt:'O próprio portfólio: uma peça viva de front-end, construída do zero em HTML, CSS e JavaScript puro — sem frameworks.',en:'The portfolio itself: a living front-end piece, built from scratch in vanilla HTML, CSS and JavaScript — no frameworks.'},
+    c4M1:{pt:'frameworks',en:'frameworks'}, c4M2:{pt:'idiomas (PT/EN)',en:'languages (PT/EN)'},
+    s4Eyebrow:{pt:'Peça N°07 — Saída da galeria',en:'Piece N°07 — Gallery exit'}, s4Heading:{pt:'Vamos <span>conversar</span>',en:"Let's <span>talk</span>"},
+    s4Lead:{pt:'Sem formulário, sem fricção. Escolha o canal e fale direto comigo.',en:'No forms, no friction. Pick a channel and reach out directly.'},
+    lblEmail:{pt:'E-mail',en:'Email'}, lblWpp:{pt:'WhatsApp',en:'WhatsApp'}, lblDoc:{pt:'Documento',en:'Document'}, lblCv:{pt:'Baixar currículo (PDF)',en:'Download résumé (PDF)'}, lblCode:{pt:'Código-fonte',en:'Source code'},
+    qrLabel:{pt:'escaneie para o LinkedIn',en:'scan for LinkedIn'},
+    s4Exit:{pt:'Fim do acervo · <b>obrigado pela visita</b>',en:'End of collection · <b>thanks for visiting</b>'},
+    hudOnline:{pt:'sistema online',en:'system online'}, hudUptimeLbl:{pt:'uptime',en:'uptime'}, hudLocalLbl:{pt:'local',en:'local'},
+    rvRole:{pt:'Desenvolvedor Full-Stack · Front-end há 3 anos · .NET há 1 ano+ — UNISC',en:'Full-Stack Developer · 3y front-end · 1y+ .NET — UNISC'},
+    rvAboutH:{pt:'Sobre',en:'About'},
+    rvAboutP:{pt:'Desenvolvedor Full-Stack com 3 anos de front-end (HTML/CSS/JS) e mais de 1 ano com .NET, atualmente focado em sistemas de provisionamento automatizado — orquestração de serviços, integração com Active Directory e bancos relacionais. Debug orientado a evidência (log antes de suposição), entrega em ciclos curtos.',en:'Full-Stack developer with 3 years of front-end (HTML/CSS/JS) and 1+ year with .NET, currently focused on automated provisioning systems — service orchestration, Active Directory integration and relational databases. Evidence-based debugging (logs before assumptions), short delivery cycles.'},
+    rvProjH:{pt:'Projetos',en:'Projects'},
+    rvP1:{pt:'C# / .NET · ASP.NET MVC · WinForms · Active Directory — redução de ~84% no tempo de provisionamento (30-45min → 7min), +400% de expansão no acesso a dados.',en:'C# / .NET · ASP.NET MVC · WinForms · Active Directory — ~84% reduction in provisioning time (30-45min → 7min), +400% increase in data access.'},
+    rvP2:{pt:'C# · SQL · Power BI — eliminei 100% da entrada manual de dados, dashboards mensais para diretoria.',en:'C# · SQL · Power BI — eliminated 100% of manual data entry, monthly dashboards for leadership.'},
+    rvP3:{pt:'Node.js · EJS · Sequelize ORM · MySQL — plataforma completa construída do zero, arquitetura MVC.',en:'Node.js · EJS · Sequelize ORM · MySQL — full platform built from scratch, MVC architecture.'},
+    rvCv:{pt:'Currículo (PDF)',en:'Résumé (PDF)'}
+  };
+  let currentLang = 'pt';
+  function applyLang(lang){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(TRANSLATIONS[key]) el.innerHTML = TRANSLATIONS[key][lang];
+    });
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  }
+  function toggleLang(){
+    currentLang = currentLang === 'pt' ? 'en' : 'pt';
+    document.getElementById('langToggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
+    const rBtn = document.getElementById('recruiterToggle');
+    const inRecruiter = document.body.classList.contains('recruiter-mode');
+    rBtn.setAttribute('data-i18n', inRecruiter ? 'navRecruiterOff' : 'navRecruiterOn');
+    applyLang(currentLang);
+    const roleEl = document.getElementById('typedRole');
+    if(roleEl) roleEl.textContent = TRANSLATIONS.heroRole[currentLang];
+    updateExperience();
+  }
+  if(!reduced){
+    const stage1 = document.getElementById('stage1');
+    const corridor1 = document.getElementById('corridor1');
+    stage1.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / window.innerWidth - 0.5);
+      const y = (e.clientY / window.innerHeight - 0.5);
+      corridor1.style.transform = `rotateY(${x*6}deg) rotateX(${-y*4}deg)`;
+    });
+    stage1.addEventListener('mouseleave', ()=>{ corridor1.style.transform = 'rotateY(0deg) rotateX(0deg)'; });
+
+    document.querySelectorAll('[data-tilt]').forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left)/r.width - 0.5;
+        const y = (e.clientY - r.top)/r.height - 0.5;
+        card.style.transform = `rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(4px)`;
+      });
+      card.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateY(0) rotateX(0)'; });
+    });
+  }
+
+  /* transição contínua de cor da luz ambiente ao rolar */
+  const hueStops = [40, 40, 175, 320, 320]; // amber -> amber -> cyan -> magenta -> magenta
+  let ticking = false;
+  function updateAmbient(){
+    const max = document.body.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    const seg = progress * (hueStops.length - 1);
+    const i = Math.min(hueStops.length - 2, Math.floor(seg));
+    const t = seg - i;
+    const hue = hueStops[i] + (hueStops[i+1] - hueStops[i]) * t;
+    document.documentElement.style.setProperty('--accent-h', hue.toFixed(1));
+    document.getElementById('navprogress').style.width = (progress*100).toFixed(1) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{
+    if(!ticking){ requestAnimationFrame(updateAmbient); ticking = true; }
+  });
+  updateAmbient();
+
+  (function typeRole(){
+    const el = document.getElementById('typedRole');
+    if(!el) return;
+    const text = TRANSLATIONS.heroRole[currentLang];
+    if(reduced){ el.textContent = text; return; }
+    let i = 0;
+    (function step(){
+      el.textContent = text.slice(0, i);
+      i++;
+      if(i <= text.length) setTimeout(step, 32);
+    })();
+  })();
+
+  function tickClock(){
+    const el = document.getElementById('hudclock');
+    if(el) el.textContent = new Date().toLocaleTimeString('pt-BR', {hour12:false});
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.case-detail.active').forEach(d=>{
+        d.classList.remove('active'); document.body.style.overflow='';
+      });
+      closeTerm();
+    }
+    if((e.key === 'l' || e.key === 'L') && !e.metaKey && !e.ctrlKey){
+      const tag = (document.activeElement && document.activeElement.tagName) || '';
+      if(tag !== 'INPUT' && tag !== 'TEXTAREA') openTerm();
+    }
+  });
+
+  const termLines = [
+    {t:'info', m:'09:14:02 sessão iniciada — carregando acervo...'},
+    {t:'ok',   m:'provisionamento SaaS: 30-45min → 7min (~84% de redução)'},
+    {t:'ok',   m:'acesso a dados expandido: 4 → 20 usuários (+400%)'},
+    {t:'ok',   m:'dashboard tempo real: 7-15min → instantâneo (1000+ clientes)'},
+    {t:'ok',   m:'pipeline de KPIs: 100% da entrada manual eliminada'},
+    {t:'info', m:'IdentityNotMappedException investigada — causa operacional confirmada, não bug'},
+    {t:'info', m:'uptime do sistema: 99.98%'},
+    {t:'info', m:'--- stack deste site ---'},
+    {t:'ok',   m:'HTML5 · CSS3 · JavaScript vanilla — 0 frameworks'},
+    {t:'ok',   m:'View Transitions API · Intersection Observer'},
+    {t:'ok',   m:'i18n PT/EN escrito do zero'},
+    {t:'ready',m:'pronto. pressione ESC para sair.'}
+  ];
+  let termTyped = false;
+  function openTerm(){
+    document.getElementById('termOverlay').classList.add('active');
+    if(termTyped) return;
+    termTyped = true;
+    const body = document.getElementById('termBody');
+    let i = 0;
+    (function next(){
+      if(i >= termLines.length) return;
+      const l = termLines[i];
+      const row = document.createElement('div');
+      row.className = l.t;
+      row.textContent = '$ ' + l.m;
+      body.appendChild(row);
+      i++;
+      setTimeout(next, 260);
+    })();
+  }
+  function closeTerm(){
+    document.getElementById('termOverlay').classList.remove('active');
+  }
+
+  function toggleRecruiter(){
+    const on = document.body.classList.toggle('recruiter-mode');
+    const btn = document.getElementById('recruiterToggle');
+    btn.setAttribute('data-i18n', on ? 'navRecruiterOff' : 'navRecruiterOn');
+    btn.textContent = TRANSLATIONS[on ? 'navRecruiterOff' : 'navRecruiterOn'][currentLang];
+    window.scrollTo(0,0);
+  }
+
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>{ document.getElementById('loader').classList.add('hidden'); }, 400);
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  if(window.QRCode){
+    new QRCode(document.getElementById('qrcode'), {
+      text: 'https://linkedin.com/in/leonardolamin',
+      width: 108, height: 108,
+      colorDark: '#05070A', colorLight: '#ffffff'
+    });
+  }
+
+  const track = document.getElementById('s3track');
+  track.addEventListener('wheel', (e)=>{
+    if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+      const atStart = track.scrollLeft <= 0;
+      const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+      if((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)){
+        e.preventDefault();
+        track.scrollLeft += e.deltaY;
+      }
+    }
+  }, {passive:false});
+
+  function openCase(id, cardEl){
+    const detail = document.getElementById(id);
+    const doOpen = ()=>{ detail.classList.add('active'); document.body.style.overflow='hidden'; };
+    if(document.startViewTransition && !reduced && cardEl){
+      cardEl.style.viewTransitionName = 'projmorph';
+      detail.style.viewTransitionName = 'projmorph';
+      const t = document.startViewTransition(doOpen);
+      t.finished.finally(()=>{ cardEl.style.viewTransitionName=''; });
+    } else { doOpen(); }
+    history.replaceState(null, '', '#' + id);
+  }
+  function closeCase(id, evt){
+    if(evt) evt.stopPropagation();
+    const detail = document.getElementById(id);
+    const doClose = ()=>{ detail.classList.remove('active'); document.body.style.overflow=''; };
+    if(document.startViewTransition && !reduced){
+      const t = document.startViewTransition(doClose);
+      t.finished.finally(()=>{ detail.style.viewTransitionName=''; });
+    } else { doClose(); }
+    history.replaceState(null, '', '#projetos');
+  }
+
+  window.addEventListener('DOMContentLoaded', ()=>{
+    const hash = location.hash.replace('#','');
+    if(['case1','case2','case3','case4','case5'].includes(hash)) openCase(hash, null);
+  });
+
+  function copyCaseLink(id, btn){
+    const url = location.origin + location.pathname + '#' + id;
+    navigator.clipboard.writeText(url).then(()=>{
+      const original = btn.textContent;
+      btn.textContent = '✓ Link copiado';
+      setTimeout(()=>{ btn.textContent = original; }, 1800);
+    });
+  }
+
+  function toggleCode(id, btn){
+    const el = document.getElementById(id);
+    const open = el.classList.toggle('open');
+    btn.textContent = open ? '</> Ocultar trecho de código' : '</> Ver trecho de código';
+  }
+
+  const tltrack = document.getElementById('tltrack');
+  if(tltrack){
+    tltrack.addEventListener('wheel', (e)=>{
+      if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+        const atStart = tltrack.scrollLeft <= 0;
+        const atEnd = tltrack.scrollLeft >= tltrack.scrollWidth - tltrack.clientWidth - 1;
+        if((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)){
+          e.preventDefault();
+          tltrack.scrollLeft += e.deltaY;
+        }
+      }
+    }, {passive:false});
+
+    const tlObs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add('revealed');
+      });
+    }, {threshold:0.5});
+    tltrack.querySelectorAll('.tl-item').forEach(item=> tlObs.observe(item));
+  }
+
+  /* ===== CONTADOR DE EXPERIÊNCIA — calculado a partir da data de início ===== */
+  const CAREER_START_FE = new Date('2023-02-01'); // front-end
+  const CAREER_START_BE = new Date('2025-03-01'); // .NET — BMA Sistemas
+
+  function formatSince(start){
+    const now = new Date();
+    let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+    if(now.getDate() < start.getDate()) months--;
+    months = Math.max(months, 0);
+    const years = Math.floor(months / 12);
+    const remMonths = months % 12;
+    if(years === 0) return currentLang === 'pt' ? `${remMonths} meses` : `${remMonths} months`;
+    if(remMonths === 0) return currentLang === 'pt' ? `${years} ano${years>1?'s':''}` : `${years} year${years>1?'s':''}`;
+    return currentLang === 'pt' ? `${years} ano${years>1?'s':''} e ${remMonths} ${remMonths>1?'meses':'mês'}` : `${years}y ${remMonths}mo`;
+  }
+  function updateExperience(){
+    const feEl = document.getElementById('expCounterFe');
+    const beEl = document.getElementById('expCounterBe');
+    if(feEl) feEl.textContent = formatSince(CAREER_START_FE);
+    if(beEl) beEl.textContent = formatSince(CAREER_START_BE);
+  }
+  updateExperience();
+
+  const diagPanel = document.getElementById('diagPanel');
+  if(diagPanel){
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          diagPanel.querySelectorAll('.diag-bar span').forEach(bar=>{
+            bar.style.transition = 'width 1s cubic-bezier(.4,0,.2,1)';
+            bar.style.width = bar.dataset.w + '%';
+          });
+          obs.disconnect();
+        }
+      });
+    }, {threshold:0.4});
+    obs.observe(diagPanel);
+  }
+</script>
+</body>
+</html>
