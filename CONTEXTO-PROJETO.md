@@ -7,7 +7,7 @@
 - LinkedIn: linkedin.com/in/leonardolamin
 - GitHub: github.com/LaminLeonardo
 - Localização: Joinville — SC
-- Também sou desenvolvedor na BMA Sistemas e estudante de Engenharia de Software na Universidade Católica de Santa Catarina (UNISC)
+- Também sou desenvolvedor na BMA Sistemas e estudante de Engenharia de Software na Universidade Católica de Santa Catarina (Católica SC)
 - **Currículo real em PDF** no repositório: `LeonardoLaminResume.pdf` (atenção: o PDF diz "Java" no projeto do SENAI; o correto é JavaScript + PHP)
 
 ## Posicionamento profissional (direto do currículo real)
@@ -18,7 +18,7 @@
 ## Formação e trajetória real (cronologia)
 - **2022–2024**: SENAI — Técnico em Desenvolvimento de Software
 - **01/2023–02/2025**: SZ Soluções — Analista de Suporte Júnior (automação de KPIs em C#, dashboards Power BI/Looker Studio, SQL/MySQL, suporte ERP TOTVS Datasul)
-- **2025–2029 (em curso)**: UNISC — Bacharelado em Engenharia de Software
+- **2025–2029 (em curso)**: Católica SC — Bacharelado em Engenharia de Software
 - **03/2025–presente**: BMA Sistemas — Auxiliar de Desenvolvimento (Backend .NET)
 
 ## Conquistas reais (currículo) — usadas como métricas no site
@@ -62,7 +62,7 @@ Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde
 2. **Sobre** (`#sobre`): bio real, foto, ficha com dois contadores calculados via JS (front-end desde 02/2023, .NET desde 03/2025), formação, idiomas, status. Abaixo, os quatro números: −84%, 7 min, +400%, 1.000+.
 3. **Projetos** (`#projetos`): cinco cards (Provisionamento SaaS `case1`, Pipeline de KPIs `case2`, Rede Social `case3`, Gestão Comercial `case5`, Este site `case4`). Clicar puxa o card, solta partículas até o buraco negro e abre o caso num painel por cima, com todo o texto (descrição, arquitetura/entregas, métricas, stack). O caso 1 tem o trecho C# ilustrativo, com o aviso de que não é código de produção.
 4. **Stack em órbitas** (`#stack`): interna (C#, .NET, SQL Server, APIs REST), média (ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL, IIS) e externa (Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS, Scrum).
-5. **Trajetória** (`#trajetoria`): SENAI 2022 (sistema de gestão em JavaScript + PHP), SZ Soluções 2023, UNISC 2025, BMA 2025, Hoje.
+5. **Trajetória** (`#trajetoria`): SENAI 2022 (sistema de gestão em JavaScript + PHP), SZ Soluções 2023, Católica SC 2025, BMA 2025, Hoje.
 6. **Recomendações** (`#recomendacoes`): **dois depoimentos reais, já preenchidos**, mantidos no original: Daniel Fernando Gonçalves e Carlos Eduardo Chierighini de Siqueira (ambos "trabalhou na mesma equipe que Leonardo"). Só mudam com texto real enviado pelo Leonardo.
 7. **Contato** (`#contato`): e-mail, WhatsApp, LinkedIn, GitHub, código-fonte (`github.com/LaminLeonardo/Portifolio`), currículo e QR code do LinkedIn (`qrcodejs` via cdnjs).
 
@@ -88,4 +88,4 @@ Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde
 - [x] Repositório publicado no GitHub
 - [x] Domínio real no `robots.txt`/`sitemap.xml`
 - [ ] Imagem de prévia (`og:image`/`twitter:image`) real, hoje um placeholder (fase 02)
-- [ ] Confirmar nome e sigla da universidade (o site usa "UNISC" e "Universidade Católica de Santa Catarina")
+- [x] Sigla da universidade corrigida para "Católica SC" (Universidade Católica de Santa Catarina)
