@@ -1,321 +1,218 @@
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ===== SITE — interação (i18n, navegação, órbitas, contadores) =====
+   O canvas fica em universo.js e é controlado pela API window.Universo. */
+(function(){
+  const U = window.Universo || { burst(){}, feed(){}, pause(){}, resume(){}, isPaused(){ return false; } };
 
   /* ===== i18n — PT/EN ===== */
   const TRANSLATIONS = {
-    navSobre:{pt:'Sobre',en:'About'}, navProjetos:{pt:'Projetos',en:'Projects'}, navContato:{pt:'Contato',en:'Contact'},
-    navRecruiterOn:{pt:'Modo recrutador',en:'Recruiter mode'}, navRecruiterOff:{pt:'Modo galeria',en:'Gallery mode'},
-    heroEyebrow:{pt:'Acervo pessoal — Peça N°00',en:'Personal collection — Piece N°00'},
-    heroRole:{pt:'Desenvolvedor Backend .NET · Integração de Sistemas · Automação',en:'Backend .NET Developer · Systems Integration · Automation'},
-    heroPlate:{pt:'Entrada da galeria',en:'Gallery entrance'},
+    skip:{pt:'Pular para o conteúdo',en:'Skip to content'},
+    navAria:{pt:'Seções',en:'Sections'},
+    navSobre:{pt:'Sobre',en:'About'}, navProjetos:{pt:'Projetos',en:'Projects'}, navStack:{pt:'Stack',en:'Stack'}, navContato:{pt:'Contato',en:'Contact'},
+    navPause:{pt:'Pausar universo',en:'Pause universe'}, navResume:{pt:'Retomar universo',en:'Resume universe'},
+    heroEyebrow:{pt:'Backend .NET · Joinville, SC',en:'Backend .NET · Joinville, Brazil'},
+    heroRole:{pt:'desenvolvedor .NET',en:'.NET developer'},
+    heroLead:{pt:'Processos manuais entram, <b>sistemas automatizados saem</b>. Construo provisionamento, APIs REST e integrações com C#, .NET e Active Directory na BMA Sistemas.',en:'Manual processes go in, <b>automated systems come out</b>. I build provisioning, REST APIs and integrations with C#, .NET and Active Directory at BMA Sistemas.'},
     heroAvailable:{pt:'Aberto a oportunidades — .NET Júnior',en:'Open to opportunities — Junior .NET'},
-    heroCta:{pt:'Ver projetos ↓',en:'View projects ↓'},
-    heroScroll:{pt:'Role para entrar',en:'Scroll to enter'},
-    heroPhotoTag:{pt:'Leonardo Lamin',en:'Leonardo Lamin'},
-    soPeca:{pt:'Peça N°01',en:'Piece N°01'}, soFicha:{pt:'— Ficha do acervo',en:'— Collection record'},
-    soHeading:{pt:'Sobre o <span>curador</span>',en:'About the <span>curator</span>'},
-    soP1:{pt:'Desenvolvedor backend com experiência em produção em <strong>C# (.NET)</strong>, atuando no desenvolvimento de softwares, APIs REST e automações com <strong>impacto mensurável</strong>: reduziu em ~93% o tempo de provisionamento de usuários SaaS, expandiu acesso a dados de 4 para 20 usuários e eliminou gargalos manuais em ambiente com mais de 1.000 clientes.',en:'Backend developer with production experience in <strong>C# (.NET)</strong>, working on software, REST APIs and automation with <strong>measurable impact</strong>: reduced SaaS user provisioning time by ~93%, expanded data access from 4 to 20 users, and eliminated manual bottlenecks in an environment with 1,000+ clients.'},
-    soP2:{pt:'Estudante de <strong>Engenharia de Software</strong> na Universidade Católica de Santa Catarina, conciliando teoria acadêmica com problemas reais de produção: encoding, concorrência, logs, deploy.',en:'<strong>Software Engineering</strong> student at Universidade Católica de Santa Catarina, balancing academic theory with real production problems: encoding, concurrency, logs, deployment.'},
-    soP3:{pt:'Prefere depurar com base em evidência — <strong>log antes de suposição</strong> — e entregar em ciclos curtos e incrementais.',en:'Prefers evidence-based debugging — <strong>logs before assumptions</strong> — and delivering in short, incremental cycles.'},
-    soL1:{pt:'Atuação',en:'Role'}, soV1:{pt:'Backend C# (.NET) · APIs REST · Integração de sistemas',en:'Backend C# (.NET) · REST APIs · Systems integration'},
+    heroCta:{pt:'Ver projetos',en:'View projects'},
+    heroCv:{pt:'Baixar currículo',en:'Download résumé'},
+    heroHint:{pt:'clique em qualquer lugar do espaço para alimentar o buraco negro',en:'click anywhere in space to feed the black hole'},
+    soHeading:{pt:'Perto do centro, onde as coisas acontecem',en:'Close to the center, where things happen'},
+    soP1:{pt:'Sou desenvolvedor na <b>BMA Sistemas</b>, onde construo e mantenho sistemas de provisionamento automatizado: orquestração entre serviços, integração com Active Directory e bancos relacionais.',en:'I am a developer at <b>BMA Sistemas</b>, where I build and maintain automated provisioning systems: service orchestration, Active Directory integration and relational databases.'},
+    soP2:{pt:'Estudo <b>Engenharia de Software</b> na Universidade Católica de Santa Catarina. Antes disso, passei dois anos no suporte da SZ Soluções, automatizando KPIs em C# e montando dashboards para a diretoria.',en:'I study <b>Software Engineering</b> at Universidade Católica de Santa Catarina. Before that, I spent two years in support at SZ Soluções, automating KPIs in C# and building dashboards for leadership.'},
+    soP3:{pt:'Depuro com evidência, olhando o log antes de supor, e entrego em ciclos curtos. Procuro uma vaga <b>.NET Júnior</b> com foco em boas práticas e escalabilidade.',en:'I debug with evidence, reading the logs before assuming, and deliver in short cycles. I am looking for a <b>Junior .NET</b> role focused on good practices and scalability.'},
+    photoAlt:{pt:'Foto de Leonardo Lamin',en:'Photo of Leonardo Lamin'},
     soLExpFe:{pt:'Experiência · Front-end',en:'Experience · Front-end'},
     soLExpBe:{pt:'Experiência · .NET',en:'Experience · .NET'},
     soL2:{pt:'Formação',en:'Education'}, soV2:{pt:'Eng. de Software — UNISC (em curso) · Téc. em Dev. de Software — SENAI',en:'Software Eng. — UNISC (in progress) · Software Dev. Technician — SENAI'},
-    soL3:{pt:'Metodologia',en:'Approach'}, soV3:{pt:'Debug orientado a log · entrega incremental',en:'Log-driven debugging · incremental delivery'},
-    soLIdi:{pt:'Idiomas',en:'Languages'}, soVIdi:{pt:'Português (nativo) · Inglês (intermediário — leitura técnica e conversação)',en:'Portuguese (native) · English (intermediate — technical reading and conversation)'},
-    soL4:{pt:'Stack',en:'Stack'},
-    s3Eyebrow:{pt:'Você entrou no sistema',en:'You entered the system'}, s3Heading:{pt:'Galeria de <span>projetos</span>',en:'Project <span>gallery</span>'},
-    s3Navhint:{pt:'arraste ou role para o lado',en:'drag or scroll sideways'},
-    c1Cat:{pt:'Sistemas corporativos',en:'Enterprise systems'}, c1Title:{pt:'Provisionamento automatizado de usuários SaaS',en:'Automated SaaS user provisioning'},
+    soLIdi:{pt:'Idiomas',en:'Languages'}, soVIdi:{pt:'Português (nativo) · Inglês (intermediário)',en:'Portuguese (native) · English (intermediate)'},
+    soLStatus:{pt:'Status',en:'Status'}, soVStatus:{pt:'aberto a vagas',en:'open to roles'},
+    m1:{pt:'no tempo de provisionar usuários SaaS',en:'in SaaS user provisioning time'},
+    m2:{pt:'por usuário, antes 30 a 45',en:'per user, down from 30 to 45'},
+    m3:{pt:'de acesso a dados de clientes',en:'more access to client data'},
+    m4:{pt:'clientes com consulta instantânea',en:'clients with instant lookups'},
+    projHeading:{pt:'O que já caiu na minha órbita',en:'What has fallen into my orbit'},
+    openCase:{pt:'abrir caso →',en:'open case →'},
+    c1Where:{pt:'BMA Sistemas · 2025',en:'BMA Sistemas · 2025'},
+    c1Title:{pt:'Provisionamento automatizado de usuários SaaS',en:'Automated SaaS user provisioning'},
     c1Desc:{pt:'Software MVC com microsserviços, integração nativa ao Active Directory e Windows Forms (.NET), reduzindo o tempo de provisionamento de 30–45 min para 7 min — beneficiando 25–30 usuários por mês.',en:'MVC software with microservices, native Active Directory integration and Windows Forms (.NET), cutting provisioning time from 30–45 min to 7 min — benefiting 25–30 users per month.'},
-    c1M1:{pt:'redução no tempo',en:'time reduction'}, c1M2:{pt:'usuários/mês beneficiados',en:'users/month benefited'},
-    c2Cat:{pt:'Automação & BI',en:'Automation & BI'}, c2Title:{pt:'Automação de pipeline de KPIs',en:'KPI pipeline automation'},
+    c1M1:{pt:'redução no tempo',en:'time reduction'},
+    c2Where:{pt:'SZ Soluções · 2023–2025',en:'SZ Soluções · 2023–2025'},
+    c2Title:{pt:'Automação de pipeline de KPIs',en:'KPI pipeline automation'},
     c2Desc:{pt:'Automatizei em C# o envio de dados para KPIs de atendimento, eliminando 100% da entrada manual e entregando dashboards mensais em Power BI para a diretoria.',en:'Automated KPI data pipeline in C#, eliminating 100% of manual data entry and delivering monthly Power BI dashboards to leadership.'},
-    c2M1:{pt:'manual eliminado',en:'manual entry eliminated'}, c2M2:{pt:'consistência',en:'consistency'},
-    tagPowerBI:{pt:'Power BI',en:'Power BI'},
-    c3Cat:{pt:'Projeto pessoal',en:'Personal project'}, c3Title:{pt:'Rede Social — Comunidade Web',en:'Social Network — Web Community'},
+    c2M1:{pt:'manual eliminado',en:'manual entry eliminated'},
+    c3Where:{pt:'Projeto pessoal · 2025',en:'Personal project · 2025'},
+    c3Title:{pt:'Rede Social — Comunidade Web',en:'Social Network — Web Community'},
     c3Desc:{pt:'Plataforma de rede social construída do zero: autenticação, feed de publicações e interações, com arquitetura MVC em Node.js e EJS.',en:'Social network platform built from scratch: authentication, post feed and user interactions, with MVC architecture in Node.js and EJS.'},
-    c3M1:{pt:'desenvolvido do zero',en:'built from scratch'}, c3M2:{pt:'arquitetura',en:'architecture'},
-    tagSequelize:{pt:'Sequelize ORM',en:'Sequelize ORM'},
-    c5Cat:{pt:'Sistemas de gestão',en:'Management systems'}, c5Title:{pt:'Sistema de Gestão Comercial',en:'Commercial Management System'},
+    c3M2:{pt:'arquitetura',en:'architecture'},
+    c5Where:{pt:'SENAI · 2022–2024',en:'SENAI · 2022–2024'},
+    c5Title:{pt:'Sistema de Gestão Comercial',en:'Commercial Management System'},
     c5Desc:{pt:'Sistema completo para comércio: comandas e pedidos, controle de estoque, fluxo de caixa, leitura de código de barras e relatórios gerenciais, integrado a um banco MySQL centralizado.',en:'Complete system for retail: orders/tabs, stock control, cash flow, barcode scanning and management reports, integrated with a centralized MySQL database.'},
-    c5M1:{pt:'módulos integrados',en:'integrated modules'}, c5M2:{pt:'dados centralizados',en:'centralized data'},
-    c4Cat:{pt:'Front-end',en:'Front-end'}, c4Title:{pt:'Este site',en:'This website'},
+    c5M1:{pt:'módulos integrados',en:'integrated modules'},
+    c4Where:{pt:'Front-end · este portfólio',en:'Front-end · this portfolio'},
+    c4Title:{pt:'Este site',en:'This website'},
     c4Desc:{pt:'O próprio portfólio: uma peça viva de front-end, construída do zero em HTML, CSS e JavaScript puro — sem frameworks.',en:'The portfolio itself: a living front-end piece, built from scratch in vanilla HTML, CSS and JavaScript — no frameworks.'},
-    c4M1:{pt:'frameworks',en:'frameworks'}, c4M2:{pt:'idiomas (PT/EN)',en:'languages (PT/EN)'},
-    s4Eyebrow:{pt:'Peça N°07 — Saída da galeria',en:'Piece N°07 — Gallery exit'}, s4Heading:{pt:'Vamos <span>conversar</span>',en:"Let's <span>talk</span>"},
-    s4Lead:{pt:'Sem formulário, sem fricção. Escolha o canal e fale direto comigo.',en:'No forms, no friction. Pick a channel and reach out directly.'},
-    lblEmail:{pt:'E-mail',en:'Email'}, lblWpp:{pt:'WhatsApp',en:'WhatsApp'}, lblDoc:{pt:'Documento',en:'Document'}, lblCv:{pt:'Baixar currículo (PDF)',en:'Download résumé (PDF)'}, lblCode:{pt:'Código-fonte',en:'Source code'},
+    c4M1:{pt:'frameworks',en:'frameworks'},
+    stackHeading:{pt:'Tecnologias em órbita',en:'Technologies in orbit'},
+    orbitAria:{pt:'Tecnologias organizadas por proximidade do uso diário',en:'Technologies arranged by how close they are to daily use'},
+    orb1H:{pt:'Órbita interna',en:'Inner orbit'},
+    orb1P:{pt:'O que uso todo dia em produção na BMA: C#, .NET, SQL Server e APIs REST.',en:'What I use every day in production at BMA: C#, .NET, SQL Server and REST APIs.'},
+    orb2H:{pt:'Órbita média',en:'Middle orbit'},
+    orb2P:{pt:'Usado em projetos reais: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL e IIS.',en:'Used in real projects: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL and IIS.'},
+    orb3H:{pt:'Órbita externa',en:'Outer orbit'},
+    orb3P:{pt:'Ferramentas de apoio e a base de front-end que trago desde 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS e Scrum.',en:'Supporting tools and the front-end foundation I have carried since 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS and Scrum.'},
+    orbHint:{pt:'passe o mouse para parar as órbitas · clique numa tecnologia',en:'hover to stop the orbits · click a technology'},
+    orbToast:{pt:'{x} caiu no buraco negro',en:'{x} fell into the black hole'},
+    tlLabel:{pt:'Trajetória',en:'Journey'},
+    tlHeading:{pt:'Rota até aqui',en:'The route so far'},
+    tl1H:{pt:'Técnico em Desenvolvimento de Software',en:'Software Development Technician'},
+    tl1P:{pt:'Início formal na programação: fundamentos de front-end (HTML/CSS/JS) e um sistema completo de gestão comercial em JavaScript e PHP com MySQL como projeto de curso.',en:'Formal start in programming: front-end fundamentals (HTML/CSS/JS) and a complete commercial management system in JavaScript and PHP with MySQL as the course project.'},
+    tl2H:{pt:'Analista de Suporte Júnior',en:'Junior Support Analyst'},
+    tl2P:{pt:'Automatizei pipeline de KPIs em C#, eliminando 100% da entrada manual de dados. Entrega mensal de dashboards em Power BI e Looker Studio para diretoria.',en:'Automated a KPI pipeline in C#, eliminating 100% of manual data entry. Monthly Power BI and Looker Studio dashboards for leadership.'},
+    tl3H:{pt:'Início em Engenharia de Software',en:'Started Software Engineering'},
+    tl3P:{pt:'Ingresso na Universidade Católica de Santa Catarina, conciliando graduação com atuação profissional em produção.',en:'Enrolled at Universidade Católica de Santa Catarina, balancing the degree with professional work in production.'},
+    tl4H:{pt:'Auxiliar de Desenvolvimento — Backend .NET',en:'Development Assistant — Backend .NET'},
+    tl4P:{pt:'Reduzi em ~84% o tempo de provisionamento de usuários SaaS (30–45 → 7 min) e expandi o acesso a dados de clientes em +400% com nova aplicação web e API REST.',en:'Cut SaaS user provisioning time by ~84% (30–45 → 7 min) and expanded client data access by +400% with a new web application and REST API.'},
+    tl5When:{pt:'Hoje',en:'Today'},
+    tl5H:{pt:'Em desenvolvimento contínuo',en:'Continuously developing'},
+    tl5P:{pt:'Conciliando graduação e atuação profissional, buscando posição .NET Júnior com foco em boas práticas e escalabilidade.',en:'Balancing the degree and professional work, looking for a Junior .NET role focused on good practices and scalability.'},
+    recLabel:{pt:'Recomendações',en:'Recommendations'},
+    recHeading:{pt:'Sinais recebidos',en:'Signals received'},
+    recWho:{pt:'— trabalhou na mesma equipe que Leonardo',en:'— worked on the same team as Leonardo'},
+    recNote:{pt:'Depoimentos mantidos no original, sem edição.',en:'Testimonials kept in the original Portuguese, unedited.'},
+    contHeading:{pt:'Entre na órbita',en:'Enter the orbit'},
+    contLead:{pt:'Estou procurando minha próxima vaga como desenvolvedor .NET Júnior. Sem formulário, sem fricção: escolha o canal e fale direto comigo.',en:'I am looking for my next role as a Junior .NET developer. No forms, no friction: pick a channel and reach me directly.'},
     qrLabel:{pt:'escaneie para o LinkedIn',en:'scan for LinkedIn'},
-    s4Exit:{pt:'Fim do acervo · <b>obrigado pela visita</b>',en:'End of collection · <b>thanks for visiting</b>'},
-    hudOnline:{pt:'sistema online',en:'system online'}, hudUptimeLbl:{pt:'uptime',en:'uptime'}, hudLocalLbl:{pt:'local',en:'local'},
-    rvRole:{pt:'Desenvolvedor Full-Stack · Front-end há 3 anos · .NET há 1 ano+ — UNISC',en:'Full-Stack Developer · 3y front-end · 1y+ .NET — UNISC'},
-    rvAboutH:{pt:'Sobre',en:'About'},
-    rvAboutP:{pt:'Desenvolvedor Full-Stack com 3 anos de front-end (HTML/CSS/JS) e mais de 1 ano com .NET, atualmente focado em sistemas de provisionamento automatizado — orquestração de serviços, integração com Active Directory e bancos relacionais. Debug orientado a evidência (log antes de suposição), entrega em ciclos curtos.',en:'Full-Stack developer with 3 years of front-end (HTML/CSS/JS) and 1+ year with .NET, currently focused on automated provisioning systems — service orchestration, Active Directory integration and relational databases. Evidence-based debugging (logs before assumptions), short delivery cycles.'},
-    rvProjH:{pt:'Projetos',en:'Projects'},
-    rvP1:{pt:'C# / .NET · ASP.NET MVC · WinForms · Active Directory — redução de ~84% no tempo de provisionamento (30-45min → 7min), +400% de expansão no acesso a dados.',en:'C# / .NET · ASP.NET MVC · WinForms · Active Directory — ~84% reduction in provisioning time (30-45min → 7min), +400% increase in data access.'},
-    rvP2:{pt:'C# · SQL · Power BI — eliminei 100% da entrada manual de dados, dashboards mensais para diretoria.',en:'C# · SQL · Power BI — eliminated 100% of manual data entry, monthly dashboards for leadership.'},
-    rvP3:{pt:'Node.js · EJS · Sequelize ORM · MySQL — plataforma completa construída do zero, arquitetura MVC.',en:'Node.js · EJS · Sequelize ORM · MySQL — full platform built from scratch, MVC architecture.'},
-    rvCv:{pt:'Currículo (PDF)',en:'Résumé (PDF)'}
+    lblEmail:{pt:'e-mail',en:'email'}, lblCode:{pt:'código-fonte',en:'source code'},
+    lblCv:{pt:'Baixar currículo (PDF)',en:'Download résumé (PDF)'}, lblDoc:{pt:'documento',en:'document'},
+    footer:{pt:'HTML, CSS e JavaScript puro · o buraco negro é desenhado em canvas, sem bibliotecas',en:'Vanilla HTML, CSS and JavaScript · the black hole is drawn on canvas, no libraries'},
+    footerKey:{pt:'dica: tecla L',en:'tip: press L'}
   };
+  window.TRANSLATIONS = TRANSLATIONS;
+
   let currentLang = 'pt';
+  const t = (key, vars) => {
+    let s = (TRANSLATIONS[key] || {})[currentLang] || key;
+    if(vars) Object.keys(vars).forEach(k => { s = s.replace('{' + k + '}', vars[k]); });
+    return s;
+  };
   function applyLang(lang){
-    document.querySelectorAll('[data-i18n]').forEach(el=>{
-      const key = el.getAttribute('data-i18n');
-      if(TRANSLATIONS[key]) el.innerHTML = TRANSLATIONS[key][lang];
+    currentLang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const tr = TRANSLATIONS[el.getAttribute('data-i18n')];
+      if(tr) el.innerHTML = tr[lang];
+    });
+    // atributos: data-i18n-attr="aria-label:chave;alt:chave"
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+      el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+        const [attr, key] = pair.split(':');
+        if(TRANSLATIONS[key]) el.setAttribute(attr, TRANSLATIONS[key][lang]);
+      });
     });
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-  }
-  function toggleLang(){
-    currentLang = currentLang === 'pt' ? 'en' : 'pt';
-    document.getElementById('langToggle').textContent = currentLang === 'pt' ? 'EN' : 'PT';
-    const rBtn = document.getElementById('recruiterToggle');
-    const inRecruiter = document.body.classList.contains('recruiter-mode');
-    rBtn.setAttribute('data-i18n', inRecruiter ? 'navRecruiterOff' : 'navRecruiterOn');
-    applyLang(currentLang);
-    const roleEl = document.getElementById('typedRole');
-    if(roleEl) roleEl.textContent = TRANSLATIONS.heroRole[currentLang];
+    const lt = document.getElementById('langToggle');
+    lt.textContent = lang === 'pt' ? 'EN' : 'PT';
+    lt.setAttribute('lang', lang === 'pt' ? 'en' : 'pt-BR');
+    lt.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
+    updatePauseLabel();
     updateExperience();
   }
-  if(!reduced){
-    const stage1 = document.getElementById('stage1');
-    const corridor1 = document.getElementById('corridor1');
-    stage1.addEventListener('mousemove', (e)=>{
-      const x = (e.clientX / window.innerWidth - 0.5);
-      const y = (e.clientY / window.innerHeight - 0.5);
-      corridor1.style.transform = `rotateY(${x*6}deg) rotateX(${-y*4}deg)`;
-    });
-    stage1.addEventListener('mouseleave', ()=>{ corridor1.style.transform = 'rotateY(0deg) rotateX(0deg)'; });
+  document.getElementById('langToggle').addEventListener('click', () => applyLang(currentLang === 'pt' ? 'en' : 'pt'));
 
-    document.querySelectorAll('[data-tilt]').forEach(card=>{
-      card.addEventListener('mousemove', (e)=>{
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left)/r.width - 0.5;
-        const y = (e.clientY - r.top)/r.height - 0.5;
-        card.style.transform = `rotateY(${x*8}deg) rotateX(${-y*8}deg) translateZ(4px)`;
+  /* ===== aviso curto (toast) ===== */
+  const toast = document.getElementById('toast');
+  let toastTimer;
+  function say(msg){
+    toast.textContent = msg; toast.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { toast.hidden = true; }, 2200);
+  }
+
+  /* ===== pausar / retomar o universo ===== */
+  const pauseBtn = document.getElementById('pauseToggle');
+  let userPaused = false;
+  function updatePauseLabel(){
+    pauseBtn.setAttribute('aria-pressed', String(userPaused));
+    pauseBtn.textContent = t(userPaused ? 'navResume' : 'navPause');
+    pauseBtn.setAttribute('data-i18n', userPaused ? 'navResume' : 'navPause');
+  }
+  pauseBtn.addEventListener('click', () => {
+    userPaused = !userPaused;
+    userPaused ? U.pause() : U.resume();
+    updatePauseLabel();
+  });
+
+  /* ===== cliques no espaço alimentam o buraco negro ===== */
+  const center = el => { const r = el.getBoundingClientRect(); return [r.left + r.width/2, r.top + r.height/2]; };
+  document.addEventListener('click', e => {
+    if(e.target.closest('a,button,input,.panel,.detail,.recruiter,.term-overlay,header')) return;
+    U.burst(e.clientX, e.clientY, 40, 1.4);
+  });
+  document.querySelectorAll('a.btn, header nav a').forEach(a => {
+    a.addEventListener('click', () => { const [x, y] = center(a); U.burst(x, y, 24, 1.2); });
+  });
+
+  /* ===== stack em órbitas ===== */
+  document.querySelectorAll('.ring').forEach(ring => {
+    const items = ring.dataset.items.split('|');
+    items.forEach((name, i) => {
+      const a = i/items.length*Math.PI*2 - Math.PI/2;
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = 'chip';
+      chip.style.left = (50 + Math.cos(a)*50) + '%';
+      chip.style.top = (50 + Math.sin(a)*50) + '%';
+      const label = document.createElement('span');
+      label.textContent = name;
+      chip.appendChild(label);
+      chip.addEventListener('click', () => {
+        const [x, y] = center(chip);
+        U.burst(x, y, 30, 1.4);
+        say(t('orbToast', {x: name}));
       });
-      card.addEventListener('mouseleave', ()=>{ card.style.transform = 'rotateY(0) rotateX(0)'; });
+      ring.appendChild(chip);
     });
-  }
-
-  /* transição contínua de cor da luz ambiente ao rolar */
-  const hueStops = [40, 40, 175, 320, 320]; // amber -> amber -> cyan -> magenta -> magenta
-  let ticking = false;
-  function updateAmbient(){
-    const max = document.body.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-    const seg = progress * (hueStops.length - 1);
-    const i = Math.min(hueStops.length - 2, Math.floor(seg));
-    const t = seg - i;
-    const hue = hueStops[i] + (hueStops[i+1] - hueStops[i]) * t;
-    document.documentElement.style.setProperty('--accent-h', hue.toFixed(1));
-    document.getElementById('navprogress').style.width = (progress*100).toFixed(1) + '%';
-    ticking = false;
-  }
-  window.addEventListener('scroll', ()=>{
-    if(!ticking){ requestAnimationFrame(updateAmbient); ticking = true; }
   });
-  updateAmbient();
 
-  (function typeRole(){
-    const el = document.getElementById('typedRole');
-    if(!el) return;
-    const text = TRANSLATIONS.heroRole[currentLang];
-    if(reduced){ el.textContent = text; return; }
-    let i = 0;
-    (function step(){
-      el.textContent = text.slice(0, i);
-      i++;
-      if(i <= text.length) setTimeout(step, 32);
-    })();
-  })();
+  /* ===== cards de projeto: puxados pelo buraco negro ===== */
+  document.querySelectorAll('.card[data-case]').forEach(card => {
+    card.addEventListener('click', () => {
+      const [x, y] = center(card);
+      card.classList.add('pulled');
+      U.burst(x, y, 90, 2);
+      U.feed(0.6);
+      setTimeout(() => card.classList.remove('pulled'), 380);
+    });
+  });
 
-  function tickClock(){
-    const el = document.getElementById('hudclock');
-    if(el) el.textContent = new Date().toLocaleTimeString('pt-BR', {hour12:false});
-  }
-  tickClock();
-  setInterval(tickClock, 1000);
-
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape'){
-      document.querySelectorAll('.case-detail.active').forEach(d=>{
-        d.classList.remove('active'); document.body.style.overflow='';
-      });
-      closeTerm();
+  /* ===== CONTADOR DE EXPERIÊNCIA — calculado a partir da data de início ===== */
+  const CAREER_START_FE = new Date(2023, 1, 1); // front-end, 02/2023
+  const CAREER_START_BE = new Date(2025, 2, 1); // .NET — BMA Sistemas, 03/2025
+  function formatSince(start){
+    const now = new Date();
+    let months = (now.getFullYear() - start.getFullYear())*12 + (now.getMonth() - start.getMonth());
+    if(now.getDate() < start.getDate()) months--;
+    months = Math.max(months, 0);
+    const years = Math.floor(months/12), rem = months % 12;
+    if(currentLang === 'pt'){
+      const y = years + ' ano' + (years > 1 ? 's' : ''), m = rem + ' ' + (rem > 1 ? 'meses' : 'mês');
+      return years === 0 ? m : rem === 0 ? y : y + ' e ' + m;
     }
-    if((e.key === 'l' || e.key === 'L') && !e.metaKey && !e.ctrlKey){
-      const tag = (document.activeElement && document.activeElement.tagName) || '';
-      if(tag !== 'INPUT' && tag !== 'TEXTAREA') openTerm();
-    }
-  });
-
-  const termLines = [
-    {t:'info', m:'09:14:02 sessão iniciada — carregando acervo...'},
-    {t:'ok',   m:'provisionamento SaaS: 30-45min → 7min (~84% de redução)'},
-    {t:'ok',   m:'acesso a dados expandido: 4 → 20 usuários (+400%)'},
-    {t:'ok',   m:'dashboard tempo real: 7-15min → instantâneo (1000+ clientes)'},
-    {t:'ok',   m:'pipeline de KPIs: 100% da entrada manual eliminada'},
-    {t:'info', m:'IdentityNotMappedException investigada — causa operacional confirmada, não bug'},
-    {t:'info', m:'uptime do sistema: 99.98%'},
-    {t:'info', m:'--- stack deste site ---'},
-    {t:'ok',   m:'HTML5 · CSS3 · JavaScript vanilla — 0 frameworks'},
-    {t:'ok',   m:'View Transitions API · Intersection Observer'},
-    {t:'ok',   m:'i18n PT/EN escrito do zero'},
-    {t:'ready',m:'pronto. pressione ESC para sair.'}
-  ];
-  let termTyped = false;
-  function openTerm(){
-    document.getElementById('termOverlay').classList.add('active');
-    if(termTyped) return;
-    termTyped = true;
-    const body = document.getElementById('termBody');
-    let i = 0;
-    (function next(){
-      if(i >= termLines.length) return;
-      const l = termLines[i];
-      const row = document.createElement('div');
-      row.className = l.t;
-      row.textContent = '$ ' + l.m;
-      body.appendChild(row);
-      i++;
-      setTimeout(next, 260);
-    })();
+    const y = years + ' year' + (years > 1 ? 's' : ''), m = rem + ' month' + (rem > 1 ? 's' : '');
+    return years === 0 ? m : rem === 0 ? y : y + ' ' + m;
   }
-  function closeTerm(){
-    document.getElementById('termOverlay').classList.remove('active');
+  function updateExperience(){
+    document.querySelectorAll('.exp-fe').forEach(el => { el.textContent = formatSince(CAREER_START_FE); });
+    document.querySelectorAll('.exp-be').forEach(el => { el.textContent = formatSince(CAREER_START_BE); });
   }
 
-  function toggleRecruiter(){
-    const on = document.body.classList.toggle('recruiter-mode');
-    const btn = document.getElementById('recruiterToggle');
-    btn.setAttribute('data-i18n', on ? 'navRecruiterOff' : 'navRecruiterOn');
-    btn.textContent = TRANSLATIONS[on ? 'navRecruiterOff' : 'navRecruiterOn'][currentLang];
-    window.scrollTo(0,0);
-  }
-
-  window.addEventListener('load', ()=>{
-    setTimeout(()=>{ document.getElementById('loader').classList.add('hidden'); }, 400);
-  });
-
-
+  /* ===== QR code para o LinkedIn ===== */
   if(window.QRCode){
     new QRCode(document.getElementById('qrcode'), {
       text: 'https://linkedin.com/in/leonardolamin',
-      width: 108, height: 108,
-      colorDark: '#05070A', colorLight: '#ffffff'
+      width: 168, height: 168,
+      colorDark: '#03040A', colorLight: '#ffffff'
     });
   }
 
-  const track = document.getElementById('s3track');
-  track.addEventListener('wheel', (e)=>{
-    if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-      const atStart = track.scrollLeft <= 0;
-      const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
-      if((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)){
-        e.preventDefault();
-        track.scrollLeft += e.deltaY;
-      }
-    }
-  }, {passive:false});
-
-  function openCase(id, cardEl){
-    const detail = document.getElementById(id);
-    const doOpen = ()=>{ detail.classList.add('active'); document.body.style.overflow='hidden'; };
-    if(document.startViewTransition && !reduced && cardEl){
-      cardEl.style.viewTransitionName = 'projmorph';
-      detail.style.viewTransitionName = 'projmorph';
-      const t = document.startViewTransition(doOpen);
-      t.finished.finally(()=>{ cardEl.style.viewTransitionName=''; });
-    } else { doOpen(); }
-    history.replaceState(null, '', '#' + id);
-  }
-  function closeCase(id, evt){
-    if(evt) evt.stopPropagation();
-    const detail = document.getElementById(id);
-    const doClose = ()=>{ detail.classList.remove('active'); document.body.style.overflow=''; };
-    if(document.startViewTransition && !reduced){
-      const t = document.startViewTransition(doClose);
-      t.finished.finally(()=>{ detail.style.viewTransitionName=''; });
-    } else { doClose(); }
-    history.replaceState(null, '', '#projetos');
-  }
-
-  window.addEventListener('DOMContentLoaded', ()=>{
-    const hash = location.hash.replace('#','');
-    if(['case1','case2','case3','case4','case5'].includes(hash)) openCase(hash, null);
-  });
-
-  function copyCaseLink(id, btn){
-    const url = location.origin + location.pathname + '#' + id;
-    navigator.clipboard.writeText(url).then(()=>{
-      const original = btn.textContent;
-      btn.textContent = '✓ Link copiado';
-      setTimeout(()=>{ btn.textContent = original; }, 1800);
-    });
-  }
-
-  function toggleCode(id, btn){
-    const el = document.getElementById(id);
-    const open = el.classList.toggle('open');
-    btn.textContent = open ? '</> Ocultar trecho de código' : '</> Ver trecho de código';
-  }
-
-  const tltrack = document.getElementById('tltrack');
-  if(tltrack){
-    tltrack.addEventListener('wheel', (e)=>{
-      if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-        const atStart = tltrack.scrollLeft <= 0;
-        const atEnd = tltrack.scrollLeft >= tltrack.scrollWidth - tltrack.clientWidth - 1;
-        if((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)){
-          e.preventDefault();
-          tltrack.scrollLeft += e.deltaY;
-        }
-      }
-    }, {passive:false});
-
-    const tlObs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting) entry.target.classList.add('revealed');
-      });
-    }, {threshold:0.5});
-    tltrack.querySelectorAll('.tl-item').forEach(item=> tlObs.observe(item));
-  }
-
-  /* ===== CONTADOR DE EXPERIÊNCIA — calculado a partir da data de início ===== */
-  const CAREER_START_FE = new Date('2023-02-01'); // front-end
-  const CAREER_START_BE = new Date('2025-03-01'); // .NET — BMA Sistemas
-
-  function formatSince(start){
-    const now = new Date();
-    let months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
-    if(now.getDate() < start.getDate()) months--;
-    months = Math.max(months, 0);
-    const years = Math.floor(months / 12);
-    const remMonths = months % 12;
-    if(years === 0) return currentLang === 'pt' ? `${remMonths} meses` : `${remMonths} months`;
-    if(remMonths === 0) return currentLang === 'pt' ? `${years} ano${years>1?'s':''}` : `${years} year${years>1?'s':''}`;
-    return currentLang === 'pt' ? `${years} ano${years>1?'s':''} e ${remMonths} ${remMonths>1?'meses':'mês'}` : `${years}y ${remMonths}mo`;
-  }
-  function updateExperience(){
-    const feEl = document.getElementById('expCounterFe');
-    const beEl = document.getElementById('expCounterBe');
-    if(feEl) feEl.textContent = formatSince(CAREER_START_FE);
-    if(beEl) beEl.textContent = formatSince(CAREER_START_BE);
-  }
-  updateExperience();
-
-  const diagPanel = document.getElementById('diagPanel');
-  if(diagPanel){
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          diagPanel.querySelectorAll('.diag-bar span').forEach(bar=>{
-            bar.style.transition = 'width 1s cubic-bezier(.4,0,.2,1)';
-            bar.style.width = bar.dataset.w + '%';
-          });
-          obs.disconnect();
-        }
-      });
-    }, {threshold:0.4});
-    obs.observe(diagPanel);
-  }
+  applyLang('pt');
+})();
