@@ -6,7 +6,7 @@ Portfólio pessoal com o visual **"Horizonte de Eventos"**: um buraco negro anim
 
 ## Sobre
 
-Desenvolvedor Backend .NET buscando posição Júnior, com ~3 anos de experiência prévia em front-end. O conteúdo flutua em painéis escuros translúcidos sobre o espaço. Clicar no espaço, num projeto ou numa tecnologia solta partículas que caem em espiral no buraco negro, e ele brilha mais a cada "refeição".
+Desenvolvedor Full Stack (.NET · React · SQL) que constrói do banco à tela, com ~3 anos de front-end e .NET em produção desde 03/2025. Busca uma vaga Full Stack com .NET e React ou Angular. O conteúdo flutua em painéis escuros translúcidos sobre o espaço. Clicar no espaço, num projeto ou numa tecnologia solta partículas que caem em espiral no buraco negro, e ele brilha mais a cada "refeição".
 
 ## Stack técnica
 
