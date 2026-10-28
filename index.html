@@ -42,6 +42,7 @@
       <a href="#projetos" class="hide-s" data-i18n="navProjetos">Projetos</a>
       <a href="#stack" class="hide-m" data-i18n="navStack">Stack</a>
       <a href="#contato" class="hide-s" data-i18n="navContato">Contato</a>
+      <button type="button" id="recruiterToggle" aria-haspopup="dialog" data-i18n="navRecruiter">Modo recrutador</button>
       <button type="button" id="pauseToggle" aria-pressed="false" data-i18n="navPause">Pausar universo</button>
       <button type="button" id="langToggle" lang="en" aria-label="Switch to English">EN</button>
     </nav>
@@ -216,6 +217,275 @@
     <span data-i18n="footer">HTML, CSS e JavaScript puro · o buraco negro é desenhado em canvas, sem bibliotecas</span>
     <span class="key-hint" data-i18n="footerKey">dica: tecla L</span>
   </footer>
+</div>
+
+<!-- CASOS — painel por cima; #case1..#case5 abrem direto pelo link -->
+<div class="detail" id="detail" hidden>
+  <div class="panel detail-panel" role="dialog" aria-modal="true" aria-labelledby="case1T">
+    <div class="detail-bar">
+      <button class="btn small" type="button" data-copy data-i18n="caseCopy">Copiar link</button>
+      <button class="btn small" type="button" data-close data-i18n="caseClose">Fechar</button>
+    </div>
+
+    <article class="case" id="case1" hidden>
+      <div class="label" data-i18n="c1Where">BMA Sistemas · 2025</div>
+      <h3 id="case1T" data-i18n="c1Title">Provisionamento automatizado de usuários SaaS</h3>
+      <div class="case-grid">
+        <div class="case-body">
+          <p data-i18n="c1P1">Desenvolvi um software MVC com microsserviços, integração nativa ao Active Directory e Windows Forms (.NET), reduzindo o tempo de provisionamento de usuários de <strong>30–45 minutos para 7 minutos</strong> — um ganho de aproximadamente <strong>84%</strong>, beneficiando 25 a 30 usuários por mês.</p>
+          <p data-i18n="c1P2">Entre os desafios técnicos resolvidos: inconsistência de <strong>codificação de caracteres</strong> entre o arquivo de configuração e o restante do pipeline, uma lógica de backup que não detectava registros duplicados corretamente, e um ponto de sobrescrita de dados posicionado no lugar errado no serviço. Também mapeei que um erro de identidade não mapeada era uma questão operacional — o usuário de rede precisa existir previamente — não um defeito de código.</p>
+          <p data-i18n="c1P3">No mesmo ambiente, desenvolvi do zero uma aplicação web com API REST que <strong>expandiu o acesso a dados de clientes de 4 para 20 usuários (+400%)</strong>, centralizando informações antes restritas ao servidor, e um dashboard em tempo real (Supabase/PostgreSQL) que reduziu consultas de apuração de ponto de 7–15 minutos para acesso instantâneo, atendendo mais de 1.000 clientes.</p>
+          <h4 data-i18n="caseArch">Arquitetura</h4>
+          <ul class="case-list">
+            <li data-i18n="c1L1">Software MVC com microsserviços e integração nativa ao Active Directory</li>
+            <li data-i18n="c1L2">Interface desktop em Windows Forms (.NET) para orquestração do provisionamento</li>
+            <li data-i18n="c1L3">Aplicação web com API REST centralizando dados antes restritos ao servidor</li>
+            <li data-i18n="c1L4">Dashboard em tempo real sobre Supabase/PostgreSQL para consulta instantânea</li>
+          </ul>
+          <button class="btn small code-toggle" type="button" id="codeToggle" aria-expanded="false" aria-controls="code1" data-i18n="codeShow">&lt;/&gt; Ver trecho de código</button>
+          <div class="case-code" id="code1" hidden>
+            <p class="code-note" data-i18n="codeNote">Trecho ilustrativo do meu estilo de código — não é código de produção real da empresa.</p>
+            <pre><code><span class="k">public async</span> Task&lt;ProvisioningResult&gt; <span class="f">CreateUserAsync</span>(ProvisioningRequest request)
+{
+    <span class="k">if</span> (string.IsNullOrWhiteSpace(request.NetworkId))
+        <span class="k">throw new</span> ArgumentException(<span class="s">"Network ID é obrigatório."</span>, nameof(request));
+
+    _logger.LogInformation(<span class="s">"Iniciando provisionamento para {NetworkId}"</span>, request.NetworkId);
+
+    <span class="k">if</span> (<span class="k">await</span> _directory.UserExistsAsync(request.NetworkId))
+    {
+        _logger.LogWarning(<span class="s">"Usuário {NetworkId} já existe — abortando."</span>, request.NetworkId);
+        <span class="k">return</span> ProvisioningResult.Skipped(request.NetworkId);
+    }
+
+    <span class="k">try</span>
+    {
+        <span class="k">await</span> _directory.CreateUserAsync(request);
+        _logger.LogInformation(<span class="s">"Usuário {NetworkId} provisionado com sucesso."</span>, request.NetworkId);
+        <span class="k">return</span> ProvisioningResult.Success(request.NetworkId);
+    }
+    <span class="k">catch</span> (DirectoryOperationException ex)
+    {
+        _logger.LogError(ex, <span class="s">"Falha ao provisionar {NetworkId}"</span>, request.NetworkId);
+        <span class="k">throw</span>;
+    }
+}</code></pre>
+          </div>
+        </div>
+        <aside class="case-side">
+          <div class="case-metrics">
+            <div class="m"><b>~84%</b><span data-i18n="c1D1">redução no tempo</span></div>
+            <div class="m"><b>7 min</b><span data-i18n="c1D2">tempo final (de 30–45 min)</span></div>
+            <div class="m"><b>+400%</b><span data-i18n="c1D3">expansão de acesso a dados</span></div>
+            <div class="m"><b>1000+</b><span data-i18n="c1D4">clientes atendidos</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="tags"><span class="tag">C# / .NET</span><span class="tag">ASP.NET MVC</span><span class="tag">WinForms</span><span class="tag">Active Directory</span><span class="tag">APIs REST</span><span class="tag">Supabase/PostgreSQL</span></div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="case" id="case2" hidden>
+      <div class="label" data-i18n="c2Where">SZ Soluções · 2023–2025</div>
+      <h3 id="case2T" data-i18n="c2Title">Automação de pipeline de KPIs</h3>
+      <div class="case-grid">
+        <div class="case-body">
+          <p data-i18n="c2P1">Na SZ Soluções, o envio de dados para os indicadores de atendimento era feito manualmente — processo lento e sujeito a falhas humanas. Automatizei todo o pipeline em <strong>C#</strong>, eliminando <strong>100% da entrada manual de dados</strong> e garantindo atualização contínua dos indicadores sem intervenção humana.</p>
+          <p data-i18n="c2P2">Com os dados já consolidados automaticamente, passei a entregar mensalmente <strong>dashboards em Power BI e Looker Studio</strong> — médias, volumes e SLAs — diretamente para a gestão e diretoria da empresa contratante.</p>
+          <p data-i18n="c2P3">Também executei queries SQL/MySQL para extração e validação de dados em investigações técnicas, auditorias de SLA e suporte especializado no ERP TOTVS Datasul.</p>
+          <h4 data-i18n="caseDeliv">Entregas</h4>
+          <ul class="case-list">
+            <li data-i18n="c2L1">Pipeline de automação de KPIs em C#, sem intervenção manual</li>
+            <li data-i18n="c2L2">Dashboards mensais em Power BI e Looker Studio para diretoria</li>
+            <li data-i18n="c2L3">Queries SQL/MySQL para auditorias de SLA e investigações técnicas</li>
+            <li data-i18n="c2L4">Suporte especializado no ERP TOTVS Datasul</li>
+          </ul>
+        </div>
+        <aside class="case-side">
+          <div class="case-metrics">
+            <div class="m"><b>100%</b><span data-i18n="c2D1">entrada manual eliminada</span></div>
+            <div class="m"><b>100%</b><span data-i18n="c2D2">consistência da informação</span></div>
+            <div class="m"><b>2</b><span data-i18n="c2D3">anos na função</span></div>
+            <div class="m"><b data-i18n="c2N4">mensal</b><span data-i18n="c2D4">entrega de dashboards</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="tags"><span class="tag">C#</span><span class="tag">SQL / MySQL</span><span class="tag">Power BI</span><span class="tag">Looker Studio</span><span class="tag">TOTVS Datasul</span></div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="case" id="case3" hidden>
+      <div class="label" data-i18n="c3Where">Projeto pessoal · 2025</div>
+      <h3 id="case3T" data-i18n="c3Title">Rede Social — Comunidade Web</h3>
+      <div class="case-grid">
+        <div class="case-body">
+          <p data-i18n="c3P1">Plataforma de rede social construída do zero, com <strong>autenticação de usuários</strong>, feed de publicações e interações entre usuários — arquitetura <strong>MVC</strong> com Node.js e templates EJS.</p>
+          <p data-i18n="c3P2">Modelei os relacionamentos entre usuários, posts e conexões usando <strong>Sequelize ORM</strong> sobre banco MySQL, separando claramente a camada de acesso a dados da lógica de negócio — mesma disciplina de arquitetura que aplico em produção com .NET.</p>
+          <p data-i18n="c3P3">Projeto pessoal desenvolvido de ponta a ponta: modelagem de dados, autenticação, rotas, views e persistência — sem starter kits ou boilerplates prontos.</p>
+          <h4 data-i18n="caseArch">Arquitetura</h4>
+          <ul class="case-list">
+            <li data-i18n="c3L1">Arquitetura MVC com Node.js e templates EJS</li>
+            <li data-i18n="c3L2">Autenticação de usuários e gerenciamento de sessão</li>
+            <li data-i18n="c3L3">Modelagem de relacionamentos (usuários, posts, conexões) via Sequelize ORM</li>
+            <li data-i18n="c3L4">Camada de dados separada da lógica de negócio sobre MySQL</li>
+          </ul>
+          <a class="btn small" href="https://github.com/LaminLeonardo" target="_blank" rel="noopener" data-i18n="c3Gh">&lt;/&gt; Ver código-fonte no GitHub</a>
+        </div>
+        <aside class="case-side">
+          <div class="case-metrics">
+            <div class="m"><b>100%</b><span data-i18n="c3D1">desenvolvido do zero</span></div>
+            <div class="m"><b>MVC</b><span data-i18n="c3D2">arquitetura aplicada</span></div>
+            <div class="m"><b>2025</b><span data-i18n="c3D3">ano do projeto</span></div>
+            <div class="m"><b>ORM</b><span data-i18n="c3D4">modelagem de dados</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">EJS</span><span class="tag">Sequelize ORM</span><span class="tag">MySQL</span></div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="case" id="case5" hidden>
+      <div class="label" data-i18n="c5Where">SENAI · 2022–2024</div>
+      <h3 id="case5T" data-i18n="c5Title">Sistema de Gestão Comercial</h3>
+      <div class="case-grid">
+        <div class="case-body">
+          <p data-i18n="c5P1">Desenvolvido durante o curso técnico no <strong>SENAI</strong> (2022–2024), este sistema cobre o fluxo operacional completo de um pequeno comércio: abertura e fechamento de <strong>comandas/pedidos</strong>, controle de estoque, fluxo de caixa e emissão de relatórios gerenciais para apoiar decisões do dia a dia.</p>
+          <p data-i18n="c5P2">Um dos pontos técnicos mais interessantes foi a integração de <strong>leitura de código de barras</strong> ao fluxo de vendas, permitindo lançamento rápido de itens e baixa automática no estoque — tudo persistido em um banco <strong>MySQL centralizado</strong>, garantindo que comandas, estoque e caixa nunca ficassem dessincronizados.</p>
+          <p data-i18n="c5P3">O projeto foi construído com <strong>JavaScript e PHP</strong> no back-end, refletindo minha entrada no desenvolvimento antes de migrar o foco principal para .NET — uma base que ajuda a entender diferentes ecossistemas de servidor.</p>
+          <h4 data-i18n="caseMods">Módulos</h4>
+          <ul class="case-list">
+            <li data-i18n="c5L1">Comandas e pedidos com lançamento de itens</li>
+            <li data-i18n="c5L2">Controle de estoque com baixa automática via código de barras</li>
+            <li data-i18n="c5L3">Fluxo de caixa (abertura, movimentações, fechamento)</li>
+            <li data-i18n="c5L4">Relatórios gerenciais sobre banco MySQL centralizado</li>
+          </ul>
+        </div>
+        <aside class="case-side">
+          <div class="case-metrics">
+            <div class="m"><b>4</b><span data-i18n="c5D1">módulos principais</span></div>
+            <div class="m"><b>100%</b><span data-i18n="c5D2">dados centralizados</span></div>
+            <div class="m"><b>2022–24</b><span data-i18n="c5D3">período (SENAI)</span></div>
+            <div class="m"><b>1</b><span data-i18n="c5D4">banco de dados único</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag" data-i18n="tagBarcode">Código de barras</span></div>
+        </aside>
+      </div>
+    </article>
+
+    <article class="case" id="case4" hidden>
+      <div class="label" data-i18n="c4Where">Front-end · este portfólio</div>
+      <h3 id="case4T" data-i18n="c4Title">Este site</h3>
+      <div class="case-grid">
+        <div class="case-body">
+          <p data-i18n="c4P1">O portfólio que você está usando agora <strong>é</strong> a prova de front-end — não uma descrição dela. Construído do zero, sem frameworks: HTML, CSS e JavaScript puro, com foco em performance e em técnicas modernas de plataforma web.</p>
+          <p data-i18n="c4P2">O conceito de "horizonte de eventos" guiou cada decisão: um buraco negro desenhado em <strong>canvas 2D, sem bibliotecas</strong>, com estrelas desviadas pela gravidade, disco de acreção e partículas que caem em espiral a cada clique. Os projetos são puxados pelo buraco negro antes de abrir.</p>
+          <p data-i18n="c4P3">Inclui sistema de tradução PT/EN próprio, modo condensado para recrutadores, modo calmo com <code>prefers-reduced-motion</code> e estados de foco visíveis — acessibilidade não foi tratada como opcional.</p>
+          <h4 data-i18n="caseTech">Técnicas usadas</h4>
+          <ul class="case-list">
+            <li data-i18n="c4L1">Canvas 2D com requestAnimationFrame e devicePixelRatio limitado para poupar o celular</li>
+            <li data-i18n="c4L2">Movimento reduzido: a animação desacelera em vez de parar</li>
+            <li data-i18n="c4L3">Deep links #case1 a #case5 com painel acessível (Esc devolve o foco ao card)</li>
+            <li data-i18n="c4L4">Sistema de i18n (PT/EN) escrito do zero, sem biblioteca</li>
+          </ul>
+          <a class="btn small" href="https://github.com/LaminLeonardo/Portifolio" target="_blank" rel="noopener" data-i18n="c4Gh">&lt;/&gt; Ver código-fonte completo no GitHub</a>
+        </div>
+        <aside class="case-side">
+          <div class="case-metrics">
+            <div class="m"><b>0</b><span data-i18n="c4D1">frameworks</span></div>
+            <div class="m"><b>100%</b><span data-i18n="c4D2">estático</span></div>
+            <div class="m"><b>2</b><span data-i18n="c4D3">idiomas (PT/EN)</span></div>
+            <div class="m"><b>6</b><span data-i18n="c4D4">seções</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Canvas 2D</span></div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</div>
+
+<!-- MODO RECRUTADOR — ficha de uma tela só (estilo do protótipo D) -->
+<div class="recruiter" id="recruiter" role="dialog" aria-modal="true" aria-labelledby="rvName" hidden>
+  <div class="rv-top">
+    <span data-i18n="rvTitle">Modo recrutador · ficha em uma tela</span>
+    <button type="button" class="rv-btn" id="recruiterClose" data-i18n="rvClose">Voltar ao universo</button>
+  </div>
+  <div class="rv-page">
+    <aside class="rv-summary">
+      <div class="rv-who">
+        <img src="foto-leonardo.jpg" alt="Foto de Leonardo Lamin" width="72" height="72" loading="lazy" data-i18n-attr="alt:photoAlt">
+        <div><h2 id="rvName" tabindex="-1">Leonardo Lamin</h2><div class="rv-role" data-i18n="rvRole">Desenvolvedor Backend .NET</div></div>
+      </div>
+      <span class="rv-badge" data-i18n="rvBadge">Disponível para vaga .NET Júnior</span>
+      <dl class="rv-facts">
+        <div><dt data-i18n="rvLocal">Local</dt><dd>Joinville, SC</dd></div>
+        <div><dt data-i18n="rvNow">Hoje</dt><dd data-i18n="rvNowV">BMA Sistemas, backend .NET</dd></div>
+        <div><dt data-i18n="rvFe">Front-end</dt><dd class="exp-fe">desde 02/2023</dd></div>
+        <div><dt>.NET</dt><dd class="exp-be">desde 03/2025</dd></div>
+        <div><dt data-i18n="soL2">Formação</dt><dd data-i18n="rvEduV">Eng. de Software, UNISC (2025–2029)</dd></div>
+        <div><dt data-i18n="rvEn">Inglês</dt><dd data-i18n="rvEnV">Intermediário, leitura técnica e conversação</dd></div>
+        <div><dt data-i18n="lblEmail">e-mail</dt><dd id="rvMail">LeonardoLamin.Tech@gmail.com</dd></div>
+        <div><dt data-i18n="rvPhone">Telefone</dt><dd>(47) 99930-4752</dd></div>
+      </dl>
+      <div class="rv-actions">
+        <a class="rv-btn primary" href="LeonardoLaminResume.pdf" download data-i18n="lblCv">Baixar currículo (PDF)</a>
+        <button class="rv-btn" type="button" id="rvCopy" data-i18n="rvCopy">Copiar e-mail</button>
+        <div class="rv-row">
+          <a class="rv-btn" href="https://linkedin.com/in/leonardolamin" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="rv-btn" href="https://wa.me/5547999304752" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="rv-btn" href="https://github.com/LaminLeonardo" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="rv-copied" id="rvCopied" aria-live="polite"></div>
+      </div>
+    </aside>
+
+    <div class="rv-content">
+      <section class="rv-block" aria-labelledby="rv30">
+        <h3 id="rv30" data-i18n="rv30H">Em 30 segundos</h3>
+        <ol class="rv-tldr">
+          <li><span class="n">1</span><span data-i18n="rv30a">Trabalha com <b>C# e .NET em produção</b> desde março de 2025, na BMA Sistemas.</span></li>
+          <li><span class="n">2</span><span data-i18n="rv30b">Reduziu em <b>84%</b> o tempo de provisionar usuários SaaS, de 30–45 para 7 minutos.</span></li>
+          <li><span class="n">3</span><span data-i18n="rv30c">Vem de <b>suporte, SQL e BI</b>: entende o usuário e o dado antes de escrever código.</span></li>
+        </ol>
+      </section>
+
+      <section class="rv-block" aria-labelledby="rvExp">
+        <h3 id="rvExp" data-i18n="rvExpH">Experiência</h3>
+        <div class="rv-job"><span class="when" data-i18n="rvJ1When">03/2025 → hoje</span><div><h4 data-i18n="tl4H">Auxiliar de Desenvolvimento — Backend .NET</h4><div class="org">BMA Sistemas</div><ul>
+          <li data-i18n="rvJ1a">Provisionamento de usuários SaaS de 30–45 min para <span class="metric">7 min</span>, para 25 a 30 usuários por mês.</li>
+          <li data-i18n="rvJ1b">Aplicação web com API REST que ampliou o acesso a dados de clientes em <span class="metric">+400%</span>.</li>
+          <li data-i18n="rvJ1c">Dashboard em tempo real (Supabase/PostgreSQL) para <span class="metric">1.000+</span> clientes.</li></ul></div></div>
+        <div class="rv-job"><span class="when">01/2023 → 02/2025</span><div><h4 data-i18n="tl2H">Analista de Suporte Júnior</h4><div class="org">SZ Soluções</div><ul>
+          <li data-i18n="rvJ2a">Pipeline de KPIs em C# que eliminou <span class="metric">100%</span> da entrada manual.</li>
+          <li data-i18n="rvJ2b">Dashboards mensais em Power BI e Looker Studio para a diretoria; suporte ao ERP TOTVS Datasul.</li></ul></div></div>
+        <div class="rv-job"><span class="when">2025 → 2029</span><div><h4 data-i18n="rvJ3H">Bacharelado em Engenharia de Software</h4><div class="org">UNISC</div><ul>
+          <li data-i18n="rvJ3a">Graduação em curso, junto com o trabalho em produção.</li></ul></div></div>
+        <div class="rv-job"><span class="when">2022 → 2024</span><div><h4 data-i18n="tl1H">Técnico em Desenvolvimento de Software</h4><div class="org">SENAI</div><ul>
+          <li data-i18n="rvJ4a">Sistema de Gestão Comercial em JavaScript e PHP com MySQL: comandas, estoque por código de barras e caixa.</li></ul></div></div>
+      </section>
+
+      <section class="rv-block" aria-labelledby="rvSk">
+        <h3 id="rvSk" data-i18n="rvSkH">Competências</h3>
+        <div class="rv-skills">
+          <div><h4>Backend</h4><div class="chips"><span class="chip pro">C#</span><span class="chip pro">.NET / .NET Core</span><span class="chip pro">ASP.NET MVC</span><span class="chip pro">WinForms</span><span class="chip pro">APIs REST</span><span class="chip pro" data-i18n="skMicro">Microsserviços</span><span class="chip">Node.js / Express</span></div></div>
+          <div><h4 data-i18n="skData">Dados</h4><div class="chips"><span class="chip pro">SQL Server</span><span class="chip pro">PostgreSQL</span><span class="chip pro">MySQL</span><span class="chip pro">Power BI</span><span class="chip pro">Looker Studio</span><span class="chip">DAX</span><span class="chip">Sequelize ORM</span></div></div>
+          <div><h4>Infra</h4><div class="chips"><span class="chip pro">Active Directory</span><span class="chip pro">IIS</span><span class="chip pro">ODBC</span><span class="chip pro" data-i18n="skSaas">Provisionamento SaaS</span></div></div>
+          <div><h4>Front-end</h4><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">EJS</span><span class="chip">React</span></div></div>
+          <div><h4 data-i18n="skTools">Ferramentas</h4><div class="chips"><span class="chip pro">Git / GitHub</span><span class="chip pro">Jira</span><span class="chip pro">ServiceNow</span><span class="chip pro">Scrum / Kanban</span><span class="chip pro">TOTVS Datasul</span></div></div>
+        </div>
+        <div class="rv-key"><span data-i18n="skKeyWork">usada no trabalho</span><span data-i18n="skKeyStudy">projetos e estudo</span></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- TERMINAL DE LOGS — easter egg (tecla L) -->
+<div class="term-overlay" id="termOverlay" role="dialog" aria-modal="true" aria-label="Terminal de logs" data-i18n-attr="aria-label:termAria">
+  <div class="terminal" tabindex="-1">
+    <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span><span class="tlabel">leo@portfolio ~ logs</span></div>
+    <div class="terminal-body" id="termBody"></div>
+  </div>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
