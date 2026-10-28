@@ -53,14 +53,12 @@
     c4Desc:{pt:'O próprio portfólio: uma peça viva de front-end, construída do zero em HTML, CSS e JavaScript puro — sem frameworks.',en:'The portfolio itself: a living front-end piece, built from scratch in vanilla HTML, CSS and JavaScript — no frameworks.'},
     c4M1:{pt:'frameworks',en:'frameworks'},
     stackHeading:{pt:'Tecnologias em órbita',en:'Technologies in orbit'},
-    orbitAria:{pt:'Tecnologias organizadas por proximidade do uso diário',en:'Technologies arranged by how close they are to daily use'},
     orb1H:{pt:'Órbita interna',en:'Inner orbit'},
     orb1P:{pt:'O que uso todo dia em produção na BMA: C#, .NET, SQL Server e APIs REST.',en:'What I use every day in production at BMA: C#, .NET, SQL Server and REST APIs.'},
     orb2H:{pt:'Órbita média',en:'Middle orbit'},
     orb2P:{pt:'Usado em projetos reais: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL e IIS.',en:'Used in real projects: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL and IIS.'},
     orb3H:{pt:'Órbita externa',en:'Outer orbit'},
     orb3P:{pt:'Ferramentas de apoio e a base de front-end que trago desde 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS e Scrum.',en:'Supporting tools and the front-end foundation I have carried since 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS and Scrum.'},
-    orbHint:{pt:'passe o mouse para parar as órbitas · clique numa tecnologia',en:'hover to stop the orbits · click a technology'},
     orbToast:{pt:'{x} caiu no buraco negro',en:'{x} fell into the black hole'},
     tlLabel:{pt:'Trajetória',en:'Journey'},
     tlHeading:{pt:'Rota até aqui',en:'The route so far'},
@@ -229,33 +227,28 @@
 
   /* ===== cliques no espaço alimentam o buraco negro ===== */
   const center = el => { const r = el.getBoundingClientRect(); return [r.left + r.width/2, r.top + r.height/2]; };
+  // a dica do hero some depois do primeiro clique no espaço ou quando o hero sai da tela
+  const heroHint = document.querySelector('.hero .hint');
+  function hideHint(){ if(heroHint) heroHint.classList.add('gone'); }
+  addEventListener('scroll', () => {
+    if((scrollY - 0.6*innerHeight)/(0.6*innerHeight) > 0.3) hideHint();
+  }, {passive:true});
+
   document.addEventListener('click', e => {
     if(e.target.closest('a,button,input,.panel,.detail,.recruiter,.term-overlay,header')) return;
     U.burst(e.clientX, e.clientY, 40, 1.4);
+    hideHint();
   });
   document.querySelectorAll('a.btn, header nav a').forEach(a => {
     a.addEventListener('click', () => { const [x, y] = center(a); U.burst(x, y, 24, 1.2); });
   });
 
-  /* ===== stack em órbitas ===== */
-  document.querySelectorAll('.ring').forEach(ring => {
-    const items = ring.dataset.items.split('|');
-    items.forEach((name, i) => {
-      const a = i/items.length*Math.PI*2 - Math.PI/2;
-      const chip = document.createElement('button');
-      chip.type = 'button';
-      chip.className = 'chip';
-      chip.style.left = (50 + Math.cos(a)*50) + '%';
-      chip.style.top = (50 + Math.sin(a)*50) + '%';
-      const label = document.createElement('span');
-      label.textContent = name;
-      chip.appendChild(label);
-      chip.addEventListener('click', () => {
-        const [x, y] = center(chip);
-        U.burst(x, y, 30, 1.4);
-        say(t('orbToast', {x: name}));
-      });
-      ring.appendChild(chip);
+  /* ===== stack: clicar numa tecnologia solta partículas a partir dela ===== */
+  document.querySelectorAll('.orb .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const [x, y] = center(chip);
+      U.burst(x, y, 30, 1.4);
+      say(t('orbToast', {x: chip.textContent}));
     });
   });
 

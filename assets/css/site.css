@@ -2,7 +2,7 @@
    Um buraco negro em canvas fixo atrás de tudo. O conteúdo flutua em painéis
    escuros translúcidos; cliques alimentam o buraco negro. */
 :root{
-  --void:#03040A; --panel:rgba(8,10,20,.62); --line:rgba(170,180,220,.16); --ink:#ECEEF6; --muted:#A3A9C2;
+  --void:#03040A; --panel:rgba(8,10,20,.8); --line:rgba(170,180,220,.16); --ink:#ECEEF6; --muted:#A3A9C2;
   --hot:#FFB45E; --ember:#FF6B3D; --cool:#8FB8FF;
   --display:'Unbounded','Segoe UI',system-ui,sans-serif;
   --body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -55,7 +55,7 @@ h1 .thin{font-weight:300;display:block;color:var(--muted);font-size:.6em;letter-
 /* ===== SEÇÕES E PAINÉIS ===== */
 section{padding-block:72px}
 h2{font:700 clamp(28px,4.4vw,48px)/1.05 var(--display);letter-spacing:-.02em;margin-bottom:28px;text-wrap:balance}
-.panel{background:var(--panel);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px}
+.panel{background:var(--panel);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:20px}
 
 /* sobre */
 .about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px}
@@ -91,28 +91,25 @@ h2{font:700 clamp(28px,4.4vw,48px)/1.05 var(--display);letter-spacing:-.02em;mar
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font:500 12px var(--mono);padding:3px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 
-/* stack em órbitas */
-.orbit-wrap{overflow:hidden;padding-block:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
-.orbit{position:relative;width:min(520px,calc(100% - 120px));aspect-ratio:1;margin:24px auto}
-.ring{position:absolute;border:1px dashed var(--line);border-radius:50%;animation:spin linear infinite}
-.ring.r1{inset:30%;animation-duration:38s}
-.ring.r2{inset:15%;animation-duration:60s;animation-direction:reverse}
-.ring.r3{inset:0;animation-duration:90s}
-.ring .chip{position:absolute;transform:translate(-50%,-50%);animation:spinc linear infinite;animation-duration:inherit;animation-direction:inherit;background:none;border:0;padding:0;color:inherit;cursor:pointer}
-.chip span{display:block;font:500 12px var(--mono);white-space:nowrap;padding:5px 11px;border-radius:999px;background:rgba(8,10,20,.85);border:1px solid var(--line);transition:border-color .2s}
-.chip:hover span{border-color:var(--hot)}
-.ring.r1 .chip span{border-color:rgba(255,180,94,.6);color:#FFE3B8}
-.ring.r2 .chip span{border-color:rgba(143,184,255,.45)}
-.orbit:hover .ring,.orbit:hover .chip,.orbit:focus-within .ring,.orbit:focus-within .chip{animation-play-state:paused}
-.core{position:absolute;inset:44%;border-radius:50%;background:#000;box-shadow:0 0 0 2px rgba(255,180,94,.6),0 0 40px 6px rgba(255,140,60,.35)}
+/* stack: três grupos, do uso diário ao apoio */
+.orbits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.orb{position:relative;padding:24px;--c:var(--muted)}
+.orb.o1{--c:var(--hot)} .orb.o2{--c:var(--cool)} .orb.o3{--c:var(--muted)}
+.orb h3{font:500 17px var(--display);margin:0 40px 8px 0}
+.orb p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.orb-ico{position:absolute;top:18px;right:18px;color:var(--c)}
+.orb-ring{transform-origin:14px 14px;animation:spin 14s linear infinite}
+.orb.o2 .orb-ring{animation-duration:20s;animation-direction:reverse}
+.orb.o3 .orb-ring{animation-duration:28s}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spinc{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
-.legend{display:grid;gap:14px}
-.legend .panel{padding:18px 20px}
-.legend h3{font:500 15px var(--display);margin-bottom:6px}
-.legend p{font-size:14px;color:var(--muted)}
-.dotk{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:0}
-.dotk.k1{background:var(--hot)} .dotk.k2{background:var(--cool)} .dotk.k3{background:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.orb .chip{font:500 12px var(--mono);white-space:nowrap;padding:5px 11px;border-radius:999px;background:rgba(0,0,0,.35);border:1px solid var(--line);color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s}
+.orb.o1 .chip{border-color:rgba(255,180,94,.6);color:#FFE3B8}
+.orb.o2 .chip{border-color:rgba(143,184,255,.55)}
+.orb .chip:hover{background:rgba(255,180,94,.12);border-color:var(--hot)}
+
+.hero .hint{transition:opacity .6s}
+.hero .hint.gone{opacity:0;pointer-events:none}
 
 /* trajetória */
 .timeline{display:grid;gap:12px}
@@ -244,11 +241,10 @@ footer{padding-block:28px 48px;font:400 12px var(--mono);color:var(--muted);disp
 
 /* ===== RESPONSIVO ===== */
 @media (max-width:860px){
-  .about,.orbit-wrap,.quotes,.contact,.projects{grid-template-columns:minmax(0,1fr)}
+  .about,.orbits,.quotes,.contact,.projects{grid-template-columns:minmax(0,1fr)}
   .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
   .step{grid-template-columns:minmax(0,1fr);gap:4px}
   .hero{min-height:auto;padding-top:46vh}
-  .chip span{font-size:10px;padding:3px 8px}
   .me{flex-direction:row;align-items:flex-start}
   .me img{width:132px;flex:none}
   .facts{flex:1;min-width:0}
@@ -265,7 +261,6 @@ footer{padding-block:28px 48px;font:400 12px var(--mono);color:var(--muted);disp
   .me{flex-direction:column}
   .me img{width:100%}
   .card{padding:20px}
-  .orbit{width:calc(100% - 100px)}
   .facts div{flex-direction:column;gap:2px}
   .facts dd{text-align:left}
 }
@@ -273,7 +268,7 @@ footer{padding-block:28px 48px;font:400 12px var(--mono);color:var(--muted);disp
 /* ===== MOVIMENTO REDUZIDO — o universo continua, só mais calmo ===== */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .ring.r1{animation-duration:95s} .ring.r2{animation-duration:150s} .ring.r3{animation-duration:225s}
+  .orb-ring{animation:none}
   .card,.btn{transition:none}
   .card.pulled{transform:none}
   .detail-panel{animation:none}

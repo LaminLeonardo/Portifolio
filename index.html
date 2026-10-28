@@ -40,7 +40,7 @@
     <nav aria-label="Seções" data-i18n-attr="aria-label:navAria">
       <a href="#sobre" class="hide-s" data-i18n="navSobre">Sobre</a>
       <a href="#projetos" class="hide-s" data-i18n="navProjetos">Projetos</a>
-      <a href="#stack" class="hide-m" data-i18n="navStack">Stack</a>
+      <a href="#orbita" class="hide-m" data-i18n="navStack">Stack</a>
       <a href="#contato" class="hide-s" data-i18n="navContato">Contato</a>
       <button type="button" id="recruiterToggle" aria-haspopup="dialog" data-i18n="navRecruiter">Modo recrutador</button>
       <button type="button" id="pauseToggle" aria-pressed="false" data-i18n="navPause">Pausar universo</button>
@@ -139,22 +139,28 @@
       </div>
     </section>
 
-    <!-- STACK EM ÓRBITAS -->
-    <section id="stack" aria-labelledby="stackH">
+    <!-- STACK — três grupos, do uso diário ao apoio -->
+    <section id="orbita" aria-labelledby="stackH">
       <div class="label" data-i18n="navStack">Stack</div>
       <h2 id="stackH" data-i18n="stackHeading">Tecnologias em órbita</h2>
-      <div class="orbit-wrap">
-        <div class="orbit" id="orbit" role="group" aria-label="Tecnologias organizadas por proximidade do uso diário" data-i18n-attr="aria-label:orbitAria">
-          <div class="core" aria-hidden="true"></div>
-          <div class="ring r1" data-items="C#|.NET|SQL Server|APIs REST"></div>
-          <div class="ring r2" data-items="ASP.NET MVC|PostgreSQL|Active Directory|WinForms|MySQL|IIS"></div>
-          <div class="ring r3" data-items="Power BI|Node.js|React|JavaScript|Git|Looker Studio|HTML/CSS|Scrum"></div>
+      <div class="orbits">
+        <div class="panel orb o1">
+          <svg class="orb-ico" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><circle cx="14" cy="14" r="3" fill="currentColor"/><g class="orb-ring"><circle cx="14" cy="14" r="10.5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2.5 3"/><circle cx="24.5" cy="14" r="2" fill="currentColor"/></g></svg>
+          <h3 data-i18n="orb1H">Órbita interna</h3>
+          <p data-i18n="orb1P">O que uso todo dia em produção na BMA: C#, .NET, SQL Server e APIs REST.</p>
+          <div class="chips"><button type="button" class="chip">C#</button><button type="button" class="chip">.NET</button><button type="button" class="chip">SQL Server</button><button type="button" class="chip">APIs REST</button></div>
         </div>
-        <div class="legend">
-          <div class="panel"><h3><span class="dotk k1" aria-hidden="true"></span><span data-i18n="orb1H">Órbita interna</span></h3><p data-i18n="orb1P">O que uso todo dia em produção na BMA: C#, .NET, SQL Server e APIs REST.</p></div>
-          <div class="panel"><h3><span class="dotk k2" aria-hidden="true"></span><span data-i18n="orb2H">Órbita média</span></h3><p data-i18n="orb2P">Usado em projetos reais: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL e IIS.</p></div>
-          <div class="panel"><h3><span class="dotk k3" aria-hidden="true"></span><span data-i18n="orb3H">Órbita externa</span></h3><p data-i18n="orb3P">Ferramentas de apoio e a base de front-end que trago desde 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS e Scrum.</p></div>
-          <p class="hint" data-i18n="orbHint">passe o mouse para parar as órbitas · clique numa tecnologia</p>
+        <div class="panel orb o2">
+          <svg class="orb-ico" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><circle cx="14" cy="14" r="3" fill="currentColor"/><g class="orb-ring"><circle cx="14" cy="14" r="10.5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2.5 3"/><circle cx="24.5" cy="14" r="2" fill="currentColor"/></g></svg>
+          <h3 data-i18n="orb2H">Órbita média</h3>
+          <p data-i18n="orb2P">Usado em projetos reais: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL e IIS.</p>
+          <div class="chips"><button type="button" class="chip">ASP.NET MVC</button><button type="button" class="chip">PostgreSQL</button><button type="button" class="chip">Active Directory</button><button type="button" class="chip">WinForms</button><button type="button" class="chip">MySQL</button><button type="button" class="chip">IIS</button></div>
+        </div>
+        <div class="panel orb o3">
+          <svg class="orb-ico" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><circle cx="14" cy="14" r="3" fill="currentColor"/><g class="orb-ring"><circle cx="14" cy="14" r="10.5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2.5 3"/><circle cx="24.5" cy="14" r="2" fill="currentColor"/></g></svg>
+          <h3 data-i18n="orb3H">Órbita externa</h3>
+          <p data-i18n="orb3P">Ferramentas de apoio e a base de front-end que trago desde 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS e Scrum.</p>
+          <div class="chips"><button type="button" class="chip">Power BI</button><button type="button" class="chip">Node.js</button><button type="button" class="chip">React</button><button type="button" class="chip">JavaScript</button><button type="button" class="chip">Git</button><button type="button" class="chip">Looker Studio</button><button type="button" class="chip">HTML/CSS</button><button type="button" class="chip">Scrum</button></div>
         </div>
       </div>
     </section>
