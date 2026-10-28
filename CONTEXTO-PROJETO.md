@@ -62,7 +62,7 @@ Português (nativo) · Inglês (intermediário — leitura técnica fluente)
 - **Metodologias e ferramentas**: Agile (Scrum / Kanban), Demand Management, Git/GitHub, Jira, ServiceNow, ERP TOTVS Datasul
 
 ## Projetos pessoais reais (não são do emprego)
-1. **MoneyHub** — controle financeiro com histórico, dashboards, projeções, simulação de gastos, autenticação e geração de relatórios; integra uma API de investimentos para cotações reais de ações e FIIs. Stack: .NET 8 (C#) e Node.js 18+ no back, React, TypeScript e Tailwind no front, Supabase no banco. **Ano e link ainda não informados.**
+1. **MoneyHub** — controle financeiro com histórico, dashboards, projeções, simulação de gastos, autenticação e geração de relatórios; integra uma API de investimentos para cotações reais de ações e FIIs. Stack: .NET 8 (C#) e Node.js 18+ no back, React, TypeScript e Tailwind no front, Supabase no banco. **2026.** Repositório: https://github.com/LaminLeonardo/MoneyHub
 2. **Rede Social — Comunidade Web** (2025, **em desenvolvimento**) — Node.js, EJS, Sequelize ORM, MySQL. Autenticação, feed de publicações e interações; arquitetura MVC. Repositório: github.com/LaminLeonardo
 3. **Sistema de Gestão Comercial** (SENAI, 2022–2024) — comandas/pedidos, estoque, relatórios gerenciais, fluxo de caixa e leitura de código de barras, com MySQL centralizado.
    ⚠️ **IMPORTANTE**: o currículo em PDF diz "Java", mas o Leonardo confirmou que foi feito em **JavaScript e PHP** — usar essa correção, não o que está no PDF.
@@ -112,5 +112,5 @@ Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde
 - [x] Domínio real no `robots.txt`/`sitemap.xml`
 - [x] Sigla da universidade corrigida para "Católica SC" (Universidade Católica de Santa Catarina)
 - [ ] Imagem de prévia (`og:image`/`twitter:image`) real, hoje um placeholder
-- [ ] MoneyHub: ano e link do repositório
+- [x] MoneyHub: ano (2026) e link do repositório (github.com/LaminLeonardo/MoneyHub)
 - [ ] O próprio PDF do currículo ainda traz o título antigo (back-end com nível de cargo), "Java" no SENAI e "4 para 20" no Resumo (a Experiência diz 25)

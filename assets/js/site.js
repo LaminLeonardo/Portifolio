@@ -173,7 +173,7 @@
     c1L5:{pt:'Dashboard em Supabase (PostgreSQL) com apuração de ponto em tempo real para 1.000+ clientes',en:'Supabase (PostgreSQL) dashboard with real-time time tracking for 1,000+ clients'},
     c1L6:{pt:'Tela de monitoramento de integrações com e-mail automático quando há erro',en:'Integration monitoring screen with automatic email on errors'},
     c1L7:{pt:'Sustentação com SQL Server, PostgreSQL e MySQL, ODBC e IIS',en:'Operations support with SQL Server, PostgreSQL and MySQL, ODBC and IIS'},
-    c6Where:{pt:'Projeto pessoal',en:'Personal project'},
+    c6Where:{pt:'Projeto pessoal · 2026',en:'Personal project · 2026'},
     c6Title:{pt:'MoneyHub',en:'MoneyHub'},
     c6Desc:{pt:'Controle financeiro com histórico, dashboards, projeções e simulação de gastos, integrado a uma API de investimentos para cotações reais de ações e FIIs.',en:'Personal finance control with history, dashboards, projections and spending simulation, integrated with an investment API for real stock and REIT (FII) quotes.'},
     c6M1:{pt:'+ React e TypeScript',en:'+ React and TypeScript'},
@@ -192,6 +192,7 @@
     c2P4:{pt:'Também gerenciei chamados no <strong>ServiceNow</strong> dentro dos SLAs, com triagem, priorização e ponte entre usuários e desenvolvimento.',en:'I also managed tickets in <strong>ServiceNow</strong> within SLAs, handling triage, prioritization and acting as the bridge between users and development.'},
     c2L5:{pt:'Gestão de chamados no ServiceNow dentro dos SLAs: triagem, priorização e ponte com o desenvolvimento',en:'Ticket management in ServiceNow within SLAs: triage, prioritization and bridging to development'},
     practices:{pt:'Boas práticas: Clean Code, SOLID, Fail-Fast, ACID',en:'Good practices: Clean Code, SOLID, Fail-Fast, ACID'},
+    c6Gh:{pt:'&lt;/&gt; Ver código no GitHub',en:'&lt;/&gt; View code on GitHub'},
     /* terminal */
     termAria:{pt:'Terminal de logs',en:'Log terminal'}
   };
