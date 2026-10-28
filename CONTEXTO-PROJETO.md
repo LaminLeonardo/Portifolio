@@ -1,47 +1,71 @@
 # Contexto: Portfólio do Leonardo Lamin
 
+> Fonte da verdade do conteúdo do site. Desde a fase 02, a base é o **currículo novo** (`projeto\curriculo\LeonardoLamin.pdf`, servido no site como `LeonardoLaminResume.pdf`), com uma exceção: o Sistema de Gestão Comercial é **JavaScript + PHP + MySQL** (o PDF diz Java, e está errado).
+
 ## Quem sou eu (Leonardo)
 - Nome completo: **Leonardo Lamin**
-- Telefone/WhatsApp: (47) 99930-4752
+- WhatsApp: (47) 99930-4752 (é o único telefone que vai no site)
 - E-mail: LeonardoLamin.Tech@gmail.com
 - LinkedIn: linkedin.com/in/leonardolamin
 - GitHub: github.com/LaminLeonardo
+- Portfólio: https://laminleonardoportifolio.vercel.app/
 - Localização: Joinville — SC
-- Também sou desenvolvedor na BMA Sistemas e estudante de Engenharia de Software na Universidade Católica de Santa Catarina (Católica SC)
-- **Currículo real em PDF** no repositório: `LeonardoLaminResume.pdf` (atenção: o PDF diz "Java" no projeto do SENAI; o correto é JavaScript + PHP)
+- Desenvolvedor de Software na BMA Sistemas e estudante de Engenharia de Software na Universidade Católica de Santa Catarina (Católica SC)
 
-## Posicionamento profissional (direto do currículo real)
-- Headline: **Desenvolvedor Backend .NET · Integração de Sistemas · Automação de Processos**
-- Buscando: posição **.NET Júnior** com foco em boas práticas e escalabilidade
-- Mas também tenho ~3 anos de experiência em **front-end** (HTML/CSS/JS), começados em fevereiro/2023 — então o site tem essa dualidade: headline focado em .NET (o que busco), mas com prova real de competência front-end no próprio site
+## Posicionamento profissional
+- Título: **Desenvolvedor Full Stack**, linha de apoio **.NET · React · SQL**
+- **Sem senioridade** em nenhum lugar do site (nenhum nível de cargo). "Backend" só como camada técnica (ex.: "front e back"), nunca como identidade.
+- Status: **Aberto a oportunidades Full Stack**
+- O que procura: **uma vaga Full Stack com .NET e React ou Angular**
+- Resumo (do PDF): background em suporte técnico especializado, o que ajuda a entender o problema do negócio antes de definir a solução. Constrói do banco à tela: C# e .NET no back, React no front, SQL Server/PostgreSQL nos dados.
+- Também tem ~3 anos de front-end (HTML/CSS/JS), desde fevereiro/2023. O próprio site é a prova disso.
 
 ## Formação e trajetória real (cronologia)
 - **2022–2024**: SENAI — Técnico em Desenvolvimento de Software
-- **01/2023–02/2025**: SZ Soluções — Analista de Suporte Júnior (automação de KPIs em C#, dashboards Power BI/Looker Studio, SQL/MySQL, suporte ERP TOTVS Datasul)
-- **2025–2029 (em curso)**: Católica SC — Bacharelado em Engenharia de Software
-- **03/2025–presente**: BMA Sistemas — Auxiliar de Desenvolvimento (Backend .NET)
+- **01/2023–02/2025**: SZ Soluções — Analista de Suporte (no PDF o título inclui o nível; no site fica sem senioridade)
+- **2025–2029 (em curso, noturno)**: Católica SC — Bacharelado em Engenharia de Software
+- **03/2025–presente**: BMA Sistemas — **Desenvolvedor de Software**
 
-## Conquistas reais (currículo) — usadas como métricas no site
-- Reduzi ~84% o tempo de provisionamento de usuários SaaS (30–45min → 7min), beneficiando 25–30 usuários/mês — projeto principal (BMA)
-- Expandi acesso a dados de clientes de 4 para 20 usuários (+400%) com nova aplicação web + API REST
-- Dashboard em tempo real (Supabase/PostgreSQL): consulta de apuração de ponto de 7–15min → instantâneo, para 1.000+ clientes
-- Eliminei 100% da entrada manual de dados no pipeline de KPIs (SZ Soluções), com dashboards mensais em Power BI/Looker Studio
+## Experiência — BMA Sistemas (currículo novo)
+- Ferramenta própria de provisionamento automático de clientes em C# (Windows Forms) com integração ao Active Directory: processo de **45 para 3 minutos (−93%)**.
+- Integração da ferramenta com a biblioteca de clientes: ao liberar um ambiente, os dados da plataforma web se atualizam sozinhos (sem etapas manuais duplicadas).
+- Aplicação web da biblioteca de clientes: informações que estavam só no servidor ficaram visíveis a todos; acesso de **4 para 25 colaboradores**.
+- Front e back do módulo de banco de horas do novo Portal Web, a partir do legado.
+- Dashboard analítico em Supabase (PostgreSQL) com apuração de ponto em tempo real para **1.000+ clientes** (antes, 5 minutos por consulta; agora instantâneo).
+- Tela de monitoramento de integrações com e-mail automático quando há erro (menos tempo para detectar falhas).
+- Sustentação dos sistemas com SQL Server, PostgreSQL e MySQL (queries complexas, manutenção, extração de dados), ODBC e IIS.
+- ⚠️ O Resumo do PDF diz "4 para 20 pessoas", mas a Experiência diz "4 para 25". O site usa **4 → 25** (pedido da fase 02).
+
+## Experiência — SZ Soluções
+- Pipeline de KPIs de atendimento automatizado em C#, eliminando 100% da entrada manual de dados (currículo anterior).
+- Dashboards mensais em Power BI e Looker Studio para gestão e diretoria (volume, médias, SLAs).
+- Queries SQL/MySQL para investigações técnicas e auditorias de SLA no ERP TOTVS Datasul.
+- Gerenciamento de chamados no ServiceNow dentro dos SLAs: triagem, priorização e ponte entre usuários e desenvolvimento.
+
+## Números usados no site
+- **−93%** no tempo de provisionar um cliente (de 45 para 3 minutos)
+- **3 min** por provisionamento (antes, 45)
+- **4 → 25** pessoas com acesso aos dados de clientes (mostrado assim, sem porcentagem)
+- **1.000+** clientes com apuração de ponto em tempo real (antes, 5 minutos por consulta)
+- **100%** da entrada manual eliminada no pipeline de KPIs (SZ)
 
 ## Idiomas
-Português (nativo) · Inglês (intermediário — leitura técnica e conversação, ambos com fluidez)
+Português (nativo) · Inglês (intermediário — leitura técnica fluente)
 
-## Stack real completa
-- **Backend**: C#, .NET / .NET Core, ASP.NET MVC, WinForms, Microsserviços, APIs REST, Node.js/Express, Java
-- **Front-end**: HTML, CSS, JavaScript, EJS, React
-- **Infra & SaaS**: Active Directory, IIS, ODBC, Provisionamento SaaS
-- **Banco de dados**: SQL Server, PostgreSQL, MySQL, Sequelize ORM
+## Stack real completa (currículo novo)
+- **Back**: C#, .NET / .NET Core / .NET 8, ASP.NET MVC, Windows Forms, Microsserviços, APIs REST, Node.js, Java, CI/CD
+- **Front**: HTML, CSS, JavaScript, TypeScript, EJS, React, Tailwind
+- **Banco de dados**: SQL Server, PostgreSQL, MySQL, Sequelize ORM, Supabase
+- **Infra & SaaS**: Active Directory, IIS, ODBC, Provisionamento SaaS, Cloud
 - **BI & Dados**: Power BI, Looker Studio, DAX
-- **Ferramentas**: Git/GitHub, Jira, ServiceNow, Scrum/Kanban, ERP TOTVS Datasul
+- **Boas práticas**: Clean Code, SOLID (SRP), Fail-Fast, ACID, AES
+- **Metodologias e ferramentas**: Agile (Scrum / Kanban), Demand Management, Git/GitHub, Jira, ServiceNow, ERP TOTVS Datasul
 
 ## Projetos pessoais reais (não são do emprego)
-1. **Rede Social — Comunidade Web** (2025) — Node.js, EJS, Sequelize ORM, MySQL. Plataforma com autenticação, feed de publicações, interações. Arquitetura MVC. Repositório: github.com/LaminLeonardo
-2. **Sistema de Gestão Comercial** (SENAI, 2022–2024) — módulos de comandas/pedidos, controle de estoque, relatórios gerenciais, fluxo de caixa, leitura de código de barras, tudo integrado a banco MySQL centralizado.
-   ⚠️ **IMPORTANTE**: o currículo em PDF diz "Java", mas o Leonardo confirmou que na verdade foi feito em **JavaScript e PHP** (não Java) — usar essa correção, não o que está no PDF.
+1. **MoneyHub** — controle financeiro com histórico, dashboards, projeções, simulação de gastos, autenticação e geração de relatórios; integra uma API de investimentos para cotações reais de ações e FIIs. Stack: .NET 8 (C#) e Node.js 18+ no back, React, TypeScript e Tailwind no front, Supabase no banco. **Ano e link ainda não informados.**
+2. **Rede Social — Comunidade Web** (2025, **em desenvolvimento**) — Node.js, EJS, Sequelize ORM, MySQL. Autenticação, feed de publicações e interações; arquitetura MVC. Repositório: github.com/LaminLeonardo
+3. **Sistema de Gestão Comercial** (SENAI, 2022–2024) — comandas/pedidos, estoque, relatórios gerenciais, fluxo de caixa e leitura de código de barras, com MySQL centralizado.
+   ⚠️ **IMPORTANTE**: o currículo em PDF diz "Java", mas o Leonardo confirmou que foi feito em **JavaScript e PHP** — usar essa correção, não o que está no PDF.
 
 ---
 
@@ -51,24 +75,23 @@ Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde
 
 ## Conceito visual (atual)
 - Um **buraco negro desenhado em `<canvas>` 2D puro** fica fixo no fundo (`assets/js/universo.js`): estrelas com desvio gravitacional, disco de acreção com lado mais brilhante (Doppler), arco de luz por cima da sombra, partículas que caem em espiral, ondas de choque e brilho que aumenta quando ele "come" partículas.
-- Começa à direita no hero (centralizado no topo no celular) e vai para o centro ao rolar.
-- O conteúdo flutua em **painéis escuros translúcidos**. Paleta: fundo `#03040A`, laranja `#FFB45E`/`#FF6B3D`, azul-claro `#8FB8FF`, texto `#ECEEF6`/`#A3A9C2`.
+- Forte só no hero (à direita; centralizado no topo no celular). Fora do hero entra em "modo leitura": vai para a borda direita (topo no celular), metade fora da tela, menor, mais fraco e mais lento.
+- O conteúdo flutua em **painéis escuros translúcidos** (`--panel` com alpha 0,8 e blur de 18 px). Paleta: fundo `#03040A`, laranja `#FFB45E`/`#FF6B3D`, azul-claro `#8FB8FF`, texto `#ECEEF6`/`#A3A9C2`.
 - Tipografia: **Unbounded** (títulos), **Manrope** (corpo), **IBM Plex Mono** (rótulos).
-- Desempenho: `devicePixelRatio` limitado a 1,5 e menos partículas abaixo de 860 px. Com `prefers-reduced-motion` a animação continua em modo calmo (~40% da velocidade), nunca parada.
-- O visual anterior (galeria "Peça N°XX", corredor 3D, camada `.ambient`, tela de loading, HUD com relógio) foi removido na fase 01.
+- Desempenho: `devicePixelRatio` limitado a 1,5, menos partículas abaixo de 860 px, no máximo 300 partículas de clique. Com `prefers-reduced-motion` a animação continua em modo calmo (~40% da velocidade), nunca parada.
 
 ## Estrutura de telas (todas no `index.html`, scroll vertical)
-1. **Hero**: nome, "desenvolvedor .NET", frase de abertura, "Aberto a oportunidades — .NET Júnior", botões "Ver projetos" e "Baixar currículo", dica "clique no espaço".
-2. **Sobre** (`#sobre`): bio real, foto, ficha com dois contadores calculados via JS (front-end desde 02/2023, .NET desde 03/2025), formação, idiomas, status. Abaixo, os quatro números: −84%, 7 min, +400%, 1.000+.
-3. **Projetos** (`#projetos`): cinco cards (Provisionamento SaaS `case1`, Pipeline de KPIs `case2`, Rede Social `case3`, Gestão Comercial `case5`, Este site `case4`). Clicar puxa o card, solta partículas até o buraco negro e abre o caso num painel por cima, com todo o texto (descrição, arquitetura/entregas, métricas, stack). O caso 1 tem o trecho C# ilustrativo, com o aviso de que não é código de produção.
-4. **Stack em órbitas** (`#stack`): interna (C#, .NET, SQL Server, APIs REST), média (ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL, IIS) e externa (Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS, Scrum).
-5. **Trajetória** (`#trajetoria`): SENAI 2022 (sistema de gestão em JavaScript + PHP), SZ Soluções 2023, Católica SC 2025, BMA 2025, Hoje.
-6. **Recomendações** (`#recomendacoes`): **dois depoimentos reais, já preenchidos**, mantidos no original: Daniel Fernando Gonçalves e Carlos Eduardo Chierighini de Siqueira (ambos "trabalhou na mesma equipe que Leonardo"). Só mudam com texto real enviado pelo Leonardo.
+1. **Hero**: nome, "Desenvolvedor Full Stack", ".NET · React · SQL", frase de abertura, "Aberto a oportunidades Full Stack", botões "Ver projetos" e "Baixar currículo", dica "clique no espaço" (some após o primeiro clique).
+2. **Sobre** (`#sobre`): bio em 3 parágrafos + ficha (dois contadores calculados via JS: front-end desde 02/2023, .NET desde 03/2025; formação, idiomas, status) num painel; foto em outro. Abaixo, os quatro números: −93%, 3 min, 4 → 25, 1.000+.
+3. **Projetos** (`#projetos`): seis cards, nesta ordem: Provisionamento e plataforma de clientes (`case1`), **MoneyHub (`case6`)**, Pipeline de KPIs (`case2`), Rede Social (`case3`), Gestão Comercial (`case5`), Este site (`case4`). Clicar puxa o card e abre o caso num painel por cima. O caso 1 tem o trecho C# ilustrativo, com o aviso de que não é código de produção.
+4. **Stack** (`#orbita`): três painéis — interna/uso diário (C#, .NET, SQL Server, APIs REST, PostgreSQL), média/projetos reais (React, TypeScript, ASP.NET MVC, Windows Forms, Supabase, Active Directory, MySQL, IIS) e externa/apoio (Node.js, Tailwind, JavaScript, HTML/CSS, Power BI, Looker Studio, Git, Scrum/Kanban) — e a linha "Boas práticas: Clean Code, SOLID, Fail-Fast, ACID". Clicar numa tecnologia faz o chip cair em espiral no buraco negro e voltar.
+5. **Trajetória** (`#trajetoria`): SENAI 2022 (sistema de gestão em JavaScript + PHP), SZ Soluções 2023, Católica SC 2025, BMA 2025 (Desenvolvedor de Software), Hoje.
+6. **Recomendações** (`#recomendacoes`): **dois depoimentos reais**, mantidos no original: Daniel Fernando Gonçalves e Carlos Eduardo Chierighini de Siqueira (ambos "trabalhou na mesma equipe que Leonardo"). Só mudam com texto real enviado pelo Leonardo.
 7. **Contato** (`#contato`): e-mail, WhatsApp, LinkedIn, GitHub, código-fonte (`github.com/LaminLeonardo/Portifolio`), currículo e QR code do LinkedIn (`qrcodejs` via cdnjs).
 
 ## Funcionalidades extras
 - **PT/EN**: dicionário `TRANSLATIONS{}` em `assets/js/site.js` + atributos `data-i18n` (texto) e `data-i18n-attr` (atributos). O dicionário é aplicado também ao carregar a página.
-- **Deep links** `#case1` a `#case5`, botão "copiar link", Esc fecha o painel e devolve o foco ao card.
+- **Deep links** `#case1` a `#case6`, botão "copiar link", Esc fecha o painel e devolve o foco ao card.
 - **Pausar universo**: botão na navegação.
 - **Modo Recrutador**: ficha de uma tela no estilo do protótipo D (resumo com contato e currículo, "em 30 segundos", experiência em tópicos e competências). Pausa o universo enquanto está aberto.
 - **Terminal de logs** (easter egg, tecla `L`), em laranja e azul-claro sobre preto.
@@ -76,7 +99,7 @@ Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde
 - **SEO**: `robots.txt`, `sitemap.xml`, `canonical` e `og:url` com o domínio da Vercel.
 
 ## Stack técnica do site
-**100% HTML/CSS/JS vanilla — zero frameworks, zero build step.** Arquivos: `index.html` (só HTML), `assets/css/site.css`, `assets/js/universo.js` (canvas), `assets/js/site.js` (interação). Externos: Google Fonts e `qrcodejs@1.0.0` (cdnjs). APIs: Canvas 2D, `requestAnimationFrame`, Clipboard API, `inert`.
+**100% HTML/CSS/JS vanilla — zero frameworks, zero build step.** Arquivos: `index.html` (só HTML), `assets/css/site.css`, `assets/js/universo.js` (canvas), `assets/js/site.js` (interação). Externos: Google Fonts e `qrcodejs@1.0.0` (cdnjs). APIs: Canvas 2D, `requestAnimationFrame`, Web Animations API, Clipboard API, `inert`.
 
 ## Deploy
 - **No ar** na Vercel: https://laminleonardoportifolio.vercel.app/ (preset "Other", sem build, deploy automático a partir do GitHub).
@@ -87,5 +110,7 @@ Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde
 - [x] Recomendações reais (dois depoimentos publicados)
 - [x] Repositório publicado no GitHub
 - [x] Domínio real no `robots.txt`/`sitemap.xml`
-- [ ] Imagem de prévia (`og:image`/`twitter:image`) real, hoje um placeholder (fase 02)
 - [x] Sigla da universidade corrigida para "Católica SC" (Universidade Católica de Santa Catarina)
+- [ ] Imagem de prévia (`og:image`/`twitter:image`) real, hoje um placeholder
+- [ ] MoneyHub: ano e link do repositório
+- [ ] O próprio PDF do currículo ainda traz o título antigo (back-end com nível de cargo), "Java" no SENAI e "4 para 20" no Resumo (a Experiência diz 25)
