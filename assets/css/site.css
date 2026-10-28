@@ -57,23 +57,24 @@ section{padding-block:72px}
 h2{font:700 clamp(28px,4.4vw,48px)/1.05 var(--display);letter-spacing:-.02em;margin-bottom:28px;text-wrap:balance}
 .panel{background:var(--panel);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:20px}
 
-/* sobre */
-.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:20px}
-.about>.panel:first-child{padding:28px}
-.about p{color:var(--muted);max-width:60ch}
+/* sobre: bio + ficha à esquerda, foto à direita; nenhuma coluna estica */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:20px;align-items:start}
+.bio{padding:28px}
+.about p{color:var(--muted);max-width:62ch}
 .about p+p{margin-top:12px}
 .about p b{color:var(--ink)}
-.me{display:flex;flex-direction:column;gap:16px;padding:16px}
-.me img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:14px;filter:saturate(.9) contrast(1.05)}
+.sep{border:0;border-top:1px solid var(--line);margin:22px 0 18px}
 .facts{display:grid;gap:8px;font-size:14px}
-.facts div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
-.facts div:last-child{border-bottom:0}
-.facts dt{color:var(--muted);flex:none}
-.facts dd{text-align:right}
+.facts div{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:16px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.facts div:last-child{border-bottom:0;padding-bottom:0}
+.facts dt{color:var(--muted)}
 .hotc{color:var(--hot)}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px}
-.metric{padding:20px}
-.metric b{display:block;font:700 clamp(26px,3.4vw,38px)/1 var(--display);background:linear-gradient(120deg,#FFE3B8,var(--hot) 60%,var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.photo{padding:12px;width:100%;max-width:340px;justify-self:end}
+.photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px;filter:saturate(.9) contrast(1.05)}
+/* números de impacto: cor sólida (o gradiente com background-clip:text sumia no modo escuro automático) */
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px;align-items:stretch}
+.metric{padding:20px;display:flex;flex-direction:column}
+.metric b{display:block;font:700 clamp(26px,3.4vw,38px)/1 var(--display);color:var(--hot);text-shadow:0 0 24px rgba(255,140,60,.35);font-variant-numeric:tabular-nums}
 .metric span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
 
 /* projetos */
@@ -245,9 +246,7 @@ footer{padding-block:28px 48px;font:400 12px var(--mono);color:var(--muted);disp
   .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
   .step{grid-template-columns:minmax(0,1fr);gap:4px}
   .hero{min-height:auto;padding-top:46vh}
-  .me{flex-direction:row;align-items:flex-start}
-  .me img{width:132px;flex:none}
-  .facts{flex:1;min-width:0}
+  .photo{order:-1;max-width:280px;justify-self:center}
   .case-grid{grid-template-columns:minmax(0,1fr)}
   .rv-page{grid-template-columns:minmax(0,1fr)}
   .rv-summary{position:static}
@@ -258,11 +257,9 @@ footer{padding-block:28px 48px;font:400 12px var(--mono);color:var(--muted);disp
 @media (max-width:700px){header nav a.hide-m{display:none}}
 @media (max-width:560px){
   header nav a.hide-s{display:none}
-  .me{flex-direction:column}
-  .me img{width:100%}
   .card{padding:20px}
-  .facts div{flex-direction:column;gap:2px}
-  .facts dd{text-align:left}
+  .facts div{grid-template-columns:minmax(0,104px) minmax(0,1fr);gap:10px}
+  .bio{padding:22px}
 }
 
 /* ===== MOVIMENTO REDUZIDO — o universo continua, só mais calmo ===== */
