@@ -270,3 +270,6 @@ footer{padding-block:28px 48px;font:400 12px var(--mono);color:var(--muted);disp
   .card.pulled{transform:none}
   .detail-panel{animation:none}
 }
+
+/* ===== CHIP CAINDO NO BURACO NEGRO (clone fixo, animado pelo site.js) ===== */
+.chip-fall{position:fixed;z-index:30;margin:0;pointer-events:none;white-space:nowrap;box-sizing:border-box;transform-origin:50% 50%;will-change:transform,opacity}

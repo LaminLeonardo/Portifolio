@@ -60,6 +60,7 @@
     orb3H:{pt:'Órbita externa',en:'Outer orbit'},
     orb3P:{pt:'Ferramentas de apoio e a base de front-end que trago desde 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS e Scrum.',en:'Supporting tools and the front-end foundation I have carried since 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS and Scrum.'},
     orbToast:{pt:'{x} caiu no buraco negro',en:'{x} fell into the black hole'},
+    orbBack:{pt:'{x} voltou à órbita',en:'{x} is back in orbit'},
     tlLabel:{pt:'Trajetória',en:'Journey'},
     tlHeading:{pt:'Rota até aqui',en:'The route so far'},
     tl1H:{pt:'Técnico em Desenvolvimento de Software',en:'Software Development Technician'},
@@ -243,13 +244,101 @@
     a.addEventListener('click', () => { const [x, y] = center(a); U.burst(x, y, 24, 1.2); });
   });
 
-  /* ===== stack: clicar numa tecnologia solta partículas a partir dela ===== */
+  /* ===== stack: a tecnologia clicada cai em espiral no buraco negro e volta depois ===== */
+  const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const FALL_MS = 1100, BACK_MS = 1800, MAX_FALLING = 4;
+  const falling = new Set();   // chips fora do lugar (caindo ou esperando voltar)
+  let flying = 0;              // clones em voo agora (no máximo 4)
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+
+  // alvo: centro do buraco negro; se ele estiver fora da tela, o ponto da borda mais próximo dele
+  function fallTarget(){
+    const pos = U.position ? U.position() : {x: innerWidth*0.7, y: innerHeight*0.5};
+    return [clamp(pos.x, 12, innerWidth - 12), clamp(pos.y, 12, innerHeight - 12)];
+  }
+
+  function makeClone(chip, r){
+    const clone = chip.cloneNode(true);
+    const cs = getComputedStyle(chip);
+    clone.className = 'chip chip-fall';
+    clone.removeAttribute('id');
+    clone.setAttribute('aria-hidden', 'true');
+    clone.tabIndex = -1;
+    ['font','padding','borderWidth','borderStyle','borderColor','borderRadius','color','backgroundColor'].forEach(k => { clone.style[k] = cs[k]; });
+    clone.style.left = r.left + 'px';
+    clone.style.top = r.top + 'px';
+    clone.style.width = r.width + 'px';
+    clone.style.height = r.height + 'px';
+    document.body.appendChild(clone);
+    return clone;
+  }
+
+  function swallow(chip, x, y){
+    if(!U.isPaused()) U.burst(x, y, 20, 1.2);   // pausado: cai, mas sem partículas
+    U.feed(0.6);
+    say(t('orbToast', {x: chip.textContent}));
+    setTimeout(() => {
+      chip.style.visibility = '';
+      chip.animate([{opacity:0, transform:'scale(.6)'}, {opacity:1, transform:'scale(1)'}],
+                   {duration: motionReduced.matches ? 200 : 450, easing:'cubic-bezier(.2,.8,.2,1)'});
+      falling.delete(chip);
+      say(t('orbBack', {x: chip.textContent}));
+    }, BACK_MS);
+  }
+
+  function dropChip(chip){
+    if(falling.has(chip) || flying >= MAX_FALLING) return;
+    falling.add(chip);
+    flying++;
+    const r = chip.getBoundingClientRect();
+    const sx = r.left + r.width/2, sy = r.top + r.height/2;
+    const clone = makeClone(chip, r);
+    chip.style.visibility = 'hidden';
+
+    if(motionReduced.matches){
+      // movimento reduzido: só some com fade e volta, sem trajetória
+      clone.animate([{opacity:1}, {opacity:0}], {duration:300, fill:'forwards'}).finished.then(() => {
+        clone.remove(); flying--;
+        swallow(chip, sx, sy);
+      });
+      return;
+    }
+
+    // meia volta em espiral em torno do alvo, que é relido a cada quadro (o buraco negro se move)
+    const [tx0, ty0] = fallTarget();
+    const r0 = Math.hypot(sx - tx0, sy - ty0), a0 = Math.atan2(sy - ty0, sx - tx0);
+    // arco achatado quando a distância é grande, para a curva não sair da tela
+    const squash = clamp(0.3*Math.min(innerWidth, innerHeight)/(0.5*r0 || 1), 0.25, 1);
+    const at = (dir, e, tx, ty) => {
+      const rad = r0*(1 - e), ang = a0 + dir*Math.PI*e;
+      const ox = Math.cos(ang)*rad, oy = Math.sin(ang)*rad;
+      // a parte perpendicular à reta chip→alvo é a que faz a curva; é ela que achata
+      const ux = Math.cos(a0), uy = Math.sin(a0), along = ox*ux + oy*uy, perp = -ox*uy + oy*ux;
+      return [tx + along*ux - perp*squash*uy, ty + along*uy + perp*squash*ux];
+    };
+    // sentido da meia volta: o que deixa o meio do caminho mais perto do centro da tela
+    const mid = d => { const [x, y] = at(d, 0.5, tx0, ty0); return Math.hypot(x - innerWidth/2, y - innerHeight/2); };
+    const dir = mid(1) <= mid(-1) ? 1 : -1;
+    const t0 = performance.now();
+    let tx = tx0, ty = ty0;
+    (function step(now){
+      const t = Math.min(1, (now - t0)/FALL_MS);
+      const e = t*t;                                   // acelera ao se aproximar
+      [tx, ty] = fallTarget();
+      let [x, y] = at(dir, e, tx, ty);
+      x = clamp(x, 8, innerWidth - 8); y = clamp(y, 8, innerHeight - 8);
+      const s = 1 - 0.85*e;                            // escala 1 → 0,15
+      const stretch = 1 + 0.3*Math.sin(Math.PI*t);     // efeito de maré no meio do caminho
+      clone.style.transform = `translate(${x - sx}px, ${y - sy}px) rotate(${540*t}deg) scale(${s*stretch}, ${s})`;
+      clone.style.opacity = t < 0.8 ? 1 : (1 - t)/0.2;
+      if(t < 1) return requestAnimationFrame(step);
+      clone.remove(); flying--;
+      swallow(chip, tx, ty);
+    })(t0);
+  }
+
   document.querySelectorAll('.orb .chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      const [x, y] = center(chip);
-      U.burst(x, y, 30, 1.4);
-      say(t('orbToast', {x: chip.textContent}));
-    });
+    chip.addEventListener('click', () => dropChip(chip));
   });
 
   /* ===== diálogos: trava o fundo e devolve o foco ===== */
