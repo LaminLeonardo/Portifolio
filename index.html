@@ -85,10 +85,10 @@
         </div>
       </div>
       <div class="metrics">
-        <div class="panel metric"><b>−84%</b><span data-i18n="m1">no tempo de provisionar usuários SaaS</span></div>
-        <div class="panel metric"><b>7 min</b><span data-i18n="m2">por usuário, antes 30 a 45</span></div>
-        <div class="panel metric"><b>+400%</b><span data-i18n="m3">de acesso a dados de clientes</span></div>
-        <div class="panel metric"><b>1.000+</b><span data-i18n="m4">clientes com consulta instantânea</span></div>
+        <div class="panel metric"><b>−93%</b><span data-i18n="m1">no tempo de provisionar um cliente (de 45 para 3 minutos)</span></div>
+        <div class="panel metric"><b>3 min</b><span data-i18n="m2">por provisionamento (antes, 45)</span></div>
+        <div class="panel metric"><b>4 → 25</b><span data-i18n="m3">pessoas com acesso aos dados de clientes</span></div>
+        <div class="panel metric"><b>1.000+</b><span data-i18n="m4">clientes com apuração de ponto em tempo real (antes, 5 minutos por consulta)</span></div>
       </div>
     </section>
 
@@ -98,11 +98,20 @@
       <h2 id="projH" data-i18n="projHeading">O que já caiu na minha órbita</h2>
       <div class="projects">
         <button class="panel card" type="button" data-case="case1" aria-haspopup="dialog">
-          <span class="where" data-i18n="c1Where">BMA Sistemas · 2025</span>
-          <span class="h3" data-i18n="c1Title">Provisionamento automatizado de usuários SaaS</span>
-          <span class="p" data-i18n="c1Desc">Software MVC com microsserviços, integração nativa ao Active Directory e Windows Forms (.NET), reduzindo o tempo de provisionamento de 30–45 min para 7 min — beneficiando 25–30 usuários por mês.</span>
-          <span class="num">−84% <small data-i18n="c1M1">redução no tempo</small></span>
-          <span class="tags"><span class="tag">C# / .NET</span><span class="tag">ASP.NET MVC</span><span class="tag">WinForms</span><span class="tag">Active Directory</span></span>
+          <span class="where" data-i18n="c1Where">BMA Sistemas · 2025 – hoje</span>
+          <span class="h3" data-i18n="c1Title">Provisionamento e plataforma de clientes</span>
+          <span class="p" data-i18n="c1Desc">Ferramenta própria em C# (Windows Forms) com Active Directory que leva o provisionamento de clientes de 45 para 3 minutos, e a aplicação web que abriu os dados de clientes de 4 para 25 colaboradores.</span>
+          <span class="num">−93% <small data-i18n="c1M1">no tempo de provisionamento</small></span>
+          <span class="tags"><span class="tag">C# / .NET</span><span class="tag">Windows Forms</span><span class="tag">Active Directory</span><span class="tag">Supabase</span></span>
+          <span class="open" data-i18n="openCase">abrir caso →</span>
+        </button>
+        <!-- TODO: ano e link do MoneyHub -->
+        <button class="panel card" type="button" data-case="case6" aria-haspopup="dialog">
+          <span class="where" data-i18n="c6Where">Projeto pessoal</span>
+          <span class="h3" data-i18n="c6Title">MoneyHub</span>
+          <span class="p" data-i18n="c6Desc">Controle financeiro com histórico, dashboards, projeções e simulação de gastos, integrado a uma API de investimentos para cotações reais de ações e FIIs.</span>
+          <span class="num">.NET 8 <small data-i18n="c6M1">+ React e TypeScript</small></span>
+          <span class="tags"><span class="tag">.NET 8</span><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Supabase</span></span>
           <span class="open" data-i18n="openCase">abrir caso →</span>
         </button>
         <button class="panel card" type="button" data-case="case2" aria-haspopup="dialog">
@@ -115,7 +124,7 @@
         </button>
         <button class="panel card" type="button" data-case="case3" aria-haspopup="dialog">
           <span class="where" data-i18n="c3Where">Projeto pessoal · 2025</span>
-          <span class="h3" data-i18n="c3Title">Rede Social — Comunidade Web</span>
+          <span class="h3" data-i18n="c3Title">Rede Social — Comunidade Web (em desenvolvimento)</span>
           <span class="p" data-i18n="c3Desc">Plataforma de rede social construída do zero: autenticação, feed de publicações e interações, com arquitetura MVC em Node.js e EJS.</span>
           <span class="num">MVC <small data-i18n="c3M2">arquitetura</small></span>
           <span class="tags"><span class="tag">Node.js</span><span class="tag">EJS</span><span class="tag">Sequelize ORM</span><span class="tag">MySQL</span></span>
@@ -147,23 +156,24 @@
       <div class="orbits">
         <div class="panel orb o1">
           <svg class="orb-ico" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><circle cx="14" cy="14" r="3" fill="currentColor"/><g class="orb-ring"><circle cx="14" cy="14" r="10.5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2.5 3"/><circle cx="24.5" cy="14" r="2" fill="currentColor"/></g></svg>
-          <h3 data-i18n="orb1H">Órbita interna</h3>
-          <p data-i18n="orb1P">O que uso todo dia em produção na BMA: C#, .NET, SQL Server e APIs REST.</p>
-          <div class="chips"><button type="button" class="chip">C#</button><button type="button" class="chip">.NET</button><button type="button" class="chip">SQL Server</button><button type="button" class="chip">APIs REST</button></div>
+          <h3 data-i18n="orb1H">Órbita interna · uso diário</h3>
+          <p data-i18n="orb1P">O que uso todo dia em produção na BMA: C#, .NET, SQL Server, APIs REST e PostgreSQL.</p>
+          <div class="chips"><button type="button" class="chip">C#</button><button type="button" class="chip">.NET</button><button type="button" class="chip">SQL Server</button><button type="button" class="chip">APIs REST</button><button type="button" class="chip">PostgreSQL</button></div>
         </div>
         <div class="panel orb o2">
           <svg class="orb-ico" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><circle cx="14" cy="14" r="3" fill="currentColor"/><g class="orb-ring"><circle cx="14" cy="14" r="10.5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2.5 3"/><circle cx="24.5" cy="14" r="2" fill="currentColor"/></g></svg>
-          <h3 data-i18n="orb2H">Órbita média</h3>
-          <p data-i18n="orb2P">Usado em projetos reais: ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL e IIS.</p>
-          <div class="chips"><button type="button" class="chip">ASP.NET MVC</button><button type="button" class="chip">PostgreSQL</button><button type="button" class="chip">Active Directory</button><button type="button" class="chip">WinForms</button><button type="button" class="chip">MySQL</button><button type="button" class="chip">IIS</button></div>
+          <h3 data-i18n="orb2H">Órbita média · projetos reais</h3>
+          <p data-i18n="orb2P">Usado em projetos reais, no trabalho e nos projetos pessoais: React, TypeScript, ASP.NET MVC, Windows Forms, Supabase, Active Directory, MySQL e IIS.</p>
+          <div class="chips"><button type="button" class="chip">React</button><button type="button" class="chip">TypeScript</button><button type="button" class="chip">ASP.NET MVC</button><button type="button" class="chip">Windows Forms</button><button type="button" class="chip">Supabase</button><button type="button" class="chip">Active Directory</button><button type="button" class="chip">MySQL</button><button type="button" class="chip">IIS</button></div>
         </div>
         <div class="panel orb o3">
           <svg class="orb-ico" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false"><circle cx="14" cy="14" r="3" fill="currentColor"/><g class="orb-ring"><circle cx="14" cy="14" r="10.5" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-dasharray="2.5 3"/><circle cx="24.5" cy="14" r="2" fill="currentColor"/></g></svg>
-          <h3 data-i18n="orb3H">Órbita externa</h3>
-          <p data-i18n="orb3P">Ferramentas de apoio e a base de front-end que trago desde 2023: Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS e Scrum.</p>
-          <div class="chips"><button type="button" class="chip">Power BI</button><button type="button" class="chip">Node.js</button><button type="button" class="chip">React</button><button type="button" class="chip">JavaScript</button><button type="button" class="chip">Git</button><button type="button" class="chip">Looker Studio</button><button type="button" class="chip">HTML/CSS</button><button type="button" class="chip">Scrum</button></div>
+          <h3 data-i18n="orb3H">Órbita externa · apoio</h3>
+          <p data-i18n="orb3P">Ferramentas de apoio: Node.js, Tailwind, JavaScript, HTML/CSS, Power BI, Looker Studio, Git e Scrum/Kanban.</p>
+          <div class="chips"><button type="button" class="chip">Node.js</button><button type="button" class="chip">Tailwind</button><button type="button" class="chip">JavaScript</button><button type="button" class="chip">HTML/CSS</button><button type="button" class="chip">Power BI</button><button type="button" class="chip">Looker Studio</button><button type="button" class="chip">Git</button><button type="button" class="chip">Scrum/Kanban</button></div>
         </div>
       </div>
+      <p class="practices" data-i18n="practices">Boas práticas: Clean Code, SOLID, Fail-Fast, ACID</p>
     </section>
 
     <!-- TRAJETÓRIA -->
@@ -174,7 +184,7 @@
         <li class="panel step"><span class="when">2022 · SENAI</span><div><h3 data-i18n="tl1H">Técnico em Desenvolvimento de Software</h3><p data-i18n="tl1P">Início formal na programação: fundamentos de front-end (HTML/CSS/JS) e um sistema completo de gestão comercial em JavaScript e PHP com MySQL como projeto de curso.</p></div></li>
         <li class="panel step"><span class="when">2023 · SZ Soluções</span><div><h3 data-i18n="tl2H">Analista de Suporte</h3><p data-i18n="tl2P">Automatizei pipeline de KPIs em C#, eliminando 100% da entrada manual de dados. Entrega mensal de dashboards em Power BI e Looker Studio para diretoria.</p></div></li>
         <li class="panel step"><span class="when">2025 · Católica SC</span><div><h3 data-i18n="tl3H">Início em Engenharia de Software</h3><p data-i18n="tl3P">Ingresso na Universidade Católica de Santa Catarina, conciliando graduação com atuação profissional em produção.</p></div></li>
-        <li class="panel step"><span class="when">2025 · BMA Sistemas</span><div><h3 data-i18n="tl4H">Desenvolvedor de Software</h3><p data-i18n="tl4P">Reduzi em ~84% o tempo de provisionamento de usuários SaaS (30–45 → 7 min) e expandi o acesso a dados de clientes em +400% com nova aplicação web e API REST.</p></div></li>
+        <li class="panel step"><span class="when">2025 · BMA Sistemas</span><div><h3 data-i18n="tl4H">Desenvolvedor de Software</h3><p data-i18n="tl4P">Ferramenta própria em C# levou o provisionamento de clientes de 45 para 3 minutos, a aplicação web da biblioteca de clientes abriu os dados de 4 para 25 colaboradores e o dashboard em tempo real atende 1.000+ clientes.</p></div></li>
         <li class="panel step now"><span class="when" data-i18n="tl5When">Hoje</span><div><h3 data-i18n="tl5H">Em desenvolvimento contínuo</h3><p data-i18n="tl5P">Construindo do banco à tela e buscando uma vaga Full Stack.</p></div></li>
       </ol>
     </section>
@@ -235,19 +245,23 @@
     </div>
 
     <article class="case" id="case1" hidden>
-      <div class="label" data-i18n="c1Where">BMA Sistemas · 2025</div>
-      <h3 id="case1T" data-i18n="c1Title">Provisionamento automatizado de usuários SaaS</h3>
+      <div class="label" data-i18n="c1Where">BMA Sistemas · 2025 – hoje</div>
+      <h3 id="case1T" data-i18n="c1Title">Provisionamento e plataforma de clientes</h3>
       <div class="case-grid">
         <div class="case-body">
-          <p data-i18n="c1P1">Desenvolvi um software MVC com microsserviços, integração nativa ao Active Directory e Windows Forms (.NET), reduzindo o tempo de provisionamento de usuários de <strong>30–45 minutos para 7 minutos</strong> — um ganho de aproximadamente <strong>84%</strong>, beneficiando 25 a 30 usuários por mês.</p>
+          <p data-i18n="c1P1">Construí do zero uma ferramenta de provisionamento automático de clientes em <strong>C# (Windows Forms)</strong> com integração ao Active Directory, que levou o processo de <strong>45 para 3 minutos</strong> (−93%). Depois integrei a ferramenta à biblioteca de clientes: ao liberar um ambiente, a plataforma web se atualiza sozinha, sem etapas manuais duplicadas.</p>
           <p data-i18n="c1P2">Entre os desafios técnicos resolvidos: inconsistência de <strong>codificação de caracteres</strong> entre o arquivo de configuração e o restante do pipeline, uma lógica de backup que não detectava registros duplicados corretamente, e um ponto de sobrescrita de dados posicionado no lugar errado no serviço. Também mapeei que um erro de identidade não mapeada era uma questão operacional — o usuário de rede precisa existir previamente — não um defeito de código.</p>
-          <p data-i18n="c1P3">No mesmo ambiente, desenvolvi do zero uma aplicação web com API REST que <strong>expandiu o acesso a dados de clientes de 4 para 20 usuários (+400%)</strong>, centralizando informações antes restritas ao servidor, e um dashboard em tempo real (Supabase/PostgreSQL) que reduziu consultas de apuração de ponto de 7–15 minutos para acesso instantâneo, atendendo mais de 1.000 clientes.</p>
-          <h4 data-i18n="caseArch">Arquitetura</h4>
+          <p data-i18n="c1P3">Também criei a aplicação web da biblioteca de clientes, que tirou as informações do servidor e levou o acesso de <strong>4 para 25 colaboradores</strong>; desenvolvi front e back do módulo de banco de horas do novo Portal Web a partir do legado; e montei um dashboard em Supabase (PostgreSQL) com apuração de ponto em tempo real para <strong>mais de 1.000 clientes</strong>, onde antes cada consulta levava 5 minutos.</p>
+          <p data-i18n="c1P4">Implementei uma tela de monitoramento de integrações que envia e-mail automático quando há erro, para as falhas serem detectadas mais cedo, e sustento a operação com SQL Server, PostgreSQL e MySQL, além de ODBC e IIS.</p>
+          <h4 data-i18n="caseDeliv">Entregas</h4>
           <ul class="case-list">
-            <li data-i18n="c1L1">Software MVC com microsserviços e integração nativa ao Active Directory</li>
-            <li data-i18n="c1L2">Interface desktop em Windows Forms (.NET) para orquestração do provisionamento</li>
-            <li data-i18n="c1L3">Aplicação web com API REST centralizando dados antes restritos ao servidor</li>
-            <li data-i18n="c1L4">Dashboard em tempo real sobre Supabase/PostgreSQL para consulta instantânea</li>
+            <li data-i18n="c1L1">Ferramenta própria em C# (Windows Forms) com Active Directory: provisionamento de 45 para 3 minutos</li>
+            <li data-i18n="c1L2">Integração com a biblioteca de clientes: ao liberar um ambiente, a plataforma web se atualiza sozinha</li>
+            <li data-i18n="c1L3">Aplicação web da biblioteca de clientes: acesso de 4 para 25 colaboradores</li>
+            <li data-i18n="c1L4">Módulo de banco de horas do novo Portal Web, front e back, a partir do legado</li>
+            <li data-i18n="c1L5">Dashboard em Supabase (PostgreSQL) com apuração de ponto em tempo real para 1.000+ clientes</li>
+            <li data-i18n="c1L6">Tela de monitoramento de integrações com e-mail automático quando há erro</li>
+            <li data-i18n="c1L7">Sustentação com SQL Server, PostgreSQL e MySQL, ODBC e IIS</li>
           </ul>
           <button class="btn small code-toggle" type="button" id="codeToggle" aria-expanded="false" aria-controls="code1" data-i18n="codeShow">&lt;/&gt; Ver trecho de código</button>
           <div class="case-code" id="code1" hidden>
@@ -281,13 +295,43 @@
         </div>
         <aside class="case-side">
           <div class="case-metrics">
-            <div class="m"><b>~84%</b><span data-i18n="c1D1">redução no tempo</span></div>
-            <div class="m"><b>7 min</b><span data-i18n="c1D2">tempo final (de 30–45 min)</span></div>
-            <div class="m"><b>+400%</b><span data-i18n="c1D3">expansão de acesso a dados</span></div>
-            <div class="m"><b>1000+</b><span data-i18n="c1D4">clientes atendidos</span></div>
+            <div class="m"><b>−93%</b><span data-i18n="c1D1">no tempo de provisionamento (45 → 3 min)</span></div>
+            <div class="m"><b>3 min</b><span data-i18n="c1D2">por cliente provisionado (antes, 45)</span></div>
+            <div class="m"><b>4 → 25</b><span data-i18n="c1D3">colaboradores com acesso aos dados</span></div>
+            <div class="m"><b>1000+</b><span data-i18n="c1D4">clientes com ponto em tempo real</span></div>
           </div>
           <h4>Stack</h4>
-          <div class="tags"><span class="tag">C# / .NET</span><span class="tag">ASP.NET MVC</span><span class="tag">WinForms</span><span class="tag">Active Directory</span><span class="tag">APIs REST</span><span class="tag">Supabase/PostgreSQL</span></div>
+          <div class="tags"><span class="tag">C# / .NET</span><span class="tag">Windows Forms</span><span class="tag">Active Directory</span><span class="tag">APIs REST</span><span class="tag">Supabase/PostgreSQL</span><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">ODBC</span><span class="tag">IIS</span></div>
+        </aside>
+      </div>
+    </article>
+
+    <!-- TODO: ano e link do MoneyHub -->
+    <article class="case" id="case6" hidden>
+      <div class="label" data-i18n="c6Where">Projeto pessoal</div>
+      <h3 id="case6T" data-i18n="c6Title">MoneyHub</h3>
+      <div class="case-grid">
+        <div class="case-body">
+          <p data-i18n="c6P1">Controle financeiro completo: histórico, dashboards, projeções e simulação de gastos, com <strong>autenticação</strong> e geração de relatórios.</p>
+          <p data-i18n="c6P2">Integra uma <strong>API de investimentos</strong> para trazer cotações reais de ações e FIIs.</p>
+          <p data-i18n="c6P3">Stack de ponta a ponta: <strong>.NET 8 (C#)</strong> e Node.js 18+ no back, <strong>React, TypeScript e Tailwind</strong> no front e Supabase no banco.</p>
+          <h4 data-i18n="caseFeat">Funcionalidades</h4>
+          <ul class="case-list">
+            <li data-i18n="c6L1">Histórico financeiro e dashboards</li>
+            <li data-i18n="c6L2">Projeções e simulação de gastos</li>
+            <li data-i18n="c6L3">Autenticação e geração de relatórios</li>
+            <li data-i18n="c6L4">Cotações reais de ações e FIIs via API de investimentos</li>
+          </ul>
+        </div>
+        <aside class="case-side">
+          <div class="case-metrics">
+            <div class="m"><b>.NET 8</b><span data-i18n="c6D1">back em C#</span></div>
+            <div class="m"><b>Node 18+</b><span data-i18n="c6D2">serviços em Node.js</span></div>
+            <div class="m"><b>React</b><span data-i18n="c6D3">front com TypeScript e Tailwind</span></div>
+            <div class="m"><b>API</b><span data-i18n="c6D4">cotações reais de ações e FIIs</span></div>
+          </div>
+          <h4>Stack</h4>
+          <div class="tags"><span class="tag">.NET 8 (C#)</span><span class="tag">Node.js 18+</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Supabase</span></div>
         </aside>
       </div>
     </article>
@@ -300,12 +344,14 @@
           <p data-i18n="c2P1">Na SZ Soluções, o envio de dados para os indicadores de atendimento era feito manualmente — processo lento e sujeito a falhas humanas. Automatizei todo o pipeline em <strong>C#</strong>, eliminando <strong>100% da entrada manual de dados</strong> e garantindo atualização contínua dos indicadores sem intervenção humana.</p>
           <p data-i18n="c2P2">Com os dados já consolidados automaticamente, passei a entregar mensalmente <strong>dashboards em Power BI e Looker Studio</strong> — médias, volumes e SLAs — diretamente para a gestão e diretoria da empresa contratante.</p>
           <p data-i18n="c2P3">Também executei queries SQL/MySQL para extração e validação de dados em investigações técnicas, auditorias de SLA e suporte especializado no ERP TOTVS Datasul.</p>
+          <p data-i18n="c2P4">Também gerenciei chamados no <strong>ServiceNow</strong> dentro dos SLAs, com triagem, priorização e ponte entre usuários e desenvolvimento.</p>
           <h4 data-i18n="caseDeliv">Entregas</h4>
           <ul class="case-list">
             <li data-i18n="c2L1">Pipeline de automação de KPIs em C#, sem intervenção manual</li>
             <li data-i18n="c2L2">Dashboards mensais em Power BI e Looker Studio para diretoria</li>
             <li data-i18n="c2L3">Queries SQL/MySQL para auditorias de SLA e investigações técnicas</li>
             <li data-i18n="c2L4">Suporte especializado no ERP TOTVS Datasul</li>
+            <li data-i18n="c2L5">Gestão de chamados no ServiceNow dentro dos SLAs: triagem, priorização e ponte com o desenvolvimento</li>
           </ul>
         </div>
         <aside class="case-side">
@@ -316,14 +362,14 @@
             <div class="m"><b data-i18n="c2N4">mensal</b><span data-i18n="c2D4">entrega de dashboards</span></div>
           </div>
           <h4>Stack</h4>
-          <div class="tags"><span class="tag">C#</span><span class="tag">SQL / MySQL</span><span class="tag">Power BI</span><span class="tag">Looker Studio</span><span class="tag">TOTVS Datasul</span></div>
+          <div class="tags"><span class="tag">C#</span><span class="tag">SQL / MySQL</span><span class="tag">Power BI</span><span class="tag">Looker Studio</span><span class="tag">TOTVS Datasul</span><span class="tag">ServiceNow</span></div>
         </aside>
       </div>
     </article>
 
     <article class="case" id="case3" hidden>
       <div class="label" data-i18n="c3Where">Projeto pessoal · 2025</div>
-      <h3 id="case3T" data-i18n="c3Title">Rede Social — Comunidade Web</h3>
+      <h3 id="case3T" data-i18n="c3Title">Rede Social — Comunidade Web (em desenvolvimento)</h3>
       <div class="case-grid">
         <div class="case-body">
           <p data-i18n="c3P1">Plataforma de rede social construída do zero, com <strong>autenticação de usuários</strong>, feed de publicações e interações entre usuários — arquitetura <strong>MVC</strong> com Node.js e templates EJS.</p>
@@ -392,7 +438,7 @@
           <ul class="case-list">
             <li data-i18n="c4L1">Canvas 2D com requestAnimationFrame e devicePixelRatio limitado para poupar o celular</li>
             <li data-i18n="c4L2">Movimento reduzido: a animação desacelera em vez de parar</li>
-            <li data-i18n="c4L3">Deep links #case1 a #case5 com painel acessível (Esc devolve o foco ao card)</li>
+            <li data-i18n="c4L3">Deep links #case1 a #case6 com painel acessível (Esc devolve o foco ao card)</li>
             <li data-i18n="c4L4">Sistema de i18n (PT/EN) escrito do zero, sem biblioteca</li>
           </ul>
           <a class="btn small" href="https://github.com/LaminLeonardo/Portifolio" target="_blank" rel="noopener" data-i18n="c4Gh">&lt;/&gt; Ver código-fonte completo no GitHub</a>
@@ -451,21 +497,21 @@
       <section class="rv-block" aria-labelledby="rv30">
         <h3 id="rv30" data-i18n="rv30H">Em 30 segundos</h3>
         <ol class="rv-tldr">
-          <li><span class="n">1</span><span data-i18n="rv30a">Trabalha com <b>C# e .NET em produção</b> desde março de 2025, na BMA Sistemas.</span></li>
-          <li><span class="n">2</span><span data-i18n="rv30b">Reduziu em <b>84%</b> o tempo de provisionar usuários SaaS, de 30–45 para 7 minutos.</span></li>
-          <li><span class="n">3</span><span data-i18n="rv30c">Vem de <b>suporte, SQL e BI</b>: entende o usuário e o dado antes de escrever código.</span></li>
+          <li><span class="n">1</span><span data-i18n="rv30a">Constrói do banco à tela: <b>C#/.NET, React e SQL</b> em produção desde 03/2025.</span></li>
+          <li><span class="n">2</span><span data-i18n="rv30b">Provisionamento de clientes de <b>45 para 3 minutos</b> com ferramenta própria.</span></li>
+          <li><span class="n">3</span><span data-i18n="rv30c">Vem do <b>suporte técnico, SQL e BI</b>: entende o negócio antes do código.</span></li>
         </ol>
       </section>
 
       <section class="rv-block" aria-labelledby="rvExp">
         <h3 id="rvExp" data-i18n="rvExpH">Experiência</h3>
         <div class="rv-job"><span class="when" data-i18n="rvJ1When">03/2025 → hoje</span><div><h4 data-i18n="tl4H">Desenvolvedor de Software</h4><div class="org">BMA Sistemas</div><ul>
-          <li data-i18n="rvJ1a">Provisionamento de usuários SaaS de 30–45 min para <span class="metric">7 min</span>, para 25 a 30 usuários por mês.</li>
-          <li data-i18n="rvJ1b">Aplicação web com API REST que ampliou o acesso a dados de clientes em <span class="metric">+400%</span>.</li>
-          <li data-i18n="rvJ1c">Dashboard em tempo real (Supabase/PostgreSQL) para <span class="metric">1.000+</span> clientes.</li></ul></div></div>
+          <li data-i18n="rvJ1a">Ferramenta própria em C# (Windows Forms) com Active Directory: provisionamento de clientes de 45 para <span class="metric">3 min</span>.</li>
+          <li data-i18n="rvJ1b">Aplicação web da biblioteca de clientes: acesso aos dados de <span class="metric">4 → 25</span> colaboradores.</li>
+          <li data-i18n="rvJ1c">Dashboard em tempo real (Supabase/PostgreSQL) para <span class="metric">1.000+</span> clientes e módulo de banco de horas do novo Portal Web, front e back.</li></ul></div></div>
         <div class="rv-job"><span class="when">01/2023 → 02/2025</span><div><h4 data-i18n="tl2H">Analista de Suporte</h4><div class="org">SZ Soluções</div><ul>
           <li data-i18n="rvJ2a">Pipeline de KPIs em C# que eliminou <span class="metric">100%</span> da entrada manual.</li>
-          <li data-i18n="rvJ2b">Dashboards mensais em Power BI e Looker Studio para a diretoria; suporte ao ERP TOTVS Datasul.</li></ul></div></div>
+          <li data-i18n="rvJ2b">Dashboards mensais em Power BI e Looker Studio para a diretoria; chamados no ServiceNow dentro dos SLAs; suporte ao ERP TOTVS Datasul.</li></ul></div></div>
         <div class="rv-job"><span class="when">2025 → 2029</span><div><h4 data-i18n="rvJ3H">Bacharelado em Engenharia de Software</h4><div class="org">Católica SC</div><ul>
           <li data-i18n="rvJ3a">Graduação em curso, junto com o trabalho em produção.</li></ul></div></div>
         <div class="rv-job"><span class="when">2022 → 2024</span><div><h4 data-i18n="tl1H">Técnico em Desenvolvimento de Software</h4><div class="org">SENAI</div><ul>
@@ -476,9 +522,9 @@
         <h3 id="rvSk" data-i18n="rvSkH">Competências</h3>
         <div class="rv-skills">
           <div><h4>Backend</h4><div class="chips"><span class="chip pro">C#</span><span class="chip pro">.NET / .NET Core</span><span class="chip pro">ASP.NET MVC</span><span class="chip pro">WinForms</span><span class="chip pro">APIs REST</span><span class="chip pro" data-i18n="skMicro">Microsserviços</span><span class="chip">Node.js / Express</span></div></div>
-          <div><h4 data-i18n="skData">Dados</h4><div class="chips"><span class="chip pro">SQL Server</span><span class="chip pro">PostgreSQL</span><span class="chip pro">MySQL</span><span class="chip pro">Power BI</span><span class="chip pro">Looker Studio</span><span class="chip">DAX</span><span class="chip">Sequelize ORM</span></div></div>
+          <div><h4 data-i18n="skData">Dados</h4><div class="chips"><span class="chip pro">SQL Server</span><span class="chip pro">PostgreSQL</span><span class="chip pro">MySQL</span><span class="chip pro">Supabase</span><span class="chip pro">Power BI</span><span class="chip pro">Looker Studio</span><span class="chip">DAX</span><span class="chip">Sequelize ORM</span></div></div>
           <div><h4>Infra</h4><div class="chips"><span class="chip pro">Active Directory</span><span class="chip pro">IIS</span><span class="chip pro">ODBC</span><span class="chip pro" data-i18n="skSaas">Provisionamento SaaS</span></div></div>
-          <div><h4>Front-end</h4><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">EJS</span><span class="chip">React</span></div></div>
+          <div><h4>Front-end</h4><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip pro">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind</span><span class="chip">EJS</span></div></div>
           <div><h4 data-i18n="skTools">Ferramentas</h4><div class="chips"><span class="chip pro">Git / GitHub</span><span class="chip pro">Jira</span><span class="chip pro">ServiceNow</span><span class="chip pro">Scrum / Kanban</span><span class="chip pro">TOTVS Datasul</span></div></div>
         </div>
         <div class="rv-key"><span data-i18n="skKeyWork">usada no trabalho</span><span data-i18n="skKeyStudy">projetos e estudo</span></div>

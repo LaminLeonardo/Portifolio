@@ -20,7 +20,7 @@ Desenvolvedor Full Stack (.NET · React · SQL) que constrói do banco à tela, 
 - Buraco negro em canvas: estrelas com desvio gravitacional, disco de acreção com lado mais brilhante, arco de luz, partículas de clique e ondas de choque
 - Botão "Pausar universo" e modo calmo com `prefers-reduced-motion` (a animação desacelera, não para)
 - Projetos que são "puxados" pelo buraco negro e abrem num painel por cima
-- Deep links `#case1` a `#case5`, botão "copiar link" e Esc devolvendo o foco ao card
+- Deep links `#case1` a `#case6`, botão "copiar link" e Esc devolvendo o foco ao card
 - Stack em órbitas (param no hover; clicar numa tecnologia solta partículas)
 - Toggle PT/EN (i18n próprio, sem biblioteca)
 - Modo Recrutador: ficha de uma tela só, que pausa o universo enquanto está aberta

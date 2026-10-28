@@ -108,6 +108,7 @@ h2{font:700 clamp(28px,4.4vw,48px)/1.05 var(--display);letter-spacing:-.02em;mar
 .orb.o1 .chip{border-color:rgba(255,180,94,.6);color:#FFE3B8}
 .orb.o2 .chip{border-color:rgba(143,184,255,.55)}
 .orb .chip:hover{background:rgba(255,180,94,.12);border-color:var(--hot)}
+.practices{margin-top:16px;font:400 12px var(--mono);letter-spacing:.04em;color:var(--muted)}
 
 .hero .hint{transition:opacity .6s}
 .hero .hint.gone{opacity:0;pointer-events:none}
