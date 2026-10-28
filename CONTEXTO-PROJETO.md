@@ -8,7 +8,7 @@
 - GitHub: github.com/LaminLeonardo
 - Localização: Joinville — SC
 - Também sou desenvolvedor na BMA Sistemas e estudante de Engenharia de Software na Universidade Católica de Santa Catarina (UNISC)
-- **Já enviei meu currículo real em PDF** (LeonardoLamin_CV.pdf) numa conversa anterior — se precisar reconferir dados, posso reenviar
+- **Currículo real em PDF** no repositório: `LeonardoLaminResume.pdf` (atenção: o PDF diz "Java" no projeto do SENAI; o correto é JavaScript + PHP)
 
 ## Posicionamento profissional (direto do currículo real)
 - Headline: **Desenvolvedor Backend .NET · Integração de Sistemas · Automação de Processos**
@@ -47,62 +47,45 @@ Português (nativo) · Inglês (intermediário — leitura técnica e conversaç
 
 # O que estamos construindo
 
-Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build), pensado como uma **galeria virtual imersiva**:
+Um **portfólio pessoal em HTML/CSS/JS puro** (sem frameworks, sem build). Desde a fase 01 (branch `redesign-universo`), o visual é o **"Horizonte de Eventos"**.
 
-## Conceito visual
-- **Ato 1 (Hero + Sobre)**: tom profissional/sóbrio — paleta âmbar quente (`#E8B14D`), azul-aço (`#4C7A93`/`#6FE3D6`), fundo quase preto (`#0B0F14`/`#0A1016`). Tipografia: Fraunces (serifa, títulos) + Inter (corpo) + JetBrains Mono (labels técnicos/mono).
-- **Ato 2 (Projetos em diante)**: transição para cyberpunk — ciano (`#00E5D8`) + magenta (`#E8449A`), fundo mais escuro (`#05070A`/`#040507`), piso digital em grade, scanlines sutis.
-- **Transição**: uma camada de luz ambiente fixa (`.ambient`) muda de matiz continuamente conforme o scroll (JS lê a posição de scroll e interpola HSL âmbar→ciano→magenta via `requestAnimationFrame`), dando a sensação de "entrar no sistema" conforme desce a página.
-- Metáfora de "galeria": cada seção é uma "Peça N°XX" numerada, como catalogação de museu.
+## Conceito visual (atual)
+- Um **buraco negro desenhado em `<canvas>` 2D puro** fica fixo no fundo (`assets/js/universo.js`): estrelas com desvio gravitacional, disco de acreção com lado mais brilhante (Doppler), arco de luz por cima da sombra, partículas que caem em espiral, ondas de choque e brilho que aumenta quando ele "come" partículas.
+- Começa à direita no hero (centralizado no topo no celular) e vai para o centro ao rolar.
+- O conteúdo flutua em **painéis escuros translúcidos**. Paleta: fundo `#03040A`, laranja `#FFB45E`/`#FF6B3D`, azul-claro `#8FB8FF`, texto `#ECEEF6`/`#A3A9C2`.
+- Tipografia: **Unbounded** (títulos), **Manrope** (corpo), **IBM Plex Mono** (rótulos).
+- Desempenho: `devicePixelRatio` limitado a 1,5 e menos partículas abaixo de 860 px. Com `prefers-reduced-motion` a animação continua em modo calmo (~40% da velocidade), nunca parada.
+- O visual anterior (galeria "Peça N°XX", corredor 3D, camada `.ambient`, tela de loading, HUD com relógio) foi removido na fase 01.
 
-## Estrutura de telas (todas num único `index.html`, scroll vertical entre seções)
-1. **Hero** (`#stage1`) — corredor em perspectiva 3D (CSS `perspective` + `rotateY/rotateX` no mousemove), nome "Leonardo Lamin", cargo com efeito de digitação (typewriter JS), badge "Aberto a oportunidades — .NET Júnior", CTA "Ver projetos ↓", moldura de foto (hoje placeholder) à esquerda no corredor
-2. **Sobre** (`#sobre`) — "ficha catalográfica": bio (parágrafos reais do currículo), datasheet com Atuação/Formação/Metodologia/Idiomas/dois contadores de experiência dinâmicos (front-end desde 02/2023, .NET desde 03/2025 — calculados via JS a cada carregamento), stack em categorias (Backend/Front-end/Dados&Infra), painel "Diagnóstico" com barras de proficiência animadas (Intersection Observer)
-3. **Timeline** (trajetória) — trilha horizontal com scroll-snap, 5 marcos reais (SENAI 2022 → SZ Soluções 2023 → UNISC 2025 → BMA 2025 → Hoje), cada item revela com fade ao entrar na tela (Intersection Observer)
-4. **Projetos** (`#projetos`) — galeria horizontal (scroll-snap, arraste ou wheel-to-horizontal via JS) com cards ("vitrines") que ao clicar abrem em tela cheia via **View Transitions API** (zoom morph nativo, com fallback de fade para navegadores sem suporte — ex: Firefox). Cada caso tem: descrição, arquitetura/entregas, métricas reais, stack, botão "copiar link" (deep link via `#case1` etc.), e o caso 1 tem um trecho de código ilustrativo (toggle) em C#.
-   - **Peça N°02**: Provisionamento automatizado de usuários SaaS (BMA) — métricas reais 84%/7min/+400%/1000+
-   - **Peça N°03**: Automação de pipeline de KPIs (SZ Soluções) — 100% manual eliminado
-   - **Peça N°04**: Rede Social — Comunidade Web (projeto pessoal)
-   - **✅ CONCLUÍDO**: **Peça N°05 — Sistema de Gestão Comercial** (SENAI, JavaScript + PHP + MySQL — corrigido do "Java" que estava no PDF) foi adicionada como `case5`, com card na galeria, seção de detalhe completa (comandas/pedidos, estoque, fluxo de caixa, código de barras, relatórios), tags i18n (`c5Cat/c5Title/c5Desc/c5M1/c5M2`) e incluída na lista de hashes válidos do deep-link (`case1..case5`).
-   - Numeração atualizada: "Este site" (`case4`) agora é **Peça N°06**, e o Contato agora é **Peça N°07** (HTML estático + chave i18n `s4Eyebrow` atualizados).
-5. **Recomendações** — seção com **placeholders explícitos** (não preenchidos ainda — Leonardo não tinha depoimentos reais até agora; não inventar texto aqui, só adicionar se ele mandar algo real)
-6. **Contato** (`#contato`) — e-mail, WhatsApp, GitHub, LinkedIn, botão de CV (baixa `curriculo-leonardo.pdf` — **o PDF real já foi anexado ao projeto**), link "Código-fonte" (aponta pra `github.com/LaminLeonardo/portfolio` — **repositório ainda precisa ser criado/publicado**), QR code (biblioteca `qrcodejs` via cdnjs) apontando pro LinkedIn
+## Estrutura de telas (todas no `index.html`, scroll vertical)
+1. **Hero**: nome, "desenvolvedor .NET", frase de abertura, "Aberto a oportunidades — .NET Júnior", botões "Ver projetos" e "Baixar currículo", dica "clique no espaço".
+2. **Sobre** (`#sobre`): bio real, foto, ficha com dois contadores calculados via JS (front-end desde 02/2023, .NET desde 03/2025), formação, idiomas, status. Abaixo, os quatro números: −84%, 7 min, +400%, 1.000+.
+3. **Projetos** (`#projetos`): cinco cards (Provisionamento SaaS `case1`, Pipeline de KPIs `case2`, Rede Social `case3`, Gestão Comercial `case5`, Este site `case4`). Clicar puxa o card, solta partículas até o buraco negro e abre o caso num painel por cima, com todo o texto (descrição, arquitetura/entregas, métricas, stack). O caso 1 tem o trecho C# ilustrativo, com o aviso de que não é código de produção.
+4. **Stack em órbitas** (`#stack`): interna (C#, .NET, SQL Server, APIs REST), média (ASP.NET MVC, PostgreSQL, Active Directory, WinForms, MySQL, IIS) e externa (Power BI, Node.js, React, JavaScript, Git, Looker Studio, HTML/CSS, Scrum).
+5. **Trajetória** (`#trajetoria`): SENAI 2022 (sistema de gestão em JavaScript + PHP), SZ Soluções 2023, UNISC 2025, BMA 2025, Hoje.
+6. **Recomendações** (`#recomendacoes`): **dois depoimentos reais, já preenchidos**, mantidos no original: Daniel Fernando Gonçalves e Carlos Eduardo Chierighini de Siqueira (ambos "trabalhou na mesma equipe que Leonardo"). Só mudam com texto real enviado pelo Leonardo.
+7. **Contato** (`#contato`): e-mail, WhatsApp, LinkedIn, GitHub, código-fonte (`github.com/LaminLeonardo/Portifolio`), currículo e QR code do LinkedIn (`qrcodejs` via cdnjs).
 
-## Funcionalidades extras já implementadas
-- **PT/EN toggle** — dicionário JS `TRANSLATIONS{}` + atributos `data-i18n` nos elementos; botão "EN"/"PT" na nav
-- **Modo Recrutador** — botão que alterna pra uma versão condensada de uma tela só (bio + projetos resumidos + contato), pra quem não quer rolar a experiência imersiva inteira
-- **Terminal de logs (easter egg)** — tecla `L` abre um terminal estilizado com "logs" digitados das conquistas reais + stack do site
-- **HUD de status** — canto inferior esquerdo, relógio real ao vivo + "sistema online" (tema de monitoramento, ligado ao domínio profissional real do Leonardo)
-- **Loading screen** — tela rápida "abrindo a galeria" antes do conteúdo aparecer
-- **404.html** — página de erro temática ("Esta peça não está em exibição")
-- **SEO básico** — `robots.txt` e `sitemap.xml` (⚠️ ainda com domínio placeholder `seudominio.com`, precisa trocar depois do deploy)
-- **Meta tags / Open Graph / Twitter Card** — título "Leonardo Lamin — Desenvolvedor Backend .NET"
-- **Favicon** — SVG inline, letra "L" em ciano
-- **Acessibilidade** — `prefers-reduced-motion` respeitado, estados de foco visíveis, `aria-hidden` no HUD
-- **Responsividade mobile** — nav com `flex-wrap`, esconde links redundantes abaixo de 480px, esconde molduras decorativas do hero em telas muito estreitas
+## Funcionalidades extras
+- **PT/EN**: dicionário `TRANSLATIONS{}` em `assets/js/site.js` + atributos `data-i18n` (texto) e `data-i18n-attr` (atributos). O dicionário é aplicado também ao carregar a página.
+- **Deep links** `#case1` a `#case5`, botão "copiar link", Esc fecha o painel e devolve o foco ao card.
+- **Pausar universo**: botão na navegação.
+- **Modo Recrutador**: ficha de uma tela no estilo do protótipo D (resumo com contato e currículo, "em 30 segundos", experiência em tópicos e competências). Pausa o universo enquanto está aberto.
+- **Terminal de logs** (easter egg, tecla `L`), em laranja e azul-claro sobre preto.
+- **404.html** no mesmo tema: buraco negro só em CSS e "Esta peça não está em exibição".
+- **SEO**: `robots.txt`, `sitemap.xml`, `canonical` e `og:url` com o domínio da Vercel.
 
 ## Stack técnica do site
-**100% HTML/CSS/JS vanilla — zero frameworks, zero build step.** Isso foi decisão deliberada (mais leve, mais barato de manter, deploy trivial). Bibliotecas externas via CDN: Google Fonts (Fraunces/Inter/JetBrains Mono), `qrcodejs` (cdnjs). APIs modernas usadas: View Transitions API, Intersection Observer, Clipboard API (`navigator.clipboard`).
+**100% HTML/CSS/JS vanilla — zero frameworks, zero build step.** Arquivos: `index.html` (só HTML), `assets/css/site.css`, `assets/js/universo.js` (canvas), `assets/js/site.js` (interação). Externos: Google Fonts e `qrcodejs@1.0.0` (cdnjs). APIs: Canvas 2D, `requestAnimationFrame`, Clipboard API, `inert`.
 
 ## Deploy
-- Alvo: **Vercel**, hospedagem estática, sem configuração de build (framework preset "Other")
-- Arquivo principal renomeado para `index.html` (era `00-preview-completo.html`)
-- `404.html` já está no formato que o Vercel reconhece automaticamente
-- Guia completo em `DEPLOY.md`
+- **No ar** na Vercel: https://laminleonardoportifolio.vercel.app/ (preset "Other", sem build, deploy automático a partir do GitHub).
+- Repositório: https://github.com/LaminLeonardo/Portifolio. A `main` publica em produção; outras branches geram link de prévia.
 
 ## Pendências que só o Leonardo pode resolver
-- [x] Foto real (hoje é `foto-leonardo.jpg`, já aplicada no hero)
-- [ ] Recomendações reais (seção existe mas está vazia/placeholder)
-- [ ] Publicar o repositório do código no GitHub (`github.com/LaminLeonardo/portfolio`) — o link já existe no site mas o repo ainda não foi criado
-- [ ] Trocar `seudominio.com` no `robots.txt`/`sitemap.xml` pelo domínio real após o deploy
-
-## Arquivos já gerados (estavam em /mnt/user-data/outputs/ na conversa anterior)
-- `index.html` — arquivo principal do site (também existe como `00-preview-completo.html`, mesmo conteúdo)
-- `404.html`
-- `robots.txt`
-- `sitemap.xml`
-- `DEPLOY.md`
-- `curriculo-leonardo.pdf` — cópia do PDF real do currículo
-
-## Como retomar
-Numa nova conversa, eu (Claude) não terei acesso aos arquivos gerados na conversa anterior — o Leonardo precisa **reenviar o `index.html`** (ou pedir pra eu recriar do zero usando este contexto) pra eu continuar editando. A tarefa imediata ao retomar é: **adicionar a Peça N°05 (Sistema de Gestão Comercial, JavaScript+PHP+MySQL) e renumerar as peças seguintes.**
+- [x] Foto real (`foto-leonardo.jpg`)
+- [x] Recomendações reais (dois depoimentos publicados)
+- [x] Repositório publicado no GitHub
+- [x] Domínio real no `robots.txt`/`sitemap.xml`
+- [ ] Imagem de prévia (`og:image`/`twitter:image`) real, hoje um placeholder (fase 02)
+- [ ] Confirmar nome e sigla da universidade (o site usa "UNISC" e "Universidade Católica de Santa Catarina")

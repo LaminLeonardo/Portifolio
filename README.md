@@ -1,63 +1,64 @@
 # Leonardo Lamin — Portfólio
 
-Portfólio pessoal em formato de galeria virtual imersiva. **100% HTML/CSS/JS vanilla — zero frameworks, zero build step.**
+Portfólio pessoal com o visual **"Horizonte de Eventos"**: um buraco negro animado em canvas fica no fundo da página e reage aos cliques. **100% HTML/CSS/JS vanilla — zero frameworks, zero build step.**
 
-🔗 Deploy: (adicionar link após publicar na Vercel)
+🔗 Deploy: https://laminleonardoportifolio.vercel.app/
 
 ## Sobre
 
-Desenvolvedor Backend .NET buscando posição Júnior, com ~3 anos de experiência prévia em front-end. O site é dividido em duas atmosferas visuais que se misturam conforme o scroll: um Ato 1 sóbrio/profissional (âmbar/azul-aço) e um Ato 2 cyberpunk (ciano/magenta), simbolizando a transição de front-end para backend/.NET.
-
-Cada seção é tratada como uma "Peça" de uma galeria — numeração de catalogação de museu.
+Desenvolvedor Backend .NET buscando posição Júnior, com ~3 anos de experiência prévia em front-end. O conteúdo flutua em painéis escuros translúcidos sobre o espaço. Clicar no espaço, num projeto ou numa tecnologia solta partículas que caem em espiral no buraco negro, e ele brilha mais a cada "refeição".
 
 ## Stack técnica
 
 - HTML5, CSS3, JavaScript (vanilla)
-- Google Fonts (Fraunces, Inter, JetBrains Mono) via CDN
-- [qrcodejs](https://cdnjs.com/) via cdnjs
-- APIs nativas: View Transitions API, Intersection Observer, Clipboard API
+- Canvas 2D puro para o buraco negro (sem bibliotecas)
+- Google Fonts (Unbounded, Manrope, IBM Plex Mono) via CDN
+- [qrcodejs 1.0.0](https://cdnjs.com/libraries/qrcodejs) via cdnjs (QR code do LinkedIn)
 
 ## Funcionalidades
 
-- Corredor 3D no hero (perspectiva + mousemove)
-- Cor ambiente interpolada em HSL conforme o scroll
-- Timeline de trajetória com scroll-snap horizontal
-- Galeria de projetos com casos em tela cheia (morph via View Transitions API, fallback de fade)
+- Buraco negro em canvas: estrelas com desvio gravitacional, disco de acreção com lado mais brilhante, arco de luz, partículas de clique e ondas de choque
+- Botão "Pausar universo" e modo calmo com `prefers-reduced-motion` (a animação desacelera, não para)
+- Projetos que são "puxados" pelo buraco negro e abrem num painel por cima
+- Deep links `#case1` a `#case5`, botão "copiar link" e Esc devolvendo o foco ao card
+- Stack em órbitas (param no hover; clicar numa tecnologia solta partículas)
 - Toggle PT/EN (i18n próprio, sem biblioteca)
-- Modo Recrutador (versão condensada de uma tela só)
+- Modo Recrutador: ficha de uma tela só, que pausa o universo enquanto está aberta
 - Terminal de logs — easter egg (tecla `L`)
-- HUD de status com relógio ao vivo
-- Acessibilidade: `prefers-reduced-motion`, foco visível, `aria-hidden` no HUD
-- Responsivo (mobile-first nos breakpoints críticos)
+- Acessibilidade: foco visível, link "pular para o conteúdo", diálogos com `aria-modal` e fundo `inert`
+- Responsivo, sem rolagem horizontal em 375 px
 
 ## Estrutura do repositório
 
 ```
 .
-├── index.html          # site completo (single-page)
-├── 404.html             # página de erro (reconhecida automaticamente pela Vercel)
-├── foto-leonardo.jpg    # retrato usado no hero
+├── index.html                 # só o HTML da página
+├── assets/
+│   ├── css/site.css           # todo o estilo
+│   └── js/
+│       ├── universo.js        # canvas do buraco negro (API window.Universo)
+│       └── site.js            # i18n (TRANSLATIONS), casos, recrutador, terminal, órbitas
+├── 404.html                   # página de erro temática (reconhecida pela Vercel)
+├── foto-leonardo.jpg
+├── LeonardoLaminResume.pdf    # baixado pelos botões de currículo
 ├── robots.txt
 ├── sitemap.xml
-├── curriculo-leonardo.pdf   # baixado pelo botão "Documento" no site
+├── CONTEXTO-PROJETO.md        # fonte da verdade do conteúdo
 └── README.md
 ```
 
 ## Deploy (Vercel)
 
-1. Importar o repositório na Vercel
+1. Repositório importado na Vercel
 2. Framework preset: **Other** (sem build step)
 3. Root directory: `/`
-4. Nenhuma variável de ambiente necessária
+4. Nenhuma variável de ambiente
 
-Após o deploy, atualizar a URL real em `robots.txt` e `sitemap.xml` (hoje com placeholder `seudominio.com`).
+Cada push na `main` publica em produção. Branches geram link de prévia.
 
 ## Pendências
 
-- [x] Foto real no hero (`foto-leonardo.jpg`)
-- [ ] Depoimentos reais na seção Recomendações
-- [ ] Confirmar `curriculo-leonardo.pdf` está na raiz do repositório
-- [ ] Trocar `seudominio.com` pelo domínio real após o deploy
+- [ ] Imagem de prévia real (`og:image` / `twitter:image`) — hoje é um placeholder
 
 ## Contato
 
